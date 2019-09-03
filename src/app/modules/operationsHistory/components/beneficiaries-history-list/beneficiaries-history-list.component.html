@@ -1,0 +1,213 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+
+<div fxLayout="row" class="table-container">
+  <div fxFlex="100">
+    <table mat-table [dataSource]="data">
+
+      <ng-container matColumnDef="select">
+        <th class="select-column" mat-header-cell *matHeaderCellDef>
+
+        </th>
+        <td class="select-column" mat-cell *matCellDef="let item">
+          <p class="table-text">
+            <mat-radio-button (click)="assignRegister(item)"></mat-radio-button>
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="folio">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text" style="margin-left: 0px;">
+            {{'history.beneficiariesHistory.list.folio' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.folio}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="channel">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'history.beneficiariesHistory.list.channel' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{ 'history.beneficiariesHistory.list.channels.' +  item.channel | translate}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">{{'history.beneficiariesHistory.list.date' |translate}}</p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">{{item.date}}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">{{'history.beneficiariesHistory.list.time' |translate}}</p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">{{item.time}}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="clientNumber">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">{{'history.beneficiariesHistory.list.clientNumber' |translate}}</p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">{{item.clientID}}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="benefType">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'history.beneficiariesHistory.list.benefType' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.benefType}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="accountsNumber">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'history.beneficiariesHistory.list.accountsNumber' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.benefAccNumber}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="benefAlias">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'history.beneficiariesHistory.list.benefAlias' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.benefAlias}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="benefName">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'history.beneficiariesHistory.list.benefName' |translate}}
+
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.benefName}}
+          </p>
+        </td>
+      </ng-container>
+
+      <!--<ng-container matColumnDef="modificationApplied">-->
+        <!--<th mat-header-cell *matHeaderCellDef>-->
+          <!--<p class="table-text">-->
+            <!--{{'history.beneficiariesHistory.list.modificationApplied' |translate}}-->
+          <!--</p>-->
+        <!--</th>-->
+        <!--<td mat-cell *matCellDef="let item">-->
+          <!--<p class="table-text">-->
+            <!--{{item.benefAccount}}-->
+
+          <!--</p>-->
+        <!--</td>-->
+      <!--</ng-container>-->
+
+      <ng-container matColumnDef="justify">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'history.beneficiariesHistory.list.justify' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.benefJustification}}
+
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="operatorUser">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'history.beneficiariesHistory.list.operatorUser' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.operatorUser}}
+
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="authUser">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'history.beneficiariesHistory.list.authUser' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.authUser}}
+
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'history.beneficiariesHistory.list.action' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{'history.beneficiariesHistory.list.operations.' + item.action | translate}}
+
+          </p>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="paginator-container" *ngIf="total > 10">
+  <two-paginator-custom [length]="total" [pageSize]="10" (page)="pageData = $event"
+                        (click)="emmitPage(pageData)"></two-paginator-custom>
+</div>
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat [disabled]="selectedItem === ''" mat-raised-button class="button-group-separator" type="button"
+            (click)="viewDetail()">
+      {{'incident.continue_button' |translate}}
+    </button>
+  </div>
+</div>

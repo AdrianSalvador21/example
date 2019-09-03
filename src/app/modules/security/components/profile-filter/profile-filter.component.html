@@ -1,0 +1,26 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid (ngSubmit)="onSubmit(filterForm.value)">
+  <div class="form-data-container">
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput name="userName" type="text"
+                 placeholder="{{'security.profile.filter.userKey-label' |translate}}" formControlName="userName"
+                 [patterns]="patternUserName" [mask]="'#{'+(userNameMaxLength+1)+'}'" [maxlength]="userNameMaxLength">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="100" class="button-group-container">
+      <button appNoDblClickMat *ngIf="showDetail" mat-raised-button class="button-group-separator white-button" type="button"
+              (click)="clean()">
+        {{'security.profile.filter.clean-button' |translate}}
+      </button>
+      <button appNoDblClickMat mat-raised-button class="button-group-separator" type="submit" [disabled]="!filterForm.valid">
+        {{'security.profile.filter.search-button' |translate}}
+      </button>
+    </div>
+  </div>
+</form>

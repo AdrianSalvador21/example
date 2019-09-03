@@ -1,0 +1,14 @@
+<mat-horizontal-stepper [@.disabled]="true" id="stepTwo" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-clarifications [stepper]="stepper" #clarifications></two-clarifications>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-issue-detail [inClarifications]="true" (refreshUnit)="refreshUnitSearch()" [unitQueryLineDetails]="true"
+                        [unitQueryDataInput]="stepper.dataUnitQuerySelected" [stepper]="stepper"
+                        [showTrackingList]="false"></two-issue-detail>
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

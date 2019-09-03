@@ -1,0 +1,220 @@
+<!--TABLA-->
+<div fxLayout="row" class="table-container" style="margin-top: 20px;">
+  <div fxFlex="100">
+    <table mat-table [dataSource]="listQueryData">
+
+      <ng-container matColumnDef="select">
+        <th class="select-column" mat-header-cell *matHeaderCellDef>
+
+        </th>
+        <td class="select-column" mat-cell *matCellDef="let item">
+          <p class="table-text">
+            <mat-radio-button (click)="assignRegister(item)"></mat-radio-button>
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- operation Column -->
+      <ng-container matColumnDef="folio">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text" style="margin-left: 0px;">
+            {{'fileQuery.clarifications.clarifications_list.paymentId' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.paymentItemID}}
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- clientNumber Column -->
+      <ng-container matColumnDef="creationdate">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.clarifications.clarifications_list.creation_date' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.applicationDate}}
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- clientNumber Column -->
+      <ng-container matColumnDef="creationtime">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.clarifications.clarifications_list.creation_time' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.applicationTime}}
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- operationDate Column -->
+      <ng-container matColumnDef="destinyaccount">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.clarifications.clarifications_list.destiny_account' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.ordererAccount}}
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- operatorRole Column -->
+      <ng-container matColumnDef="clientnumber">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.clarifications.clarifications_list.client_name' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.ordererName}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cve_rastreo">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.clarifications.clarifications_list.cve_rastreo' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.cve_rastreo}}
+          </p>
+        </td>
+      </ng-container>
+
+
+      <!-- accountType Column -->
+      <ng-container matColumnDef="import">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.clarifications.clarifications_list.import' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.amount | number: '.2'}}
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- beneficiaryAccount Column -->
+      <ng-container matColumnDef="beneficiaryaccount">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.clarifications.clarifications_list.beneficiary_account' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.benefAccount}}
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- operatorUser Column -->
+      <ng-container matColumnDef="trackingkey">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">{{'fileQuery.clarifications.clarifications_list.tracking_key' |translate}}</p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">{{item.reference}}</p>
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="service">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.clarifications.clarifications_list.service' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.service}}
+          </p>
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="channel">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.clarifications.clarifications_list.channel' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.channel}}
+          </p>
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.clarifications.clarifications_list.status' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{'fileQuery.operator.filter.status.' + item.status | translate}}
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- operation Column -->
+      <ng-container matColumnDef="fileFolio">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text" style="margin-left: 0px;">
+            {{'fileQuery.clarifications.clarifications_list.folio' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.folio}}
+          </p>
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+<div class="paginator-container" *ngIf="totalUnitQuery > 10">
+  <two-paginator-custom [length]="totalUnitQuery" [pageSize]="10" (page)="pageData = $event"
+                        (click)="emmitPageNumber(pageData)"></two-paginator-custom>
+</div>
+
+
+<!--Buttons-->
+
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat mat-raised-button type="button" (click)="showDetail()"
+            [disabled]="itemSelected == undefined">
+      {{'fileQuery.clarifications.continue_button' |translate}}
+    </button>
+  </div>
+</div>
+

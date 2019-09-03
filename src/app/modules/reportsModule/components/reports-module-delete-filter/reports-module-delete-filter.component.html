@@ -1,0 +1,39 @@
+<div>
+  <form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid (ngSubmit)="onSubmit(filterForm.value)">
+    <div class="form-data-container">
+      <div fxLayout="row">
+
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="line-calendar">
+            <input autocomplete="off" matInput name="date"
+                   [matDatepicker]="pickerFrom" placeholder="{{'authorization.dateFrom-label' |translate}}"
+                   formControlName="date" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFrom></mat-datepicker>
+          </mat-form-field>
+          <mat-error *ngIf="invalid">{{'errors.dateError' |translate}}</mat-error>
+        </div>
+
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <mat-select placeholder="{{'reportsModule.filter.report' | translate}}"
+                        formControlName="report">
+              <mat-option *ngFor="let rp of reports" [value]="rp">
+                {{'reportsModule.filter.reports.' + rp | translate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex="100" class="button-group-container">
+        <button appNoDblClickMat mat-raised-button class="button-group-separator" type="submit" [disabled]="!filterForm.valid">
+          {{'general.deleteFile-button' |translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

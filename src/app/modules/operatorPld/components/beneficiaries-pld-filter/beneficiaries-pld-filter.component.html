@@ -1,0 +1,53 @@
+<div>
+  <form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid (ngSubmit)="onSubmit(filterForm.value)">
+    <div class="form-data-container">
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" type="text" matInput name="client"
+                   placeholder="{{'pld.beneficiaries.filter.client' |translate}}"
+                   formControlName="client" mask="0{10}" maxlength="9">
+          </mat-form-field>
+          <mat-error *ngIf="invalid">{{'errors.field' | translate}}</mat-error>
+        </div>
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <mat-select placeholder="{{'pld.beneficiaries.filter.status' | translate}}" formControlName="status">
+              <mat-option value="">
+                {{'pld.beneficiaries.filter.statusOptions.ALL' | translate}}
+              </mat-option>
+              <mat-option *ngFor="let st of status" [value]="st">
+                {{'pld.beneficiaries.filter.statusOptions.' + st | translate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <mat-select placeholder="{{'pld.beneficiaries.filter.beneficiary' | translate}}" formControlName="benefType"
+                        required>
+              <mat-option *ngFor="let type of types" [value]="type">
+                {{'pld.beneficiaries.filter.beneficiaryOptions.' + type | translate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row">
+
+      <div fxFlex="100" class="button-group-container">
+        <button appNoDblClickMat *ngIf="showClean || hasRecords" mat-raised-button class="button-group-separator white-button"
+              type="button" (click)="clean()">
+          {{'fileQuery.operator.filter.clean-button' |translate}}
+        </button>
+        <button appNoDblClickMat mat-raised-button class="button-group-separator" type="submit" [disabled]="!filterForm.valid">
+          {{'fileQuery.operator.filter.search-button' |translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,60 @@
+<div fxLayout="row"
+     *ngIf="!onFileLineDetails && !showRegulaButtonsInput && !onUnitQueryDetails">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat (click)="return()" mat-raised-button class="white-button button-group-separator" type="button">
+      {{'fileQuery.issues.detail.back_button' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" [disabled]="onlyConsult || true" type="button">
+      {{'fileQuery.issues.detail.reverse_button' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" [disabled]="onlyConsult || true" type="button">
+      {{'fileQuery.issues.detail.correction_button' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" [disabled]="onlyConsult || true" type="button">
+      {{'fileQuery.issues.detail.manual_correction_button' |translate}}
+    </button>
+  </div>
+</div>
+
+<div fxLayout="row" *ngIf="onFileLineDetails">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat (click)="return()" mat-raised-button class="button-group-separator white-button" type="button">
+      {{'fileQuery.issues.detail.back_button' |translate}}
+    </button>
+    <button appNoDblClickMat (click)="finalize()" mat-raised-button class="button-group-separator black-button" type="button">
+      {{'fileQuery.issues.detail.finalize_button' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" *ngIf="showIssuesButton">
+      {{'fileQuery.issues.detail.issues_button' |translate}}
+    </button>
+  </div>
+</div>
+
+<div fxLayout="row" *ngIf="showRegulaButtonsInput">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat (click)="return()" mat-raised-button class="button-group-separator white-button" type="button">
+      {{'fileQuery.issues.detail.back_button' |translate}}
+    </button>
+    <button appNoDblClickMat (click)="finalize()" mat-raised-button class="button-group-separator black-button" type="button">
+      {{'fileQuery.issues.detail.finalize_button' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" *ngIf="showIssuesButton">
+      {{'fileQuery.issues.detail.aclaration_button' |translate}}
+    </button>
+  </div>
+</div>
+
+<div fxLayout="row" *ngIf="onUnitQueryDetails">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat mat-raised-button class="button-group-separator white-button" type="button" (click)="return()">
+      {{'fileQuery.issues.detail.back_button' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator black-button" [disabled]="onlyConsult" type="button" (click)="finalizeUnitQuery()">
+      {{'fileQuery.issues.detail.finalize_button' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" disabled>
+      {{'fileQuery.issues.detail.aclaration_button' |translate}}
+    </button>
+  </div>
+</div>
+

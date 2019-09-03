@@ -1,0 +1,22 @@
+<div mat-dialog-title class="message-header"></div>
+
+<div mat-dialog-content>
+  <div class="message-content">
+    <p *ngIf="data.date == undefined" class="dialog-message">
+      {{data.message | translate}}
+    </p>
+
+    <p *ngIf="data.date !== undefined" class="dialog-message">
+      {{data.message | translate}} {{data.date}}?
+    </p>
+  </div>
+</div>
+
+<div mat-dialog-actions class="dialog-buttons">
+  <button appNoDblClickMat mat-raised-button class="white-button first-button" type="button"  (click)="close('N')">
+    {{'general.cancel-button'|translate}}
+  </button>
+  <button appNoDblClickMat mat-raised-button class="second-button" type="button" (click)="close('Y')">
+    {{'general.continue-button'|translate}}
+  </button>
+</div>

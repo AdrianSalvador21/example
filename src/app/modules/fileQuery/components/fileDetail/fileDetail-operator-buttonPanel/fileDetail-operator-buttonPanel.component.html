@@ -1,0 +1,16 @@
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat mat-raised-button class="button-group-separator white-button" type="button" (click)="goBack()">
+      {{'fileDetail.operator.back-button' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator black-button" type="button" [disabled]="onlyConsult" (click)="finalize()">
+      {{'fileDetail.operator.finalize-button' |translate}}
+    </button>
+    <button appNoDblClickMat *ngIf="!incomplete" mat-raised-button class="button-group-separator" type="button" [disabled]="!allowContinue || onlyConsult" (click)="viewDetail()">
+      {{'fileDetail.operator.continue-button' |translate}}
+    </button>
+    <button appNoDblClickMat *ngIf="incomplete" mat-raised-button class="button-group-separator" type="button" [disabled]="!allowContinue || onlyConsult" (click)="viewDetail()">
+      {{'fileDetail.operator.resume-button' |translate}}
+    </button>
+  </div>
+</div>

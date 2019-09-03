@@ -1,0 +1,75 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<div fxLayout="row" class="table-container" style="margin-top: 20px;">
+  <div fxFlex="100">
+    <mat-tab-group>
+      <mat-tab *ngFor="let displayedColumns of displayedColumnsArray" [label]="getTabTitle(displayedColumns[1])">
+        <table mat-table [dataSource]="data">
+
+          <ng-container matColumnDef="PROFILEGROUPID">
+            <th mat-header-cell *matHeaderCellDef>
+              <p></p>
+            </th>
+
+            <td mat-cell *matCellDef="let item">
+              <p class="table-update-text">
+                {{item.PROFILEGROUPID}}
+              </p>
+            </td>
+          </ng-container>
+
+          <ng-container *ngFor="let column of fullMenu" [matColumnDef]="column['NODEID']">
+            <th mat-header-cell *matHeaderCellDef>
+              <p class="table-update-text">
+                {{column['TEXT'] | translate}}
+              </p>
+            </th>
+            <td mat-cell *matCellDef="let item">
+              <p class="table-update-text">
+                <mat-checkbox [disabled]="item[column['NODEID']]['parentID'] === '-1' && item[column['NODEID']]['children'].length !== 0"
+                              [checked]="item[column['NODEID']]['status']"
+                              (change)="changeCheckValue(item, column['NODEID'], $event.checked)"></mat-checkbox>
+              </p>
+            </td>
+          </ng-container>
+
+          <!-- home Column -->
+          <ng-container matColumnDef="HOME_SELECT">
+            <th mat-header-cell *matHeaderCellDef>
+              <p class="table-update-text">
+                {{'security.roles.table-labels.home' | translate}}
+              </p>
+            </th>
+            <td mat-cell *matCellDef="let item">
+              <mat-select class="home-select" [(value)]="item.DATAMENUHOME">
+                <ng-container *ngFor="let menuItem of fullMenu">
+                  <mat-option *ngIf="item[menuItem['NODEID']].status && item[menuItem['NODEID']].children.length == 0"
+                              [value]="menuItem['NODEID']">
+                    {{menuItem['TEXT'] | translate}}
+                  </mat-option>
+                </ng-container>
+              </mat-select>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+          </tr>
+        </table>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+
+
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button mat-raised-button class="button-group-separator white-button" type="button" (click)="returnBack()">
+      {{'general.return-button' |translate}}
+    </button>
+    <button  mat-raised-button class="button-group-separator" type="button"
+            (click)="updateRoles()">
+      {{'general.continue-button' |translate}}
+    </button>
+  </div>
+</div>

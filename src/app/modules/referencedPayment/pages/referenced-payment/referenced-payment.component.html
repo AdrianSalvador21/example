@@ -1,0 +1,19 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<two-breadcrumb [breadcrumbList]="['massivePayments.officeOperation.title', 'referencedPayment.title', selectedOperation]"></two-breadcrumb>
+<div class="title-container">
+  <span class="title">{{selectedOperation | translate}}</span>
+</div>
+
+<two-referenced-payment-filter (cleanData)="showResult = $event" [selectedOption]="selectedOption" [readonly]="showResult" [stepper]="stepper" #filter (operationTypeEmitter)="setOperation($event)" (formDataEmitter)="getResults($event)"></two-referenced-payment-filter>
+
+<div *ngIf="showResult">
+  <div fxLayout="row">
+    <div fxFlex="100">
+      <div>
+        <!--<two-referenced-payment-select (cleanEmitter)="cleanFilter()" [onHighOperationInput]="onHigtOperation" [stepper]="stepper" [dataList]="formDataExample"></two-referenced-payment-select>-->
+        <two-referenced-payment-select (noData)="noData()" (cleanSearch)="noResultsClean($event)" (cleanEmitter)="cleanFilter()" [onHighOperationInput]="onHigtOperation" [stepper]="stepper" [dataList]="accounts"></two-referenced-payment-select>
+      </div>
+    </div>
+  </div>
+</div>

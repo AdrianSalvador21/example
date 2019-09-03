@@ -1,0 +1,11 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<div class="title-container">
+  <span class="title">{{'history.beneficiariesHistory.title' |translate}}</span>
+</div>
+
+<two-beneficiaries-history-filter (cleanData)="clearData()" [showClearButton]="showList" #filter (formSubmit)="getRows($event, true)"></two-beneficiaries-history-filter>
+
+<div *ngIf="showList" class="beneficiaries-list-container">
+  <two-beneficiaries-history-list [stepper]="stepper" [dataInput]="data" (pageEmitter)="getRowsByPage($event)"></two-beneficiaries-history-list>
+</div>

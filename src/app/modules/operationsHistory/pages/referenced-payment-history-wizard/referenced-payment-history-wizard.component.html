@@ -1,0 +1,27 @@
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-breadcrumb [breadcrumbList]="['history.menu-title','history.referencedPaymentHistory.title']"></two-breadcrumb>
+      <two-referenced-payment-history [stepper]="stepper" #initialView></two-referenced-payment-history>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <two-breadcrumb [breadcrumbList]="['history.referencedPaymentHistory.title', 'history.referencedPaymentHistory.detail']"></two-breadcrumb>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+
+      <!--<two-referenced-payment-detail [onHistory]="true" [dataList]="stepper.accountData" [stepper]="stepper"></two-referenced-payment-detail>-->
+      <two-referenced-payment-history-detail [dataList]="stepper.accountData" [stepper]="stepper"></two-referenced-payment-history-detail>
+      <div fxLayout="row">
+        <div fxFlex="100" class="button-group-container">
+          <button appNoDblClickMat mat-raised-button class="button-group-separator white-button" type="button" (click)="preview()">
+            {{'general.return-button' |translate}}
+          </button>
+          <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="finalize()">
+            {{'general.finish-button' |translate}}
+          </button>
+        </div>
+      </div>
+
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,88 @@
+<div>
+  <form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid (ngSubmit)="onSubmit(filterForm.value)">
+    <div class="form-data-container">
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <mat-select placeholder="{{'blockedTransactions.filter.service' | translate}}" formControlName="service">
+              <mat-option value="">
+                {{'blockedTransactions.filter.serviceOptions.All' | translate}}
+              </mat-option>
+              <mat-option *ngFor="let sv of services" [value]="sv">
+                {{'blockedTransactions.filter.serviceOptions.' + sv | translate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-error *ngIf="!validDocumentValue">{{'errors.field' | translate}}</mat-error>
+        </div>
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <mat-select
+                        placeholder="{{'blockedTransactions.filter.documentType' | translate}}"
+                        formControlName="documentType">
+              <mat-option value="">
+                Seleccione una opción
+              </mat-option>
+              <mat-option *ngFor="let dt of documentTypes" [value]="dt">
+                {{'blockedTransactions.filter.documentTypes.' + dt | translate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input *ngIf="filterForm.controls.documentType.value == 'rfc'"
+                   autocomplete="off" type="text" matInput name="documentNumber"
+                   placeholder="{{'blockedTransactions.filter.documentNumber' |translate}}"
+                   formControlName="documentNumberRFC" [patterns]="patternAlphaNumeric" mask="#{14}" maxlength="13">
+
+            <input *ngIf="filterForm.controls.documentType.value !== 'rfc'"
+                   autocomplete="off" type="text" matInput name="documentNumber"
+                   placeholder="{{'blockedTransactions.filter.documentNumber' |translate}}"
+                   formControlName="documentNumberCURP" [patterns]="patternAlphaNumeric" mask="#{19}" maxlength="18">
+          </mat-form-field>
+          <mat-error *ngIf="invalidValue">Dato invalido</mat-error>
+        </div>
+
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <mat-select placeholder="{{'blockedTransactions.filter.status' | translate}}" formControlName="status">
+              <mat-option value="">
+                {{'blockedTransactions.filter.statusOptions.ALL' | translate}}
+              </mat-option>
+              <mat-option *ngFor="let sto of statusOptions" [value]="sto">
+                {{'blockedTransactions.filter.statusOptions.' + sto | translate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" type="text" matInput name="client"
+                   placeholder="{{'blockedTransactions.filter.name' |translate}}"
+                   formControlName="name" [patterns]="patternAlphaNumericAndSpaces" mask="#{41}" maxlength="40">
+          </mat-form-field>
+          <mat-error *ngIf="!validDocumentValue">{{'errors.field' | translate}}</mat-error>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex="100" class="button-group-container">
+        <button appNoDblClickMat *ngIf="showClean" mat-raised-button class="white-button button-group-separator" type="button"
+                (click)="clean()">
+          {{'fileQuery.operator.filter.clean-button' |translate}}
+        </button>
+        <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" [disabled]="!filterForm.valid || !validDocumentValue">
+          {{'fileQuery.operator.filter.search-button' |translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

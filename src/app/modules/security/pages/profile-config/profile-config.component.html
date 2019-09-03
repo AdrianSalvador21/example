@@ -1,0 +1,124 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<div class="title-container">
+  <span class="title">{{'security.roles.title' |translate}}</span>
+</div>
+
+<div class="select-container">
+  <div class="title-container" *ngIf="!selectedItem.newElement">
+    <span class="sub-title">{{selectedItem.PROFILEGROUPID}}</span>
+  </div>
+
+  <div *ngIf="selectedItem.newElement" class="new-role">
+    <mat-form-field class="input-container" appearance="outline">
+      <input autocomplete="off"
+             (change)="changeNewInput($event)"
+             type="text" matInput
+             name="legalReference"
+             [patterns]="patternAlphaNumericAndSpaces" mask="#{30}" maxlength="31"
+             placeholder="{{'security.roles.table-labels.newRol' | translate}}">
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="input-container select-options">
+    <mat-label>{{'security.roles.menu-label' | translate}}</mat-label>
+    <mat-select class="home-select" [(value)]="selectedItem.DATAMENUHOME">
+      <mat-option value="">
+        {{'general.defaultOption' | translate}}
+      </mat-option>
+      <ng-container *ngFor="let menuItem of fullMenu">
+        <mat-option *ngIf="selectedItem[menuItem['NODEID']].status && selectedItem[menuItem['NODEID']].children.length == 0"
+                    [value]="menuItem['NODEID']">
+          <span *ngIf="!!menuItem['PARENTINFO']">{{menuItem['PARENTINFO']['TEXT'] | translate}} - </span>{{menuItem['TEXT'] | translate}}
+        </mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+
+<div fxLayout="row" class="display-block">
+  <!--PROFILES-->
+  <div fxFlex="50" style="padding-right: 15px">
+    <div class="detail-content mat-elevation-z8">
+      <div class="detail" fxLayout="row">
+        <div fxFlex="100" class="label profile-field-content">
+          <p class="description detail-header-title text--center">{{'security.roles.table-labels.profiles' | translate}}</p>
+        </div>
+      </div>
+      <div *ngFor="let row of profiles; let i = index;" class="detail" fxLayout="row">
+        <div fxFlex="50" class="label profile-field-content profile-description">
+          <p class="description text--center">
+            {{'security.roles.table-labels.' + row.id | translate}}
+          </p>
+        </div>
+        <div fxFlex="50" class="label profile-field-content profile-checkbox">
+          <p class="description checkbox-item text--center">
+            <mat-checkbox [checked]="selectedItem[row.id]"
+                          (change)="changeCheckValue(row.id, $event.checked)">
+            </mat-checkbox>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--MENUS-->
+  <div fxFlex="50" style="padding-right: 15px">
+    <div class="detail-content mat-elevation-z8">
+      <div class="detail" fxLayout="row">
+        <div fxFlex="100" class="label profile-field-content">
+          <p class="description detail-header-title text--center">{{'security.roles.table-labels.menus' | translate}}</p>
+        </div>
+      </div>
+      <div class="detail" fxLayout="row">
+        <div fxFlex="100" class="label profile-field-content menu-content">
+          <mat-tree #tree class="menus-tree" [dataSource]="dataSource" [treeControl]="treeControl">
+              <mat-tree-node class="menu-item" *matTreeNodeDef="let node" matTreeNodePadding>
+                <button mat-icon-button disabled></button>
+                <div class="menu-info">
+                  <mat-checkbox [checked]="selectedItem[node['NODEID']]['status'] === true"
+                                [hidden]="selectedItem[node['NODEID']]['parentID'] === '-1' && selectedItem[node['NODEID']]['children'].length !== 0"
+                                [disabled]="selectedItem[node['NODEID']]['parentID'] === '-1' && selectedItem[node['NODEID']]['children'].length !== 0"
+                                (change)="changeMenuValue(node, $event.checked)">
+                  </mat-checkbox>
+                  {{node.name | translate}}
+                </div>
+              </mat-tree-node>
+            <mat-tree-node class="menu-item" *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+              <button mat-icon-button matTreeNodeToggle
+                      [attr.aria-label]="'toggle ' + node">
+                <mat-icon class="mat-icon-rtl-mirror">
+                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                </mat-icon>
+              </button>
+              <div class="menu-info">
+                <mat-checkbox [checked]="selectedItem[node['NODEID']]['status'] === true"
+                              [hidden]="selectedItem[node['NODEID']]['parentID'] === '-1' && selectedItem[node['NODEID']]['children'].length !== 0"
+                              [disabled]="selectedItem[node['NODEID']]['parentID'] === '-1' && selectedItem[node['NODEID']]['children'].length !== 0"
+                              (change)="changeMenuValue(node, $event.checked)">
+                </mat-checkbox>
+                {{node.name | translate}}
+              </div>
+            </mat-tree-node>
+          </mat-tree>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!----Buttons--->
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button mat-raised-button class="button-group-separator white-button" type="button" (click)="returnBack()">
+      {{'general.return-button' |translate}}
+    </button>
+    <button [disabled]="invalidForm() || selectedItem.DATAMENUHOME == '' || !enableButton" (click)="confirmChange()" mat-raised-button class="button-group-separator" type="button">
+      {{'general.confirm-button' |translate}}
+    </button>
+  </div>
+</div>

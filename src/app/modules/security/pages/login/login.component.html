@@ -1,0 +1,36 @@
+<!-- <div class="login-header"></div> -->
+
+<div class="login-container-full" *ngIf="!isAuthenticatedUser">
+  <mat-card class="login-card">
+    <div class="container-logo">
+      <img src="assets/images/logo_Sabadell_Consola.svg" class="image-logo">
+    </div>
+    <mat-card-content class="login-card-content">
+      <form class="login-form" [formGroup]="loginForm" #form="ngForm" appScrollToFirstInvalid
+            (ngSubmit)="onSubmit(loginForm.value)">
+        <mat-form-field class="login-form-field" style="margin-bottom: 5px;">
+          <input autocomplete="off" matInput name="username" type="text"
+                 placeholder="{{'security.login.username-placeholder'|translate}}"
+                 formControlName="username" required
+                 contenteditable="true"
+                 [patterns]="patternUserName" [mask]="'#{'+(userNameMaxLength+1)+'}'" [maxlength]="userNameMaxLength">
+        </mat-form-field>
+        <mat-error class="error-class"  *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">{{'errors.required' | translate}}</mat-error>
+        <mat-form-field class="login-form-field" style="margin-top: 5px; margin-bottom: 5px;">
+          <input autocomplete="off" matInput name="password" type="password"
+                 contenteditable="true"
+                 placeholder="{{'security.login.password-placeholder'|translate}}" formControlName="password" required>
+        </mat-form-field>
+        <mat-error class="error-class" *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">{{'errors.required' | translate}}</mat-error>
+        <mat-error class="error-class" *ngIf="!!error && loginForm.valid">{{error | translate}}</mat-error>
+        <mat-card-actions class="login-button-container">
+          <button appNoDblClickMat mat-raised-button type="submit" [disabled]="!loginForm.valid"
+                  [ngClass]="{'login-button-valid': loginForm.valid}">
+            <p class="login-button-text">{{'security.login.login-button'|translate}}</p>
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<two-full-screen-spinner *ngIf="loading || isAuthenticatedUser"></two-full-screen-spinner>

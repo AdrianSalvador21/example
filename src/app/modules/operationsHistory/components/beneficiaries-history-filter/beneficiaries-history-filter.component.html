@@ -1,0 +1,68 @@
+<div>
+  <form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid (ngSubmit)="onSubmit()">
+    <div class="form-data-container">
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput #clientID type="text"
+                   placeholder="{{'beneficiary.operator.filter.clientNumber' | translate}}"
+                   formControlName="clientID" mask="0{10}" maxlength="9">
+          </mat-form-field>
+          <mat-error *ngIf="f.clientID.touched && !clientID.value">
+            {{'errors.required' | translate}}
+          </mat-error>
+          <mat-error *ngIf="f.clientID.touched && !!clientID.value && f.clientID.invalid">
+            {{'errors.field' | translate}}
+          </mat-error>
+        </div>
+
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput type="text"
+                   placeholder="{{'beneficiary.operator.filter.accountNumber' | translate}}"
+                   formControlName="benefAccount" mask="0{19}" maxlength="18">
+          </mat-form-field>
+          <mat-error *ngIf="f.benefAccount.touched && f.benefAccount.invalid">
+            {{'errors.field' | translate}}
+          </mat-error>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <!--New select-->
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <mat-select placeholder="{{'beneficiary.operator.filter.benefType' | translate}}" formControlName="benefType">
+              <mat-option value="">
+                {{'beneficiary.operator.filter.benefTypes.default'| translate}}
+              </mat-option>
+
+              <mat-option *ngFor="let bt of benefTypes" [value]="bt">
+                {{'beneficiary.operator.filter.benefTypes.' + bt | translate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-error *ngIf="f.benefType.touched && f.benefType.invalid">
+            {{'errors.required' | translate}}
+          </mat-error>
+        </div>
+      </div>
+      <div fxLayout="row" class="add-padding" *ngIf="!!error">
+        <mat-error>
+          {{error | translate}}
+        </mat-error>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100" class="button-group-container">
+        <button appNoDblClickMat *ngIf="showClearButton" mat-raised-button class="white-button button-group-separator" type="button"
+                (click)="clean()">
+          {{'general.clean-button' |translate}}
+        </button>
+        <button appNoDblClickMat mat-raised-button class="button-group-separator" type="submit" [disabled]="!isValidForm">
+          {{'general.search-button' | translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

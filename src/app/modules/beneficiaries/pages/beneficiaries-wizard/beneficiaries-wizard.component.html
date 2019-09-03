@@ -1,0 +1,13 @@
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-beneficiaries-edition [stepper]="stepper" #edition></two-beneficiaries-edition>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-beneficiaries-confirm (returnOutput)="returnConfirm()" [data]="stepper.data" [stepper]="stepper"
+                                 [onAuthDetails]="false" [onBeneficiaryEdition]="true" [showDialog]="true"></two-beneficiaries-confirm>
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,20 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<div *ngIf="firstStepper">
+  <two-breadcrumb [breadcrumbList]="['beneficiary.operator.menu-office','beneficiary.operator.title']"></two-breadcrumb>
+  <div class="title-container" *ngIf="!showDeleteMessage">
+    <span class="title">{{'beneficiary.operator.title' |translate}}</span>
+  </div>
+  <div>
+    <two-beneficiary-filter [stepper]="stepper" (cleanData)="cleanData()" (beneficiaryFounded)="setBeneficiary($event)"
+                            #filter></two-beneficiary-filter>
+
+    <two-warning-message *ngIf="showWarning" [message]="warningMessage"></two-warning-message>
+  </div>
+  <div>
+    <two-beneficiary-details (destroy)="resetStepper()" [stepper]="stepper" *ngIf="!!beneficiary && showData"
+                             [beneficiary]="beneficiary" [beneficiaryRaw]="beneficiaryRaw" [role]="role"
+                             [spidComboValues]="stepper.spidComboValues"
+                             [showButtons]="true"
+                             [blockEdition]="showWarning || internationalBeneficiary"></two-beneficiary-details>
+  </div>
+</div>

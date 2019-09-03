@@ -1,0 +1,68 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<two-breadcrumb *ngIf="!hideTitle" [breadcrumbList]="['fileQuery.operator.title', 'fileDetail.operator.title']"></two-breadcrumb>
+
+<div *ngIf="!hideTitle" fxLayout="row">
+  <div fxFlex="50" class="title-container">
+    <span class="title">{{'fileDetail.operator.title' |translate}}</span>
+  </div>
+
+  <div fxFlex="47" *ngIf="false">
+    <button appNoDblClickMat class="button" (click)="onDownloadClick()">
+      <mat-icon class="icon" svgIcon="downloadFile"></mat-icon>
+    </button>
+  </div>
+</div>
+<div>
+  <two-file-detail-info-list [onAuthOperation]="onAuthDetails" [onModify]="onModify" [onOperationStatus]="onOperationStatus" [stepper]="stepper" [fileSelectedInput]="fileSelected"></two-file-detail-info-list>
+</div>
+
+<div *ngIf="showDetails">
+
+  <div *ngIf="showTrackingList">
+    <!--*ngIf="showTrackingList"-->
+    <div class="title-container list-title">
+      <span class="title">{{'fileDetail.operator.tracking.title' |translate}}</span>
+    </div>
+    <div>
+      <two-file-detail-tracking-list [setTrackingData]="trackingList"></two-file-detail-tracking-list>
+    </div>
+  </div>
+
+
+  <div style="margin-top: 10px;">
+    <form [formGroup]="paymentForm" #form="ngForm" appScrollToFirstInvalid>
+      <mat-label class="toggle-label">
+        {{'fileDetail.operator.paymentItems.showPaymentItems'|translate}}
+      </mat-label>
+      <mat-label class="toggle-label-option">
+        {{'fileDetail.operator.paymentItems.showPaymentItems-no'|translate}}
+      </mat-label>
+      <!--<div class="toggle-container">-->
+
+      <mat-slide-toggle (click)="showPayment()" formControlName="showPaymentToggle"
+                        class="toggle-label-option toggle-container">
+      </mat-slide-toggle>
+
+      <!--</div>-->
+      <mat-label class="toggle-label-option">
+        {{'fileDetail.operator.paymentItems.showPaymentItems-yes'|translate}}
+      </mat-label>
+    </form>
+  </div>
+
+  <div *ngIf="showPaymentModify">
+    <div class="full-width">
+      <two-file-detail-payment-items-list [incomplete]="incomplete" [onFile]="onFile" [batchInput]="batchId"
+                                          (selectedItem)="onPISelection($event)"></two-file-detail-payment-items-list>
+    </div>
+  </div>
+
+  <div class="full-width" *ngIf="showButtons">
+    <two-file-detail-operator-button-panel (onBackClick)="onBackClick()" [allowContinue]="allowContinue"
+                                           [incomplete]="incomplete"
+                                           [stepper]="stepper" (onContinueClick)="continue()"
+                                           (onFinalizeClick)="finalize()"></two-file-detail-operator-button-panel>
+  </div>
+</div>
+
+

@@ -1,0 +1,41 @@
+<div fxLayout="row">
+  <div fxFlex="50" style="padding-right: 15px; margin-top: 20px">
+    <div class="detail-content mat-elevation-z8">
+      <div *ngIf="onHigh" class="detail" fxLayout="row">
+        <div fxFlex="70" class="label">
+          <p class="description detail-header-title text--center">Cuentas a dar de alta</p>
+        </div>
+        <div fxFlex="30" class="label">
+          <p class="description detail-header-title text--center">Divisa</p>
+        </div>
+      </div>
+
+      <div *ngIf="!onHigh" class="detail" fxLayout="row">
+        <div fxFlex="70" class="label">
+          <p class="description detail-header-title text--center">Cuentas a dar de baja</p>
+        </div>
+        <div fxFlex="30" class="label">
+          <p class="description detail-header-title text--center">Divisa</p>
+        </div>
+      </div>
+      <div *ngFor="let row of listData; let i = index;" class="detail" fxLayout="row">
+        <div fxFlex="70" class="label">
+          <p class="description text--center">{{row[0]}}</p>
+        </div>
+        <div fxFlex="30" class="label">
+          <p class="description text--center">{{row[1]}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat mat-raised-button class="white-button button-group-separator" type="button" (click)="returnToFilter()">
+      {{'general.return-button' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="continue()">
+      {{'general.confirm-button' |translate}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<div>
+  <form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid #formDirective="ngForm">
+    <div class="form-data-container">
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="100" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" type="text" matInput name="clientID"
+                   placeholder="{{'referencedPayment.filter.clientID' |translate}}"
+                   formControlName="clientID" mask="0{10}" maxlength="9">
+          </mat-form-field>
+          <mat-error *ngIf="f.clientID.invalid && !!f.clientID.value && f.clientID.touched">{{'errors.field' |
+            translate}}
+          </mat-error>
+          <mat-error *ngIf="!f.clientID.value && f.clientID.touched">{{'errors.required' | translate}}</mat-error>
+        </div>
+        <div fxFlex="50" fxFlex.xs="100" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" type="text" matInput name="legalReference"
+                   placeholder="{{'referencedPayment.filter.legalReference' |translate}}"
+                   formControlName="legalReference">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex="100" class="button-group-container">
+        <!--<button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="onSubmit(false)"-->
+                <!--[disabled]="filterForm.invalid || !filterForm.controls.clientID.value || filterForm.controls.clientID.value == '' || readonly || !filterForm.controls.legalReference.value"-->
+                <!--[ngClass]="{'white-button': (filterForm.valid && !readonly && !!filterForm.controls.legalReference.value)}">-->
+          <!--{{'general.down-button' |translate}}-->
+        <!--</button>-->
+        <!--<button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="onSubmit(true)"-->
+                <!--[disabled]="filterForm.invalid || !filterForm.controls.clientID.value || filterForm.controls.clientID.value == '' || readonly || !filterForm.controls.legalReference.value"-->
+                <!--[ngClass]="{'black-button': (filterForm.valid && !readonly && !!filterForm.controls.legalReference.value)}">-->
+          <!--{{'general.high-button' |translate}}-->
+        <!--</button>-->
+
+        <!--<button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" [disabled]="true">-->
+          <!--{{'general.operation-button' |translate}}-->
+        <!--</button>-->
+
+        <button (click)="cleanForm()" *ngIf="showClean" appNoDblClickMat mat-raised-button class="button-group-separator white-button"
+                type="button">
+          {{'fileQuery.operator.filter.clean-button' |translate}}
+        </button>
+        <button (click)="getUserInfo()"
+                [disabled]="filterForm.invalid || !filterForm.controls.clientID.value || filterForm.controls.clientID.value == '' || readonly"
+                appNoDblClickMat mat-raised-button class="button-group-separator" type="submit">
+          {{'fileQuery.operator.filter.search-button' |translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

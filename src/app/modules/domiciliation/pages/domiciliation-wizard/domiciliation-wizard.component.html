@@ -1,0 +1,7 @@
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-domiciliation-edition></two-domiciliation-edition>
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

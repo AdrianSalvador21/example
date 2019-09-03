@@ -1,0 +1,75 @@
+<!--DATOS OPERACION-->
+<div fxLayout="row" *ngIf="!hideIssuesButtons && !onOperationDetail">
+  <div fxFlex="100">
+    <two-breadcrumb *ngIf="inIssues" [breadcrumbList]="['fileQuery.issues.title_admin', 'fileQuery.issues.detail.operation']"></two-breadcrumb>
+    <two-breadcrumb *ngIf="inClarifications" [breadcrumbList]="['fileQuery.clarifications.title_filter', 'fileQuery.issues.detail.operation']"></two-breadcrumb>
+    <two-breadcrumb *ngIf="fileQueryWizard" [breadcrumbList]="['fileQuery.operator.title', 'fileDetail.operator.title', 'fileQuery.issues.detail.operation']"></two-breadcrumb>
+
+    <div class="title-container">
+      <span class="title">{{'fileQuery.issues.detail.operation' |translate}}</span>
+
+      <div hidden style="float: right;">
+        <div class="button">
+          <mat-icon class="icon" svgIcon="descargar"></mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="display-block">
+  <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100" class="detail-column-left">
+    <two-issue-detail-section [rows]="operacion1"></two-issue-detail-section>
+  </div>
+  <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100" class="detail-column-right">
+    <two-issue-detail-section [rows]="operacion2"></two-issue-detail-section>
+  </div>
+</div>
+
+<!--ORDENANTE Y BENEFICIARIO-->
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="display-block">
+  <!--ORDENANTE-->
+  <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100" class="detail-column-left">
+    <div class="title-container">
+      <span class="title">{{'fileQuery.issues.detail.orderer' |translate}}</span>
+    </div>
+    <two-issue-detail-section [rows]="ordenante"></two-issue-detail-section>
+  </div>
+
+  <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100" class="detail-column-right">
+    <div class="title-container">
+      <span class="title">{{'fileQuery.issues.detail.beneficiary' |translate}}</span>
+    </div>
+    <two-issue-detail-section [rows]="beneficiario"></two-issue-detail-section>
+  </div>
+</div>
+
+<!------------------SEGUIMIENTO---------------->
+<div *ngIf="showTrackingList">
+  <div class="title-container list-title">
+    <span class="title">{{'fileDetail.operator.tracking.title' |translate}}</span>
+  </div>
+  <two-file-detail-tracking-list [setTrackingData]="trackingList"></two-file-detail-tracking-list>
+</div>
+<!------------------------------------------------------------------------------------------------>
+<!-----------------CONTABILIDAD---------------->
+<div *ngIf="showAccounting">
+  <div class="title-container">
+    <span class="title">{{'fileQuery.issues.detail.accounting.title' |translate}}</span>
+  </div>
+  <two-issue-detail-list [listDataInput]="accountingData"></two-issue-detail-list>
+</div>
+
+
+
+<div *ngIf="showDetails">
+  <two-issue-detail-button-panel [onUnitQueryDetails]="unitQueryLineDetails"
+                                 [showRegulaButtonsInput]="showRegularButtons" (refresh)="refreshResults()"
+                                 [fileQueryWizard]="fileQueryWizard" [stepper]="stepper"
+                                 [onFileLineDetails]="fileLineDetails" (onReturnClick)="return()"
+                                 (onFinalizeClick)="finalize()" (unitFinalizeEmitter)="unitFinalize()"
+                                 *ngIf="!hideIssuesButtons"></two-issue-detail-button-panel>
+</div>
+
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+

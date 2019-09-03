@@ -1,0 +1,596 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<two-breadcrumb [breadcrumbList]="['pld.beneficiaries.title', 'pld.validation_pld']"></two-breadcrumb>
+
+
+<div class="title-container">
+  <span class="title">{{'pld.beneficiaries.title' |translate}}</span>
+</div>
+
+
+<div class="operation-container">
+  <!--NATIONAL FORM-->
+  <form *ngIf="!beneficiary.internationalBeneficiaryData" [formGroup]="localBeneficiaryForm"
+        #form="ngForm" appScrollToFirstInvalid>
+    <span class="section-title">{{'beneficiary.detail.local-section-label' | translate}}</span>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field>
+          <mat-select placeholder="{{'beneficiary.detail.beneficiary-form.personType' | translate}}"
+                      formControlName="personType">
+            <mat-option *ngFor="let pt of personTypes" [value]="pt.id">
+              {{'beneficiary.detail.beneficiary-form.personTypes.' + pt.id | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-form.clientNumber' | translate}}"
+                 formControlName="clientNumber">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-form.currency' | translate}}"
+                 formControlName="currency">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field>
+          <mat-select placeholder="{{'beneficiary.detail.beneficiary-form.beneficiaryAccountType' | translate}}"
+                      formControlName="beneficiaryAccountType">
+            <mat-option *ngFor="let lat of localAccountTypes" [value]="lat.id">
+              {{'beneficiary.detail.beneficiary-form.localAccountTypes.' + lat.id | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <mat-select placeholder="{{'beneficiary.detail.beneficiary-form.beneficiaryType' | translate}}"
+                      formControlName="internationalBeneficiary">
+            <mat-option *ngFor="let benefType of internationalBeneficiaryTypes" [value]="benefType.id">
+              {{'beneficiary.detail.beneficiary-form.internationalTypes.' + benefType.id | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-form.beneficiaryAccountNumber' | translate}}"
+                 formControlName="beneficiaryAccountNumber">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-form.bank' | translate}}"
+                 formControlName="beneficiaryBank">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.justification' | translate}}"
+                 formControlName="justification" [patterns]="patternAlphaNumericAndSpaces" mask="#{251}" maxlength="250">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.alias' | translate}}"
+                 formControlName="alias" [patterns]="patternAlias" required mask="#{31}" maxlength="30">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.legalReference' | translate}}"
+                 formControlName="legalReference" [patterns]="patternAlphaNumericAndSpaces" mask="#{41}" maxlength="40">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.firstLastName' | translate}}"
+                 formControlName="firstLastName">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.secondLastName' | translate}}"
+                 formControlName="secondLastName">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.rfc' | translate}}"
+                 formControlName="rfc" [patterns]="patternAlphaNumeric" mask="#{14}" maxlength="13">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="email"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.email' | translate}}"
+                 formControlName="email">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.curp' | translate}}"
+                 formControlName="curp" [patterns]="patternAlphaNumeric" mask="#{19}" maxlength="18">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.phone' | translate}}"
+                 formControlName="phone" mask="0{11}" maxlength="10">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.userIB' | translate}}"
+                 formControlName="userIB">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text" (keyup)="modifyBeneficiary()"
+                 placeholder="{{'beneficiary.detail.local-beneficiary-form.maximumAmount' | translate}}"
+                 formControlName="maximumAmount" required currencyMask maxlength="18">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <!--END NATIONAL FORM-->
+
+  <!--INTERNATIONAL FORM-->
+  <form *ngIf="!!beneficiary.internationalBeneficiaryData" [formGroup]="internationalBeneficiaryForm"
+        (change)="modifyBeneficiary()"
+        #form="ngForm" appScrollToFirstInvalid>
+    <span class="section-title">{{'beneficiary.detail.international-section-label' | translate}}</span>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field>
+          <mat-select placeholder="{{'beneficiary.detail.beneficiary-form.personType' | translate}}"
+                      formControlName="personType">
+            <mat-option *ngFor="let pt of personTypes" [value]="pt.id">
+              {{'beneficiary.detail.beneficiary-form.personTypes.' + pt.id | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-form.clientNumber' | translate}}"
+                 formControlName="clientNumber">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-form.currency' | translate}}"
+                 formControlName="currency">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field>
+          <mat-select placeholder="{{'beneficiary.detail.beneficiary-form.beneficiaryAccountType' | translate}}"
+                      formControlName="beneficiaryAccountType">
+            <mat-option *ngFor="let lat of localAccountTypes" [value]="lat.id">
+              {{'beneficiary.detail.beneficiary-form.localAccountTypes.' + lat.id | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <mat-select placeholder="{{'beneficiary.detail.beneficiary-form.beneficiaryType' | translate}}"
+                      formControlName="internationalBeneficiary">
+            <mat-option *ngFor="let benefType of internationalBeneficiaryTypes" [value]="benefType.id">
+              {{'beneficiary.detail.beneficiary-form.internationalTypes.' + benefType.id | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-form.beneficiaryAccountNumber' | translate}}"
+                 formControlName="beneficiaryAccountNumber">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row" *ngIf="!beneficiary.internationalBeneficiary">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <!--check name bank input-->
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-form.bank' | translate}}"
+                 formControlName="beneficiaryBank">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="email"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.email' | translate}}"
+                 formControlName="email">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.beneficiaryName' | translate}}"
+                 formControlName="beneficiaryName" [patterns]="patternAlphaNumericAndSpaces" mask="#{41}" maxlength="40">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.beneficiaryCountry' | translate}}"
+                 formControlName="beneficiaryCountry">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text" (keyup)="modifyBeneficiary()"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.maximumAmount' | translate}}"
+                 formControlName="maximumAmount" required currencyMask maxlength="18">
+          <mat-error
+            *ngIf="internationalControls.maximumAmount.touched && internationalControls.maximumAmount.invalid && !!internationalControls.maximumAmount.value">
+            {{'errors.field' | translate}}
+          </mat-error>
+          <mat-error *ngIf="internationalControls.maximumAmount.touched && !internationalControls.maximumAmount.value">
+            {{'errors.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+
+
+
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.beneficiaryPhone' | translate}}"
+                 formControlName="userPhone">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.userIB' | translate}}"
+                 formControlName="userIB">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+
+
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.beneficiaryCity' | translate}}"
+                 formControlName="beneficiaryCity">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.loadDate' | translate}}"
+                 formControlName="loadDate">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+
+
+
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field>
+          <mat-select placeholder="{{'beneficiary.detail.international-beneficiary-form.personType' | translate}}"
+                      formControlName="personType">
+            <mat-option *ngFor="let pt of personTypes" [value]="pt.id">
+              {{'beneficiary.detail.beneficiary-form.personTypes.' + pt.id | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.loadTime' | translate}}"
+                 formControlName="loadTime">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+
+
+
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.beneficiaryAddress' | translate}}"
+                 formControlName="beneficiaryAddress">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.modificationDate.M' | translate}}"
+                 formControlName="modificationDate">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+    <div fxLayout="row">
+
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.charges' | translate}}"
+                 formControlName="charges" maxlength="18">
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.modificationTime.M' | translate}}"
+                 formControlName="modificationTime">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.alias' | translate}}"
+                 formControlName="alias" required [patterns]="patternAlias" mask="#{31}" maxlength="30">
+        </mat-form-field>
+        <mat-error
+          *ngIf="internationalControls.alias.touched && internationalControls.alias.invalid && !!internationalControls.alias.value">
+          {{'errors.field' | translate}}
+        </mat-error>
+        <mat-error *ngIf="internationalControls.alias.touched && !internationalControls.alias.value">
+          {{'errors.required' | translate}}
+        </mat-error>
+      </div>
+
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.international-beneficiary-form.justification' | translate}}"
+                 formControlName="justification" [patterns]="patternAlphaNumericAndSpaces" mask="#{251}" maxlength="250">
+        </mat-form-field>
+        <mat-error *ngIf="internationalControls.justification.touched && internationalControls.justification.invalid">
+          {{'errors.field' | translate}}
+        </mat-error>
+      </div>
+    </div>
+  </form>
+  <!--END INTERNATIONAL FORM -->
+
+  <!--ORDERER BANK FORM-->
+  <form *ngIf="!!beneficiary.ordenantData && beneficiary.internationalBeneficiary" [formGroup]="ordenantForm"
+        #form="ngForm"
+        appScrollToFirstInvalid>
+    <span class="section-title">{{'beneficiary.detail.ordenant-section-label' | translate}}</span>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.ordenant-form.name' | translate}}"
+                 formControlName="name">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.ordenant-form.country' | translate}}" formControlName="country">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.ordenant-form.address' | translate}}" formControlName="address">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.ordenant-form.city' | translate}}"
+                 formControlName="city">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <!--END ORDERER BANK FORM-->
+
+  <!--BENEFICIARY BANK FORM-->
+  <form *ngIf="!!beneficiary.beneficiaryBankData" [formGroup]="beneficiaryBankForm"
+        #form="ngForm" appScrollToFirstInvalid>
+    <span class="section-title">{{'beneficiary.detail.beneficiaryBank-section-label' | translate}}</span>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-bank-form.bic' | translate}}" formControlName="bic">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-bank-form.country' | translate}}"
+                 formControlName="country">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-bank-form.beneficiaryBank' | translate}}"
+                 formControlName="beneficiaryBank">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-bank-form.city' | translate}}" formControlName="city">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100" fxFlex.xs="100" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.beneficiary-bank-form.address' | translate}}"
+                 formControlName="address">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <!--END BENEFICIARY BANK FORM -->
+
+  <!--INTERMIDIARY BANK FORM-->
+  <form *ngIf="!!beneficiary.intermediaryBankData"
+        [formGroup]="intermediaryBankForm" #form="ngForm" appScrollToFirstInvalid>
+    <div class="intermediary-bank-row" fxLayout="row">
+      <div class="intermediary-bank-cell">
+        <mat-label class="toggle-label">
+          {{'beneficiary.detail.international-beneficiary-form.intermediaryBank'|translate}}
+        </mat-label>
+        <mat-label class="toggle-label-option">
+          {{'beneficiary.detail.international-beneficiary-form.intermediaryBankNo'|translate}}
+        </mat-label>
+        <mat-slide-toggle disableRipple formControlName="showIntermediaryBank"
+                          class="toggle-label-option toggle-container mat-elevation-z0">
+        </mat-slide-toggle>
+        <mat-label class="toggle-label-option">
+          {{'beneficiary.detail.international-beneficiary-form.intermediaryBankYes'|translate}}
+        </mat-label>
+      </div>
+    </div>
+    <div *ngIf="!!intermediaryBankForm.controls.showIntermediaryBank.value" fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.intermediary-bank-form.intermediaryBankBic' | translate}}"
+                 formControlName="intermediaryBankBic">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.intermediary-bank-form.beneficiaryCountry' | translate}}"
+                 formControlName="beneficiaryCountry">
+        </mat-form-field>
+      </div>
+    </div>
+    <div *ngIf="!!intermediaryBankForm.controls.showIntermediaryBank.value" fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.intermediary-bank-form.intermediaryBank' | translate}}"
+                 formControlName="intermediaryBank">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.intermediary-bank-form.beneficiaryCity' | translate}}"
+                 formControlName="beneficiaryCity">
+        </mat-form-field>
+      </div>
+    </div>
+    <div *ngIf="!!intermediaryBankForm.controls.showIntermediaryBank.value" fxLayout="row">
+      <div fxFlex="100" fxFlex.xs="100" class="field-container">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 placeholder="{{'beneficiary.detail.intermediary-bank-form.beneficiaryAddress' | translate}}"
+                 formControlName="beneficiaryAddress">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <!--END INTERMIDIARY BANK FORM-->
+
+
+  <!--Status-->
+  <form [formGroup]="changeStatusForm" #form="ngForm" appScrollToFirstInvalid>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.gt.sm="50" class="field-container">
+        <mat-form-field>
+          <mat-select placeholder="{{'beneficiary.benefStatus' | translate}}" formControlName="status">
+            <mat-option *ngFor="let benefStatus of benefStatusOnPLD" [value]="benefStatus.id">
+              {{benefStatus.desc | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!---Buttons-->
+<div fxLayout="row">
+
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat mat-raised-button class="white-button button-group-separator" type="button" (click)="return()">
+      {{'pld.cancel_button' | translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="viewDetailSection()">
+      {{'pld.confirm_button' | translate}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+@import "mixins";
+@import "constants";
+
+.operation-container {
+  background-color: $light-blue;
+  border-radius: .5rem;
+  padding: 15px;
+}
+
+.sub-title {
+  color: black;
+  font-size: $font-size-very-big;
+  font-weight: bold;
+}
+
+.radio-button {
+  //margin-right: 60px;
+  float: right;
+}
+
+.main-container {
+  position: relative;
+  height: 100%;
+}
+
+::ng-deep .mat-radio-label-content {
+  font-family: FranklinGothicLT !important;
+  color: $gray;
+}
+
+.operationForm {
+  margin-bottom: 40px;
+  padding-right: 50%;
+}
+
+.paymentTypeForm {
+  margin-bottom: 20px;
+  padding-right: 50%;
+}
+
+.servicesForm {
+  margin-bottom: 20px;
+}
+
+.mat-error {
+  margin-top: 10px;
+}

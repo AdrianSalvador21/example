@@ -1,0 +1,19 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<two-breadcrumb [breadcrumbList]="['pld.title','pld.beneficiaries.title']"></two-breadcrumb>
+
+
+
+<div class="title-container">
+  <span class="title">{{'pld.beneficiaries.title' |translate}}</span>
+</div>
+
+<two-beneficiaries-pld-filter (cleanEmitter)="showSearch($event)"
+                              (formDataEmitter)="getRows($event, 1, true, true)"
+                              (initialSearch)="getRows($event, 1, false, true)"
+                              [hasRecords]="serviceData?.length > 0">
+</two-beneficiaries-pld-filter>
+
+<div *ngIf="showSearchList" style="margin-top: 20px;">
+  <two-beneficiaries-pld-list [stepper]="stepper" [listDataInput]="serviceData" (paginatorChange)="getRowsPage($event)"
+                              (buttonClick)="onButtonClick($event)"></two-beneficiaries-pld-list>
+</div>

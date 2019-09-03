@@ -1,0 +1,11 @@
+<div class="menu-container" twoClickOutside (clickOutside)="onClickOutside($event)">
+  <two-menu-list-item
+    *ngFor="let item of navItems"
+    [item]="item"
+    [showCompleteMenu]="showCompleteMenu"
+    (click)="item.children?showCompleteMenu = true:showCompleteMenu = false"
+    (closeMenu)="showCompleteMenu = false"
+  >
+  </two-menu-list-item>
+</div>
+

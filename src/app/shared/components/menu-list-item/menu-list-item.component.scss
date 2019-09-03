@@ -1,0 +1,144 @@
+@import "mixins";
+@import "constants";
+
+.icon-container {
+  display: table;
+  border-radius: 50%;
+  flex-shrink: 0;
+  height: 52px !important;
+  width: 52px !important;
+  color: $white;
+  background: $blue;
+  border: 2px solid $blue;
+  -webkit-box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.menu-option-text-container {
+  display: table;
+  font-size: $font-size-regular;
+  font-weight: bold;
+  margin-left: 5px;
+  height: 100%;
+  width: 95px;
+}
+
+.menu-option-text {
+  color: $white;
+  width: 100%;
+  word-break: keep-all;
+  padding-right: 10px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+::ng-deep .mat-list .mat-list-item .mat-line {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  display: flex;
+}
+
+.menu-list-item-large {
+  display: flex;
+  margin-left: 16px;
+  margin-bottom: 18px;
+  margin-right: 0;
+  max-width: 160px;
+  max-height: 66px;
+  cursor: pointer;
+}
+
+.menu-list-item-short {
+  display: flex;
+  margin-left: 14px;
+  margin-bottom: 14px;
+  margin-right: 14px;
+  max-height: 66px;
+  cursor: pointer;
+}
+
+.arrow {
+  color: $white;
+  font-size: $font-size-small;
+  margin-left: -5px;
+  width: 10px;
+  vertical-align: top;
+}
+
+two-menu-list-item {
+  display: flex;
+}
+
+:host {
+  display: block;
+  outline: none;
+  .mat-list-item.active {
+    width: 100%;
+    background-color: #5c5c5c !important;
+  }
+  &:hover,
+  &:focus {
+    > .mat-list-item:not(.expanded) {
+      width: 100%;
+      background-color: #5c5c5c !important;
+    }
+  }
+  .mat-list-item.active {
+    width: 100%;
+    background-color: #5c5c5c !important;
+  }
+  &:hover,
+  &:focus {
+    > .mat-list-item.expanded {
+      width: 100%;
+      background-color: #5c5c5c !important;
+    }
+  }
+}
+
+.menu-container {
+  height: fit-content;
+}
+
+.sub-menu-container {
+  background-color: #4c4c4c;
+  margin-left: 47px;
+  margin-top: -20px;
+}
+
+.bullet-style {
+  display: list-item;
+  list-style: disc inside;
+  color: $white;
+}
+
+.menu-arrow {
+  color: $white;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.menu-arrow-container {
+  display: table !important;
+  height: 100%;
+}
+
+.icon {
+  height: 32px;
+  width: 32px;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+::ng-deep .menu-active .mat-list-item-content .menu-option-text-container .menu-option-text{
+  text-decoration: underline $white;
+}
+
+::ng-deep .menu-active .mat-list-item-content .icon-container {
+  background-color: #014cb3;
+  border: 2px solid #014cb3;
+}
+

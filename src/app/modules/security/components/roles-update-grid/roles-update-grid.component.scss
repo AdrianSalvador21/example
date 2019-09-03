@@ -1,0 +1,64 @@
+@import "mixins";
+@import "constants";
+
+.role-grid-content {
+  border: 1px solid #f3f0f0;
+  border-radius: 3px;
+  background-color: #fafafa;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: flex;
+}
+
+.role-grid-general-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-grid-box {
+  height: 35px;
+  min-width: 5px;
+}
+
+.delete-icon {
+  color: #333;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.delete-icon-disabled {
+  color: $gray;
+  font-size: 20px;
+}
+
+.edit-icon {
+  color: #333;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.edit-icon-disabled {
+  color: $gray;
+  font-size: 20px;
+}
+
+.plus-icon {
+  font-size: 26px;
+  margin-right: 8px;
+}
+.title-button-align {
+  margin-right: 15px;
+  margin-top: 20px;
+}
+
+//.new-role-input {
+//  width: 100% !important;
+//}
+//
+//.rol-column {
+//  width: 50% !important;
+//}
+
+::ng-deep .mat-checkbox-inner-container {
+  background-color: #ffffff;
+}

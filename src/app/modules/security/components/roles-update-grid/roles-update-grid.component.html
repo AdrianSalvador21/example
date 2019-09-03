@@ -1,0 +1,97 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<div *ngIf="data.length !== 0">
+
+  <div fxLayout="row">
+    <div fxFlex="50" class="title-container title-button-align">
+      <span class="title">{{'security.roles.profiles-title' | translate}}</span>
+    </div>
+
+    <div fxFlex="50" class="button-group-container">
+      <button appNoDblClickMat mat-raised-button type="button" (click)="addProfile()">
+        <span class="plus-icon">+</span>{{'Nuevo'}}
+      </button>
+    </div>
+  </div>
+
+
+  <!--TABLA-->
+  <div fxLayout="row" class="table-container" style="margin-top: 20px;">
+    <div fxFlex="100">
+      <table mat-table [dataSource]="data">
+
+        <ng-container matColumnDef="PROFILEGROUPID">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text">{{'security.roles.table-labels.rol-column' | translate}}</p>
+          </th>
+
+          <td mat-cell *matCellDef="let item">
+            <p class="table-text rol-column">
+              <span *ngIf="!item.newElement">{{item.PROFILEGROUPID}}</span>
+            </p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ENABLED">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text">
+              {{'security.roles.table-labels.enabled' | translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let item">
+            <div class="table-text">
+              <mat-slide-toggle #toggle class="toggle-label-option toggle-container"
+                                [checked]="item.ENABLED === '1'"
+                                [disabled]="isReadOnlyRole(item)"
+                                (change)="changeEnabledStatus(item, $event.checked, toggle)">
+              </mat-slide-toggle>
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text">
+              {{'security.roles.table-labels.edit' | translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let item">
+            <p class="table-text">
+              <mat-icon class="edit-icon-disabled" *ngIf="isReadOnlyRole(item)">
+                edit
+              </mat-icon>
+              <mat-icon class="edit-icon" *ngIf="!isReadOnlyRole(item)" (click)="editItem(item)">
+                edit
+              </mat-icon>
+            </p>
+          </td>
+        </ng-container>
+
+        <!-- clientNumber Column -->
+        <ng-container matColumnDef="remove">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text">
+              {{'security.roles.table-labels.remove' | translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let item">
+            <p class="table-text">
+              <mat-icon class="delete-icon-disabled" *ngIf="isReadOnlyRole(item)">
+                delete_sweep
+              </mat-icon>
+              <mat-icon class="delete-icon" *ngIf="!isReadOnlyRole(item)" (click)="deleteItem(item)">
+                delete_sweep
+              </mat-icon>
+            </p>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+

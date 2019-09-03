@@ -1,0 +1,8 @@
+<two-breadcrumb [breadcrumbList]="['massivePayments.officeOperation.title', 'referencedPayment.title', 'referencedPayment.confirm-title']"></two-breadcrumb>
+<div class="title-container">
+  <span class="title">{{'referencedPayment.confirm-title' | translate}}</span>
+</div>
+
+<two-warning-message *ngIf="onHigh" [message]="warningMessage"></two-warning-message>
+
+<two-referenced-payment-list [completeData]="listData" (clean)="initialClean()" [onHigh]="onHigh" [listData]="accountsToShow" [stepper]="stepper"></two-referenced-payment-list>

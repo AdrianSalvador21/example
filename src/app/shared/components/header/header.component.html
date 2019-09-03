@@ -1,0 +1,36 @@
+<header>
+  <nav>
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" class="nav-container">
+      <!--BARS AND LOGO-->
+      <div fxFlex="50" fxFlex.sm="50" fxFlex.xs="50" fxLayoutAlign="start center" class="left-container">
+        <a class="bars-icon" id="menu-bars" (click)="onMenuClicked($event)">
+          <mat-icon id="menu-bars-icon" svgIcon="bars"></mat-icon>
+        </a>
+        <div class="logo">
+          <img src="assets/images/logo_Sabadell_Consola.svg" class="image-logo">
+        </div>
+      </div>
+      <div fxFlex="50" fxFlex.sm="50" fxFlex.xs="50" fxLayout="column" class="right-container">
+        <div fxFlex fxLayout="row" fxLayoutAlign="end start">
+
+            <mat-icon svgIcon="notas" class="header-icons" [satPopoverAnchorFor]="notePopover"
+                      (click)="notePopover.toggle()" style="cursor: pointer"></mat-icon>
+            <sat-popover #notePopover hasBackdrop verticalAlign="below">
+              <two-notes-popover></two-notes-popover>
+            </sat-popover>
+
+          <mat-icon svgIcon="usuario" class="header-icons"></mat-icon>
+          <span class="user-text">{{sessionData.username}}</span>
+          <div class="logout-section">
+            <two-logout></two-logout>
+          </div>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutAlign="end end">
+          <span class="last-connection-label">
+            {{'header.connection-label' | translate}} {{' '}} {{lastLoginDate}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

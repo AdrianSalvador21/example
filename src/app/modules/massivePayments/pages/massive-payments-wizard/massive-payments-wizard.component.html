@@ -1,0 +1,12 @@
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-upload-file [stepper]="stepper" #upload></two-upload-file>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-confirm-file (cleanEmmiter)="cleanEvent()" [fileSelectedInput]="stepper.controlValues" [stepper]="stepper" [onMassivePayment]="true" ></two-confirm-file>
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,73 @@
+<div fxLayout="row">
+    <div fxFlex="100">
+        <table mat-table [dataSource]="trackingData">
+            <ng-container matColumnDef="folio-column">
+                <th mat-header-cell *matHeaderCellDef>
+                    <p class="table-text" style="margin-left: 0px;">
+                        {{'fileDetail.operator.tracking.dateTime-column' |translate}}
+                    </p>
+                </th>
+                <td mat-cell *matCellDef="let item">
+                    <p class="table-text">
+                        {{item.eventDate}} {{item.eventTime}}
+                    </p>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fileName-column">
+                <th mat-header-cell *matHeaderCellDef>
+                    <p class="table-text">{{'fileDetail.operator.tracking.eventProcess-column' |translate}}</p>
+                </th>
+                <td mat-cell *matCellDef="let item">
+                    <p class="table-text">
+                      {{item.eventName}}
+                    </p>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="ordererName-column">
+                <th mat-header-cell *matHeaderCellDef>
+                    <p class="table-text">
+                        {{'fileDetail.operator.tracking.systemProcess-column' |translate}}
+                    </p>
+                </th>
+                <td mat-cell *matCellDef="let item">
+                    <p class="table-text">
+                        {{item.processName}}
+                    </p>
+                </td>
+            </ng-container>
+
+          <ng-container matColumnDef="cause">
+            <th mat-header-cell *matHeaderCellDef>
+              <p class="table-text">
+                {{'fileDetail.operator.tracking.cause-column' |translate}}
+              </p>
+            </th>
+            <td mat-cell *matCellDef="let item">
+              <p class="table-text">
+                {{item.reason}}
+              </p>
+            </td>
+          </ng-container>
+
+            <ng-container matColumnDef="destinationAccount-column">
+                <th mat-header-cell *matHeaderCellDef>
+                    <p class="table-text">
+                        {{'fileDetail.operator.tracking.status-column' |translate}}
+                    </p>
+                </th>
+                <td mat-cell *matCellDef="let item">
+                    <p class="table-text">
+                      <mat-icon style="width: 20px;" *ngIf="item.status === 'OK'" svgIcon="greenChecked"></mat-icon>
+                      <mat-icon style="width: 20px;" *ngIf="item.status === 'ERROR'" svgIcon="cancel"></mat-icon>
+                    </p>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+</div>

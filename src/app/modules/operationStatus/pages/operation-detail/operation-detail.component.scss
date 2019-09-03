@@ -1,0 +1,23 @@
+@import "mixins";
+@import "constants";
+
+.button {
+  background-color: black;
+  width: 27px;
+  height: 27px;
+  margin-right: 10px;
+  border-radius: 50%;
+  float: right;
+  cursor: pointer;
+  border: unset;
+}
+
+.icon {
+  width: 17px;
+  height: 15px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 5px;
+}
+
+

@@ -1,0 +1,15 @@
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper [selectedIndex]="stepper.selectedIndex">
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-blocked-transactions [stepper]="stepper" #principal></two-blocked-transactions>
+      <!--<two-beneficiaries-pld [stepper]="stepper" (buttonClick)="onButtonClick($event)" #initialStep></two-beneficiaries-pld>-->
+    </ng-container>
+  </mat-step>
+
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-blocked-transactions-detail (onFinalizeOutput)="finalize()" [transactionDataInput]="stepper.transactionData"
+                                       [stepper]="stepper"></two-blocked-transactions-detail>
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

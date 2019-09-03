@@ -1,0 +1,14 @@
+<div>
+  <div class="breadcrumb-title">
+    <mat-icon class="breadcrumb-home-icon">home</mat-icon>
+    <ng-container *ngFor="let item of breadcrumbList; let i = index">
+      <span class="breadcrumb-separator">
+        >
+      </span>
+      <span [ngClass]="{'breadcrumb-blue-element': i == breadcrumbList.length - 1, 'breadcrumb-gray-element': i < breadcrumbList.length - 1}">
+       {{item | translate}}
+      </span>
+    </ng-container>
+  </div>
+  <hr>
+</div>

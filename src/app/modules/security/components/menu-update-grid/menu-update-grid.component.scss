@@ -1,0 +1,45 @@
+@import "mixins";
+@import "constants";
+
+.home-select {
+  font-size: 0.8rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  margin: 0 !important;
+  width: calc(100% - 1rem);
+}
+
+.th-line {
+  width: 85%;
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+}
+
+.bullet {
+  display: list-item;
+  list-style: disc inside;
+  color: #ffffff;
+}
+
+.text-header {
+  display: flex;
+  margin-top: 1.2rem;
+}
+
+.arrow {
+  color: $white;
+  font-size: $font-size-small;
+  margin-left: -5px;
+  width: 10px;
+  vertical-align: top;
+}
+
+::ng-deep .mat-tab-label {
+  height: 40px !important;
+  background-size: 160px 40px;
+}
+
+::ng-deep .mat-tab-body-content {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}

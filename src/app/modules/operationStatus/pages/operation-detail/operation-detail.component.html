@@ -1,0 +1,48 @@
+<two-breadcrumb [breadcrumbList]="['operation.title-overview', 'authorization.title-details']"></two-breadcrumb>
+
+<div fxLayout="row">
+  <div fxFlex="80">
+    <div class="title-container">
+      <span class="title">{{'authorization.title-details' |translate}}</span>
+    </div>
+  </div>
+  <!--Download button-->
+  <div fxFlex="20" fxLayoutAlign="end center" *ngIf="showDownloadInput && !onlyConsult">
+    <div class="button" (click)="onDownloadClick()">
+      <mat-icon class="icon" svgIcon="descargar"></mat-icon>
+    </div>
+  </div>
+</div>
+
+<!--Beneficiaries-->
+<two-beneficiaries-confirm [stepper]="stepper" [data]="stepper.beneficiary" *ngIf="detailType == 'BENEFICIARY'"
+                           [onOperationDetail]="true"></two-beneficiaries-confirm>
+
+<!--Massive payments-->
+<two-confirm-file [fileSelectedInput]="stepper.batch" [showButton]="false" *ngIf="detailType == 'BATCH'"
+                  [onOperationDetail]="true"></two-confirm-file>
+
+<!--Unique issues-->
+<two-issue-detail [stepper]="stepper" [unitQueryDataInput]="stepper.unitQuery" [showDetails]="false"
+                  *ngIf="detailType == 'UNITQUERY'" [onOperationDetail]="true"></two-issue-detail>
+
+<!--files-->
+<two-fileDetail-operator [onOperationStatus]="true" [hideTitle]="true" [fileSelectedInput]="stepper.fileQuery"
+                         [showDetails]="true" [showButtons]="false"
+                         *ngIf="detailType == 'FILEQUERY'"></two-fileDetail-operator>
+
+<!--referencedPayment-->
+<two-referenced-payment-detail [onOperationStatus]="true" [dataList]="stepper.dataReferencedSelected"
+                               *ngIf="detailType == 'REFERENCEDDEPOSIT'"
+                               [stepper]="stepper"></two-referenced-payment-detail>
+
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat mat-raised-button class="button-group-separator white-button" type="button" (click)="return()">
+      {{'general.return-button' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="returnInitial()">
+      {{'general.finish-button' |translate}}
+    </button>
+  </div>
+</div>

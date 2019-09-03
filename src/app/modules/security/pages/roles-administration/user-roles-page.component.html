@@ -1,0 +1,171 @@
+<two-breadcrumb [breadcrumbList]="['security.role.title']"></two-breadcrumb>
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<div class="title-container">
+  <span class="title">{{'security.role.title' | translate}}</span>
+</div>
+
+<form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid (ngSubmit)="onSubmit(filterForm.value)">
+  <div class="form-data-container">
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput name="userName" type="text"
+                 placeholder="{{'security.role.filter.userKey-label' |translate}}" formControlName="userName"
+                 [patterns]="patternUserName" [mask]="'#{'+(userNameMaxLength+1)+'}'" [maxlength]="userNameMaxLength">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="100" class="button-group-container">
+      <button appNoDblClickMat *ngIf="!!user" mat-raised-button class="button-group-separator white-button" type="button"
+              (click)="clean()">
+        {{'security.role.filter.clean-button' |translate}}
+      </button>
+      <button appNoDblClickMat mat-raised-button class="button-group-separator" type="submit"
+              [disabled]="!filterForm.valid">
+        {{'security.role.filter.search-button' |translate}}
+      </button>
+    </div>
+  </div>
+</form>
+
+<!--Form user data (read only)-->
+<div class="title-container" *ngIf="!!user">
+  <span class="title">{{'security.role.detail.user-title' | translate}}</span>
+</div>
+
+<div *ngIf="!!user">
+  <div class="form-data-container">
+    <div fxLayout="row">
+      <div fxFlex="100" fxFlex.xs="100" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" disabled matInput name="userName" type="text"
+                 placeholder="{{'security.role.detail.userName' |translate}}" value="{{user.displayName}}">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" disabled matInput name="userEmail" type="text"
+                 placeholder="{{'security.role.detail.userEmail' |translate}}" value="{{user.email}}">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" disabled matInput name="state" type="text"
+                 placeholder="{{'security.role.detail.state' |translate}}" value="{{user.state}}">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="!!user?.roles">
+  <div class="title-container" style="margin-top: 20px">
+    <span class="title">{{'security.role.list.userRoles-title' | translate}}</span>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="100" class="button-group-container">
+      <button appNoDblClickMat mat-raised-button type="button" (click)="addRole()">
+        <span class="plus-icon">+</span>{{'Nuevo'}}
+      </button>
+    </div>
+  </div>
+
+  <div fxLayout="row" class="empty-container" *ngIf="!!user && (!user.roles || user.roles.length === 0) && !loading">
+    <div fxFlex="100">
+      <mat-error>{{'security.role.noRoles' | translate}}</mat-error>
+    </div>
+  </div>
+
+  <div fxLayout="row" class="table-container" style="margin-top: 20px" *ngIf="!!user?.roles?.length > 0">
+    <div fxFlex="100">
+      <table mat-table [dataSource]="user.roles">
+        <!-- profileGroup Column -->
+        <ng-container matColumnDef="profileGroup">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text icon">
+              {{'security.role.list.roleDescription' | translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let data">
+            <p class="table-text icon">
+              <mat-select placeholder="{{'security.role.add.role-selection' | translate}}"
+                          [(value)]="data.profileGroup" disableOptionCentering>
+                <mat-option *ngFor="let role of getRoles(data.profileGroup)" [value]="role.PROFILEGROUPID"
+                            [disabled]="role.ENABLED !== '1'">
+                  {{role.PROFILEGROUPID}}
+                </mat-option>
+              </mat-select>
+            </p>
+          </td>
+        </ng-container>
+        <!-- enabled Column -->
+        <ng-container matColumnDef="enabled">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text icon">
+              {{'security.role.list.enabled' | translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let data">
+            <p class="table-text icon">
+              {{'security.role.list.enabledValue.' + data.enabled | translate}}
+            </p>
+          </td>
+        </ng-container>
+        <!-- remove Column -->
+        <ng-container matColumnDef="remove">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text icon">
+              {{'security.role.list.remove' | translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let data">
+            <p class="table-text icon">
+              <mat-icon
+                (click)="removeRole(data)"
+                [ngClass]="data.enabled === '1'?'delete-button-enabled':'delete-button-disabled'">
+                delete_sweep
+              </mat-icon>
+            </p>
+          </td>
+        </ng-container>
+        <!-- main Column -->
+        <ng-container matColumnDef="main">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text icon">
+              {{'security.role.list.mainRole' | translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let data">
+            <p class="table-text icon">
+              <mat-icon *ngIf="data.mainProfileGroup === '1'" class="star-button-filled">star</mat-icon>
+              <mat-icon *ngIf="data.mainProfileGroup === '0'"
+                        (click)="setMainRole(data)"
+                        [ngClass]="data.enabled === '1'?'star-button-border-enabled':'star-button-border-disabled'">
+                star_border
+              </mat-icon>
+            </p>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="100" class="button-group-container">
+      <button appNoDblClickMat mat-raised-button class="button-group-separator white-button"
+              type="button" (click)="clean()">
+        {{'security.role.cancel-button' |translate}}
+      </button>
+      <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button"
+              [disabled]="!isValid()" (click)="save()">
+        {{'security.role.save-button' |translate}}
+      </button>
+    </div>
+  </div>
+</ng-container>

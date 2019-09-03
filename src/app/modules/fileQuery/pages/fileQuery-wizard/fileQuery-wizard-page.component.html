@@ -1,0 +1,31 @@
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-fileQuery-operator (continueClick)="continueToFileDetails()" [stepper]="stepper"
+                              #filterView></two-fileQuery-operator>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-fileDetail-operator [onFile]="true" (backClick)="returnToFilterPage()" (refresh)="refreshResults()"
+                               [fileSelectedInput]="stepper.fileSelected" [stepper]="stepper" [showButtons]="true"
+                               (onContinueClick)="continueToLineDetails()"
+                               *ngIf="showFileDetails"></two-fileDetail-operator>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 2">
+      <!--<two-issue-detail (refresh)="refreshResults()" [fileQueryWizard]="fileQueryWizard"-->
+                        <!--[hideIssuesButtons]="hideIssuesButtons" [fileSelected]="stepper.fileSelected"-->
+                        <!--[batchLine]="stepper.lineSelected" [stepper]="stepper" [fileLineDetails]="fileLineDetails"-->
+                        <!--*ngIf="showLineDetails" (onReturnClick)="returnToFileDetails()"></two-issue-detail>-->
+
+      <two-issue-detail (refresh)="refreshResults()" [fileQueryWizard]="fileQueryWizard"
+                        [hideIssuesButtons]="hideIssuesButtons" [fileSelected]="stepper.fileSelected"
+                        [batchLine]="stepper.lineSelected" [stepper]="stepper" [fileLineDetails]="fileLineDetails"
+                        *ngIf="!stepper.fileStatus" (onReturnClick)="returnToFileDetails()"></two-issue-detail>
+
+      <two-confirm-file *ngIf="stepper.fileStatus" (cleanEmmiter)="refreshResults()" [fileSelectedInput]="stepper.fileSelected" [stepper]="stepper" [onMassivePayment]="true" [onFile]="true"></two-confirm-file>
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

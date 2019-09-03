@@ -1,0 +1,58 @@
+@import "mixins";
+@import "constants";
+
+.ha-title-data-span {
+  margin-right: 10px;
+}
+
+.mat-accordion .mat-expansion-panel {
+  background-color: $light-blue;
+}
+
+.mat-expansion-panel-spacing {
+  margin: 0 0;
+}
+
+.mat-expansion-panel-header {
+  height: 40px !important;
+}
+
+.mat-expansion-panel-header[aria-disabled=true] {
+  color: $black;
+}
+
+::ng-deep .mat-expansion-panel-content {
+  background-color: $white;
+}
+
+.mat-expansion-panel-header {
+  font-family: FranklinGothicLT-Demi;
+  font-size: $font-size-regular;
+  font-weight: 400;
+}
+
+.mat-expansion-panel {
+  border-radius: 0;
+}
+
+.mat-accordion .mat-expansion-panel:first-of-type {
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+}
+
+.mat-accordion .mat-expansion-panel:last-of-type {
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+  box-shadow: 0 3px 0 0 rgba(0, 0, 0, .2), 0 0 0 1px rgba(0, 0, 0, .14), 3px 1px 3px 0 rgba(0, 0, 0, .12);
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 5px !important;
+}
+
+.accordion-container {
+  margin-top: 20px;
+}

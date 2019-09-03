@@ -1,0 +1,69 @@
+<div class="title-container" style="margin-bottom: 20px;">
+  <span class="title">{{'authorization.dispersion.title' |translate}}</span>
+</div>
+<form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid (ngSubmit)="onSubmit(filterForm.value)">
+  <div class="form-data-container">
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 #name placeholder="{{'authorization.dispersion.filter.name' | translate}}" formControlName="name"
+                 [patterns]="patternAlphaNumericAndSpaces" mask="#{41}" maxlength="40">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" matInput type="text"
+                 #accountNumber placeholder="{{'authorization.dispersion.filter.accountNumber' | translate}}"
+                 formControlName="accountNumber" mask="0{19}" maxlength="18">
+        </mat-form-field>
+        <mat-error *ngIf="f.accountNumber.touched && f.accountNumber.invalid">
+          {{'errors.field' | translate}}
+        </mat-error>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="100" class="button-group-container">
+      <button appNoDblClickMat *ngIf="filterApplied" mat-raised-button class="white-button button-group-separator" type="button" (click)="clean()">
+        {{'general.clean-button' |translate}}
+      </button>
+      <button appNoDblClickMat mat-raised-button class="button-group-separator" type="submit"
+              [disabled]="!accountNumber.value && !name.value || !filterForm.valid">
+        {{'general.search-button' | translate}}
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="accordion-container">
+  <mat-accordion *ngIf="!!HA && !!HBFooterData && !loading">
+    <mat-expansion-panel *ngFor="let ha of HA" (opened)="openedAccordionId = ha.debitAccount">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="ha-title-data-span">{{ha.headerDescription}}</span>
+          <span class="ha-title-data-span">{{ha.currency}}</span>
+          <span class="ha-title-data-span">{{ha.debitAccount}}</span>
+          <span class="ha-title-data-span">{{ha.amount | number:'.2'}}</span>
+          <span class="ha-title-data-span">{{ha.recordsNumber}}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <two-massive-payment-ha-details *ngIf="openedAccordionId === ha.debitAccount"
+                                      [batchId]="batchId"
+                                      [creditAccount]="filterAccountNumber"
+                                      [debitAccount]="ha.debitAccount"
+                                      [name]="filterName"
+                                      [totalRecords]="ha.recordsNumber">
+      </two-massive-payment-ha-details>
+    </mat-expansion-panel>
+    <mat-expansion-panel [hideToggle]="true" [disabled]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="ha-title-data-span">{{HBFooterData.headerDescription}}</span>
+          <span class="ha-title-data-span">{{HBFooterData.amount | number:'.2'}}</span>
+          <span class="ha-title-data-span">{{HBFooterData.recordsNumber}}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

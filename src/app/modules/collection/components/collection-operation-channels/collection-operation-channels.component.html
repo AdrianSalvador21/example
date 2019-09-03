@@ -1,0 +1,31 @@
+<div class="section-container">
+  <span class="section-title">{{'collection.operationChannelsTitle' | translate}}</span>
+
+  <div class="drop-container">
+    <div class="example-container mrgn-r">
+      <p class="form-field-title">{{'collection.operationChannelsSection.available' | translate}}</p>
+      <div
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[doneList]"
+        class="list-container"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+
+    <div class="example-container mrgn-l">
+      <p class="form-field-title">{{'collection.operationChannelsSection.selected' | translate}}</p>
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[todoList]"
+        class="list-container"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  </div>
+</div>

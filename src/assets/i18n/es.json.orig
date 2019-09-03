@@ -1,0 +1,502 @@
+{
+    "incident": {
+        "folio": "Folio",
+        "cuenta": "Cuenta",
+        "desde": "Fecha operación desde",
+        "hasta": "Fecha operación hasta",
+        "importe": "Importe",
+        "ref": "Referencia",
+        "beneficiaryAccount": "Cuenta beneficiario"
+    },
+    "security": {
+        "login": {
+            "title": "Inicio de sesión",
+            "username-placeholder": "Usuario",
+            "password-placeholder": "Contraseña",
+            "login-button": "Ingresar",
+            "roles-placeholder": "Perfil",
+            "roles": {
+                "OPERADOR": "Operador",
+                "AUTORIZADOR": "Autorizador",
+                "PLD_OPERADOR": "Operador PLD",
+                "PLD_AUTORIZADOR": "Autorizador PLD",
+                "ADMIN": "Administrador"
+            },
+            "unauthorized": "Credenciales inválidas",
+            "blocked": "Usuario bloqueado, por favor comuniquese con el administrador del sistema"
+        },
+        "profile": {
+            "title": "Asignación de perfiles",
+            "filter": {
+                "userKey-label": "Clave de usuario",
+                "email-label": "Email",
+                "search-button": "Buscar",
+                "clean-button": "Limpiar"
+            },
+            "detail": {
+                "user-title": "Datos del usuario",
+                "profile-title": "Perfil",
+                "userName": "Nombre",
+                "userLastName": "Apellido",
+                "userEmail": "Correo",
+                "available-rol": "Disponibles",
+                "assigned-rol": "Asignados",
+                "state": "Estado"
+            },
+            "save-button": "Guardar",
+            "cancel-button": "Cancelar"
+        }
+    },
+    "beneficiary": {
+        "benefStatus": "Estado",
+        "operator": {
+            "title": "Beneficiario",
+            "filter": {
+                "clientNumber": "No. de cliente",
+                "alias": "Alias del beneficiario",
+                "accountNumber": "No. de cuenta del beneficiario",
+                "search": "Buscar",
+                "error": {
+                    "missingFields": "Debe ingresar el alias o el número de cuenta del beneficiario",
+                    "genericError": "Ha ocurrido un error, comuniquese con el administrador",
+                    "noRecords": "No se encontró ningún resultado para la búsqueda"
+                }
+            }
+        },
+        "detail": {
+            "identification-section-label": "Identificación de beneficiario",
+            "local-section-label": "Datos de beneficiario",
+            "international-section-label": "Datos de beneficiario",
+            "ordenant-section-label": "Ordenante",
+            "beneficiaryBank-section-label": "Banco beneficiario",
+            "beneficiary-form": {
+                "personType": "Tipo de persona*",
+                "personTypes": {
+                    "00": "Persona Física",
+                    "01": "Persona Moral"
+                },
+                "internationalTypes": {
+                    "true": "Internacional",
+                    "false": "Local"
+                },
+                "clientNumber": "Nro. de cliente*",
+                "currency": "Moneda de la cuenta*",
+                "beneficiaryAccountType": "Tipo de cuenta*",
+                "localAccountTypes": {
+                    "01": "Terceros Sabadell",
+                    "40": "SPEI",
+                    "41": "SPID",
+                    "03": "TDD/TDC",
+                    "10": "LTP",
+                    "##": "Internacional"
+                },
+                "beneficiaryType": "Tipo de beneficiario:*",
+                "beneficiaryType-local": "Nacional",
+                "beneficiaryType-international": "Internacional",
+                "beneficiaryAccountNumber": "Nro. de cuenta del beneficiario*"
+            },
+            "local-beneficiary-form": {
+                "alias": "Alias del beneficiario",
+                "legalReference": "Nombre o razón social*",
+                "firstLastName": "Apellido paterno",
+                "secondLastName": "Apellido materno",
+                "rfc": "RFC*",
+                "curp": "CURP",
+                "userIB": "Usuario IB*",
+                "email": "Correo electrónico*",
+                "phone": "Nro. de teléfono",
+                "justification": "Justificación*",
+                "maximumAmount": "Monto Máximo*"
+            },
+            "ordenant-form": {
+                "name": "Ordenante (Nombre)",
+                "country": "País",
+                "address": "Domicilio Ordenante",
+                "city": "Ciudad"
+            },
+            "beneficiary-bank-form": {
+                "bic": "Código BIC (SWIFT)",
+                "country": "País",
+                "beneficiaryBank": "Banco beneficiario",
+                "city": "Ciudad",
+                "address": "Dirección"
+            },
+            "international-beneficiary-form": {
+                "accountType": "Tipo de cuenta",
+                "email": "Correo electronico",
+                "beneficiaryAccount": "Cuenta beneficiario (clave)",
+                "justification": "Motivo (Justificación)",
+                "beneficiaryName": "Nombre beneficiario",
+                "currency": "Moneda",
+                "beneficiaryCountry": "País beneficiario",
+                "maximumAmount": "Monto Máximo",
+                "beneficiaryCity": "Ciudad beneficiario",
+                "userIB": "Usuario IB",
+                "personType": "Tipo de persona",
+                "loadDate": "Fecha de carga",
+                "beneficiaryAddress": "Domicilio beneficiario",
+                "loadTime": "Hora de carga",
+                "IVA": "Gastos (IVA)",
+                "modificationDate": "Fecha de modificación",
+                "alias": "Alias",
+                "modificationTime": "Hora de modificación",
+                "intermediaryBank": "Banco Intermediario",
+                "intermediaryBankNo": "No",
+                "intermediaryBankYes": "Si"
+            },
+            "intermediary-bank-form": {
+                "intermediaryBankBic": "Código BIC Banco Intermediario (SWIFT)",
+                "beneficiaryCountry": "País Banco Intermediario",
+                "intermediaryBank": "Banco Intermediario",
+                "beneficiaryCity": "Ciudad Banco Intermediario",
+                "beneficiaryAddress": "Domicilio Banco Intermediario"
+            }
+        },
+        "authorization": {
+            "title-overview": "Autorización de beneficiarios",
+            "title-details": "Detalles de la operación",
+            "operatorUser-label": "Usuario operador",
+            "role-label": "Rol",
+            "operationType-label": "Tipo de operación",
+            "clientNumber-label": "No. de cliente",
+            "dateFrom-label": "Fecha desde",
+            "dateTo-label": "Fecha hasta",
+            "status-label": "Estado",
+            "error-label": "A ocurrido un error al consultar las operaciones",
+            "list": {
+                "operation-column": "Operación",
+                "operatorUser-column": "Usuario operador",
+                "operatorRole-column": "Rol operador",
+                "operationDate-column": "Fecha operación",
+                "clientNumber-column": "No. cliente",
+                "accountType-column": "Tipo cuenta",
+                "beneficiaryAccount-column": "Cuenta del beneficiario",
+                "operationStatus-column": "Estado operación"
+            },
+            "status": {
+                "UNAUTHORIZED": "No autorizadas (solo lectura)",
+                "AUTHORIZED": "Autorizadas (solo lectura)",
+                "PENDING": "Pendientes de autorización"
+            },
+            "operations": {
+                "A": "Alta",
+                "B": "Baja",
+                "M": "Modificación",
+                "R": "Cambio de estado"
+            },
+            "accountTypes": {
+                "01": "Terceros Sabadell",
+                "40": "SPEI",
+                "41": "SPID",
+                "03": "TDD/TDC",
+                "10": "LTP"
+            }
+        },
+        "confirm": {
+            "dialog": {
+                "authorizationDialog": "Tu operacion requiere autorización."
+            },
+            "national": {
+                "finalizeButton": "Finalizar",
+                "beneficiaryId": {
+                    "title": "Identificación del beneficiario",
+                    "personType": "Tipo de persona",
+                    "clientNumber": "No. de cliente",
+                    "currencyAccount": "Moneda de la cuenta",
+                    "accountType": "Tipo de cuenta",
+                    "beneficiaryAccountNumber": "No. de cuenta del beneficiario"
+                },
+                "beneficiaryInfo": {
+                    "title": "Datos del beneficiario",
+                    "beneficiaryAlias": "Alias del beneficiario",
+                    "businessName": "Nombre o razón social",
+                    "lastaName": "Apellido Paterno",
+                    "mothersLastName": "Apellido Materno",
+                    "rfc": "RFC",
+                    "curp": "CURP",
+                    "IBUser": "Usuario IB",
+                    "email": "Correo electrónico",
+                    "justification": "Justificación",
+                    "phoneNumber": "Numero de telefono",
+                    "maximumAmount": "Monto máximo",
+                    "dischargeDate": "Fecha de baja",
+                    "dischargeHour": "Hora de baja",
+                    "state": "Estado"
+                }
+            },
+            "international": {
+                "finalizeButton": "Finalizar",
+                "beneficiaries": {
+                    "title": "Beneficiario",
+                    "clientNumber": "No. de cliente",
+                    "beneficiaryAlias": "Alias del beneficiario",
+                    "beneficiaryAccountNumber": "No. de cuenta del beneficiario"
+                },
+                "beneficiaryId": {
+                    "title": "Identificación del beneficiario",
+                    "personType": "Tipo de persona",
+                    "clientNumber": "No. de cliente",
+                    "currencyAccount": "Moneda de la cuenta",
+                    "accountType": "Tipo de cuenta",
+                    "beneficiaryAccountNumber": "No. de cuenta del beneficiario"
+                },
+                "orderer": {
+                    "title": "Ordenante",
+                    "ordererName": "Nombre del ordenante",
+                    "ordererAddress": "Domicilio del ordenante",
+                    "country": "País",
+                    "city": "Ciudad"
+                },
+                "beneficiaryInfo": {
+                    "title": "Datos del beneficiario",
+                    "accountType": "Tipo de cuenta",
+                    "email": "Correo electrónico",
+                    "beneficiaryAccountKey": "Cuenta beneficiario (clave)",
+                    "justification": "Motivo (Justificación)",
+                    "beneficiaryName": "Nombre del beneficiario",
+                    "currency": "Moneda",
+                    "beneficiaryCountry": "País beneficiario",
+                    "maximumAmount": "Monto Máximo",
+                    "beneficiaryCity": "Ciudad beneficiario",
+                    "IBUser": "Usuario IB",
+                    "beneficiaryAddress": "Domicilio beneficiario",
+                    "IVA": "Gastos (IVA)",
+                    "loadingDate": "Fecha de carga",
+                    "loadingHour": "Hora de carga",
+                    "modificationDate": "Fecha de modificación",
+                    "modificationHout": "Hola de modificación",
+                    "state": "Estado"
+                },
+                "beneficiaryBank": {
+                    "title": "Banco beneficiario",
+                    "BICKey": "Código BIC (SWIFT)",
+                    "beneficiaryBank": "Banco beneficiario",
+                    "country": "País",
+                    "city": "Ciudad",
+                    "address": "Dirección"
+                },
+                "intermediaryBank": {
+                    "title": "Banco intermediario",
+                    "BICKey": "Código BIC (SWIFT)",
+                    "intermediaryBankCountry": "País Banco Intermediario",
+                    "intermediaryBank": "Banco Intermediario",
+                    "intermediaryBankCity": "Ciudad Banco Intermediario",
+                    "intermediaryBankAddress": "Domicilio Banco Intermediario"
+                }
+            }
+        }
+    },
+<<<<<<< HEAD
+    "authorization": {
+      "title-overview": "Autorización de beneficiarios",
+      "title-details": "Detalles de la operación",
+      "operatorUser-label": "Usuario operador",
+      "role-label": "Rol",
+      "operationType-label": "Tipo de operación",
+      "clientNumber-label": "No. de cliente",
+      "dateFrom-label": "Fecha desde",
+      "dateTo-label": "Fecha hasta",
+      "status-label": "Estado",
+      "error-label": "A ocurrido un error al consultar las operaciones",
+      "list": {
+        "operation-column": "Operación",
+        "operatorUser-column": "Usuario operador",
+        "operatorRole-column": "Rol operador",
+        "operationDate-column": "Fecha operación",
+        "clientNumber-column": "No. cliente",
+        "accountType-column": "Tipo cuenta",
+        "beneficiaryAccount-column": "Cuenta del beneficiario",
+        "operationStatus-column": "Estado operación"
+      },
+      "status": {
+        "UNAUTHORIZED": "No autorizadas (solo lectura)",
+        "AUTHORIZED": "Autorizadas (solo lectura)",
+        "PENDING": "Pendientes de autorización"
+      },
+      "operations": {
+        "A": "Alta",
+        "B": "Baja",
+        "M": "Modificación",
+        "R": "Cambio de estado"
+      },
+      "accountTypes": {
+        "01": "Terceros Sabadell",
+        "40": "SPEI",
+        "41": "SPID",
+        "03": "TDD/TDC",
+        "10": "LTP"
+      }
+    }
+  },
+  "fileQuery": {
+    "operator": {
+      "title": "Consulta por archivo",
+      "continue-button": "Continuar",
+      "cancel-button": "Cancelar",
+      "filter": {
+        "folio-label": "Folio del archivo",
+        "fileName-label": "Nombre del archivo",
+        "destinationAccount-label": "Cuenta de cargo",
+        "dateFrom-label": "Fecha desde*",
+        "dateTo-label": "Fecha hasta*",
+        "search-button": "Buscar"
+      },
+      "list": {
+        "title": "Listado de archivos",
+        "folio-column": "Folio del archivo",
+        "fileName-column": "Nombre del archivo",
+        "ordererName-column": "Nombre de ordenante",
+        "destinationAccount-column": "Cuenta ordenante",
+        "applicationDate-column": "Fecha de aplicación",
+        "amount-column": "Importe",
+        "chargeType-column": "Tipo de cargo",
+        "fileType-column": "Tipo de archivo",
+        "channel-column": "Canal",
+        "operatorUser-column": "Usuario operador",
+        "rfcOrderer-column": "RFC ordenante",
+        "serviceType-column": "Tipo de servicio",
+        "status-column": "Estado",
+        "ownAccounts-column": "Cuentas propias",
+        "thirdPartiesSabadell-column": "Terceros Sabadell",
+        "otherSPEIBanks-column": "Otros bancos SPEI",
+        "authorizationUser-column": "Usuario autorizador"
+      }
+=======
+    "fileQuery": {
+        "operator": {
+            "title": "Consulta por archivo",
+            "continue-button": "Continuar",
+            "cancel-button": "Cancelar",
+            "filter": {
+                "folio-label": "Folio del archivo",
+                "fileName-label": "Nombre del archivo",
+                "destinationAccount-label": "Cuenta de cargo",
+                "dateFrom-label": "Fecha desde*",
+                "dateTo-label": "Fecha hasta*",
+                "search-button": "Buscar"
+            },
+            "list": {
+                "title": "Listado de archivos",
+                "folio-column": "Folio del archivo",
+                "fileName-column": "Nombre del archivo",
+                "ordererName-column": "Nombre de ordenante",
+                "destinationAccount-column": "Cuenta ordenante",
+                "applicationDate-column": "Fecha de aplicación",
+                "amount-column": "Importe",
+                "chargeType-column": "Tipo cargo",
+                "fileType-column": "Tipo archivo",
+                "channel-column": "Canal",
+                "operatorUser-column": "Usuario operador",
+                "rfcOrderer-column": "RFC ordenante",
+                "serviceType-column": "Tipo de servicio",
+                "status-column": "Estado",
+                "ownAccounts-column": "Cuentas propias",
+                "thirdPartiesSabadell-column": "Terceros Sabadell",
+                "otherSPEIBanks-column": "Otros bancos SPEI",
+                "authorizationUser-column": "Usuario autorizador"
+            }
+        },
+        "issues": {
+            "title_admin": "Administración de incidencias",
+            "title_operations": "Operaciones con incidencias",
+            "folio": "No. de folio",
+            "reference": "Referencia",
+            "begin_date": "Fecha de inicio",
+            "end_date": "Fecha fin",
+            "detail": {
+                "operation": "Datos operación",
+                "orderer": "Ordenante",
+                "beneficiary": "Beneficiario",
+                "accounting": {
+                    "title": "Contabilidad",
+                    "ordinal": "Ordinal",
+                    "subordinal": "Subordinal",
+                    "branch_office": "Sucursal",
+                    "entry": "Rubro",
+                    "entry_name": "Nombre rubro",
+                    "currency": "Moneda",
+                    "species": "Especie",
+                    "account": "Cuenta",
+                    "operation": "Operación",
+                    "subop": "Sub-op",
+                    "dh": "D/H",
+                    "import": "Importe"
+                }
+            },
+            "list": {
+                "id": "Id",
+                "counterpart_institution": "Institucion contraparte",
+                "payment_type": "Tipo de pago",
+                "payment_concept": "Concepto de pago",
+                "numeric_reference": "Referencia numerica",
+                "texts": "Textos",
+                "iva": "IVA",
+                "operation_date": "Fecha de operacion",
+                "tracking_key": "Clave de rastreo",
+                "bank": "Banca",
+                "rode": "Monto",
+                "folio": "Folio",
+                "account_type": "Tipo de cuenta",
+                "name": "Nombre",
+                "account": "Cuenta",
+                "rfc_curp": "RFC/CURP"
+            }
+        },
+        "clarifications": {
+            "title_filter": "Operacion oficina",
+            "folio": "No. de folio",
+            "tracking_key": "Clave de rastreo",
+            "orderer_name": "Nombre de ordenante",
+            "account": "Cuenta",
+            "begin_date": "Fecha de inicio",
+            "end_date": "Fecha fin",
+            "import": "Importe",
+            "beneficiary_account": "Cuenta beneficiario",
+            "clarifications_list": {
+                "folio": "Folio",
+                "tracking_key": "Clave de rastreo",
+                "client_name": "Nombre cte.",
+                "destiny_account": "Cta. destino",
+                "creation_date": "Fecha creacion",
+                "import": "Importe",
+                "beneficiary_account": "Cuenta beneficiario"
+            }
+        }
+>>>>>>> b10b30bdfec1d0b72b9cb883ebb9b4d62f183344
+    },
+    "fileDetail": {
+        "operator": {
+            "title": "Detalle del archivo",
+            "continue-button": "Continuar",
+            "back-button": "Regresar",
+            "tracking": {
+                "title": "Seguimiento",
+                "folio-column": "Folio",
+                "ordererAccount-column": "Folio",
+                "totalAmount-column": "Cuenta ordenante",
+                "paymentType-column": "Importe total",
+                "operationType-column": "Tipo de pago",
+                "rfcCurpOrderer-column": "Tipo de operación",
+                "status-column": "Estado"
+            },
+            "paymentItems": {
+                "showPaymentItems": "Visualizar detalle de transacciones",
+                "showPaymentItems-no": "No",
+                "showPaymentItems-yes": "Si",
+                "title": "Detalle de transacciones",
+                "list": {
+                    "dateTime-column": "Fecha-Hora",
+                    "eventProcess-column": "Evento/Proceso",
+                    "systemProcess-column": "Sistema/Proceso",
+                    "status-column": "Estado"
+                }
+            }
+        }
+    },
+    "notes": {
+        "dialog": {
+            "save-button": "Guardar",
+            "title": "Notas"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+
+<!--Form user date (only read)-->
+<div class="title-container">
+  <span class="title">{{'security.profile.detail.user-title' | translate}}</span>
+</div>
+<div>
+  <div class="form-data-container">
+    <div fxLayout="row">
+      <div fxFlex="100" fxFlex.xs="100" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" disabled matInput name="userName" type="text"
+                 placeholder="{{'security.profile.detail.userName' |translate}}" value="{{user.displayName}}">
+        </mat-form-field>
+      </div>
+      <!--<div fxFlex="50" fxFlex.xs="50" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" readonly matInput name="userLastName" type="text"
+                 placeholder="{{'security.profile.detail.userLastName' |translate}}" value="{{user.lastName}}">
+        </mat-form-field>
+      </div>-->
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" disabled matInput name="userEmail" type="text"
+                 placeholder="{{'security.profile.detail.userEmail' |translate}}" value="{{user.email}}">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+        <mat-form-field class="input-container">
+          <input autocomplete="off" disabled matInput name="state" type="text"
+                 placeholder="{{'security.profile.detail.state' |translate}}" value="{{user.state}}">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--User profile -->
+<div class="title-container">
+  <span class="title">{{'security.profile.detail.profile-title' | translate}}</span>
+</div>
+
+<div class="profile-container" *ngIf="!!user">
+  <div>
+    <!--DROP-->
+    <div class="drop-container">
+      <h2>{{'security.profile.detail.available-rol' | translate}}</h2>
+
+      <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="rolesList" [cdkDropListConnectedTo]="[doneList]"
+           class="list-container" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of rolesList" cdkDrag>{{'dataTypes.roles.' + item | translate}}</div>
+      </div>
+    </div>
+    <div class="drop-container">
+      <h2>{{'security.profile.detail.assigned-rol' | translate}}</h2>
+
+      <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="user.roles" [cdkDropListConnectedTo]="[todoList]"
+           class="list-container" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of user.roles" cdkDrag>{{'dataTypes.roles.' + item | translate}}</div>
+      </div>
+    </div>
+    <!--END DROP-->
+  </div>
+</div>

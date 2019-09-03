@@ -1,0 +1,14 @@
+@import "mixins";
+@import "constants";
+
+
+.detail-error {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.detail-error-description {
+  margin-left: 22px !important;
+  margin-top: 0px !important;
+}

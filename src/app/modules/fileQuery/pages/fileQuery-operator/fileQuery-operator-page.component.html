@@ -1,0 +1,28 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<two-breadcrumb [breadcrumbList]="['fileQuery.operator.title']"></two-breadcrumb>
+<div class="title-container">
+  <span class="title">{{'fileQuery.operator.title' |translate}}</span>
+</div>
+<div>
+  <two-file-query-operator-filter (showNoFoundMessage)="showNoFoundMessage = $event"
+                                  (formSubmit)="getRows(true, $event, true, 1)"
+                                  (showSearchEmitter)="showSearch = $event"
+                                  [hasRecords]="totalFiles > 0 && showSearch"
+                                  #filter></two-file-query-operator-filter>
+</div>
+
+<div *ngIf="showSearch">
+  <div class="title-container list-title">
+    <span class="title">{{'fileQuery.operator.list.title' |translate}}</span>
+  </div>
+  <div class="full-width">
+    <two-file-query-operator-list [totalFiles]="totalFiles" (assignFileSelected)="onFileSelect($event)"
+                                  [dataList]="fileQueryData" (emitterPage)="getRowsPage($event)"
+                                  #list></two-file-query-operator-list>
+  </div>
+  <div [ngStyle]="totalFiles < 11 && {'margin-top': '20px'}">
+    <two-file-query-operator-button-panel (continueClick)="onContinueClick()" [allowContinue]="allowContinue"
+                                          [fileSelectedInput]="fileItemSelected"
+                                          [stepper]="stepper"></two-file-query-operator-button-panel>
+  </div>
+</div>

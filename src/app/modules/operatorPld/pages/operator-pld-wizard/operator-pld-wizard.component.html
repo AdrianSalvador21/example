@@ -1,0 +1,43 @@
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper [selectedIndex]="stepper.selectedIndex">
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-beneficiaries-pld [stepper]="stepper" (buttonClick)="onButtonClick($event)"
+                             #initialStep></two-beneficiaries-pld>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-download-pld [beneficiaryDataInput]="stepper.beneficiaryData" [stepper]="stepper"></two-download-pld>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 2">
+      <two-beneficiaries-pld-detail [beneficiaryDataInput]="stepper.beneficiaryData"
+                                    [stepper]="stepper"></two-beneficiaries-pld-detail>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 3">
+      <two-beneficiaries-confirm [onPldDetails]="true" [data]="stepper.beneficiaryData" [stepper]="stepper"
+                                 [hideTitle]="false"></two-beneficiaries-confirm>
+      <div *ngIf="buttonToShow == 0">
+        <div fxLayout="row">
+          <div fxFlex="100" class="button-group-container">
+            <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="return()">
+              {{'general.return-button' |translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="buttonToShow == 1">
+        <div fxLayout="row">
+          <div fxFlex="100" class="button-group-container">
+            <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="finalize()">
+              {{'general.finish-button' |translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,78 @@
+<div>
+  <form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid (ngSubmit)="onSubmit()">
+    <div class="form-data-container">
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput name="cve_rastreo"
+                   type="text" placeholder="{{'fileQuery.issues.cve_rastreo' |translate}}"
+                   formControlName="cve_rastreo" [patterns]="patternAlphaNumeric" mask="#{19}" maxlength="18">
+          </mat-form-field>
+          <mat-error *ngIf="f.cve_rastreo.invalid">{{'errors.field' |translate}}</mat-error>
+        </div>
+
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput name="reference" type="text"
+                   placeholder="{{'fileQuery.issues.reference' |translate}}"
+                   formControlName="reference" mask="0{21}" maxlength="20">
+          </mat-form-field>
+          <mat-error *ngIf="f.reference.invalid">{{'errors.field' |translate}}</mat-error>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+
+          <mat-form-field class="line-calendar">
+            <input autocomplete="off" matInput name="dateFrom" #dateFrom
+                   [matDatepicker]="pickerFrom" placeholder="{{'fileQuery.issues.begin_date' |translate}}"
+                   formControlName="dateFrom" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFrom></mat-datepicker>
+          </mat-form-field>
+          <mat-error
+            *ngIf="(f.dateFrom.touched || !!f.dateTo.value) && !dateFrom.value && !f.dateFrom.disabled">
+            {{'errors.required' |translate}}
+          </mat-error>
+          <mat-error *ngIf="(f.dateFrom.touched || !!f.dateTo.value) && !!dateFrom.value  && f.dateFrom.invalid">
+            {{'errors.field' |translate}}
+          </mat-error>
+          <mat-error *ngIf="!!f.dateFrom.value && !!f.dateTo.value && f.dateFrom.value > f.dateTo.value">
+            {{'errors.dateError' |translate}}
+          </mat-error>
+
+        </div>
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="line-calendar">
+            <input autocomplete="off" matInput name="dateTo" #dateTo
+                   [matDatepicker]="pickerTo" placeholder="{{'fileQuery.issues.end_date' |translate}}"
+                   formControlName="dateTo" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+            <mat-datepicker #pickerTo></mat-datepicker>
+          </mat-form-field>
+          <mat-error
+            *ngIf="(f.dateTo.touched || !!f.dateFrom.value) && !dateTo.value && !f.dateTo.disabled">
+            {{'errors.required' |translate}}
+          </mat-error>
+          <mat-error *ngIf="(f.dateTo.touched || !!f.dateFrom.value) && !!dateTo.value && f.dateTo.invalid">
+            {{'errors.field' |translate}}
+          </mat-error>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100" class="button-group-container">
+        <button appNoDblClickMat *ngIf="showClean" mat-raised-button class="button-group-separator white-button" type="button"
+                (click)="clean()">
+          {{'fileQuery.operator.filter.clean-button' |translate}}
+        </button>
+        <button appNoDblClickMat mat-raised-button class="button-group-separator" type="submit"
+                [disabled]="!isValidForm">
+          {{'fileQuery.operator.filter.search-button' |translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+
+</div>

@@ -1,0 +1,88 @@
+@import "mixins";
+@import "constants";
+
+.login-form {
+  // padding-top: 5px;
+}
+
+.login-form-field {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.error-class {
+  margin-left: 5px;
+}
+
+.login-container-full {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4a4a4a;
+  min-height: 366px !important;
+  height: 100vh;
+}
+
+.login-card {
+  width: 512px;
+  margin: 0;
+  padding: 0;
+}
+
+.mat-card-actions {
+  margin: 0;
+}
+
+.mat-form-field {
+  display: block;
+}
+
+button {
+  @include push--auto(2rem);
+  display: block;
+}
+
+.login-card-content {
+  padding: 25px 25px 60px;
+  background-color: #fafafa;
+}
+
+.login-button-container {
+  margin-top: 40px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.login-button-text {
+}
+
+.login-button-container button {
+  display: block;
+  margin: 0 auto
+}
+
+.login-button-valid {
+  color: $white;
+  background-color: $blue;
+}
+
+.login-button-invalid {
+  color: $white;
+  background-color: $gray;
+}
+
+.login-card-header-title {
+  font-size: $font-size-very-big;
+}
+
+.image-logo {
+  width: 180px;
+  margin-left: 25px;
+  padding-top: 14px;
+}
+
+.container-logo {
+  width: 100%;
+  height: 81px;
+  background-color: $blue;
+}

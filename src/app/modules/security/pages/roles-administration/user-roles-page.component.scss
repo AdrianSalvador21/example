@@ -1,0 +1,60 @@
+@import "mixins";
+@import "constants";
+
+::ng-deep .mat-cell {
+  vertical-align: middle;
+}
+
+::ng-deep .mat-header-cell {
+  vertical-align: middle;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.plus-icon {
+  font-size: 26px;
+  margin-right: 8px;
+}
+
+.delete-button-enabled {
+  color: $black;
+  cursor: pointer;
+}
+
+.delete-button-disabled {
+  color: $gray;
+}
+
+.star-button-filled {
+  color: $yellow;
+  cursor: default;
+}
+
+.star-button-border {
+  cursor: pointer;
+}
+
+.star-button-border-enabled {
+  cursor: pointer;
+  color: $black;
+}
+
+.star-button-border-disabled {
+  color: $gray;
+  cursor: default;
+}
+
+.empty-container {
+  display: grid;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+  line-height: 1.25;
+  background: #dfeaf9;
+  border-radius: .5rem;
+  font-weight: 400;
+  border: 0 solid #585c62;
+  margin-top: 20px;
+  padding: 20px;
+}

@@ -1,0 +1,121 @@
+<div *ngIf="dataListValue !== undefined">
+<div fxLayout="row" class="table-container">
+
+  <div fxFlex="100">
+
+    <table mat-table [dataSource]="dataListValue">
+
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th class="select-column" mat-header-cell *matHeaderCellDef>
+
+        </th>
+        <td class="select-column" mat-cell *matCellDef="let item">
+          <p class="table-text">
+            <mat-radio-button (click)="assignRegister($event, item)"></mat-radio-button>
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- operation Column -->
+      <!-- operation Column -->
+      <ng-container matColumnDef="folio">
+        <th mat-header-cell *matHeaderCellDef><p class="table-text icon">{{'operation.clarification-list.folio-column' |translate}}</p></th>
+        <td mat-cell *matCellDef="let Operation"> <p class="table-text icon">{{'beneficiary.authorization.operations.' + Operation.OPERATIONTYPE |
+          translate}}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="postingDate">
+        <th mat-header-cell *matHeaderCellDef><p class="table-text icon">{{'operation.clarification-list.postingDate-column' |translate}}</p></th>
+        <td mat-cell *matCellDef="let Operation"><p class="table-text icon"> {{'beneficiary.authorization.operations.' + Operation.OPERATIONTYPE |
+          translate}}</p>
+        </td>
+      </ng-container>
+
+      <!-- operatorUser Column -->
+      <ng-container matColumnDef="reference">
+        <th mat-header-cell *matHeaderCellDef><p class="table-text icon">{{'operation.clarification-list.reference-column' |translate}}</p></th>
+        <td mat-cell *matCellDef="let Operation"> <p class="table-text icon">{{Operation.OPERATORUSER}}</p></td>
+      </ng-container>
+
+      <!-- operatorRole Column -->
+      <ng-container matColumnDef="chargeAccount">
+        <th mat-header-cell *matHeaderCellDef><p class="table-text icon"> {{'operation.clarification-list.chargeAccount-column' |translate}}</p></th>
+        <td mat-cell *matCellDef="let Operation"><p class="table-text icon"> {{'security.login.roles.' + Operation.OPERATORROL | translate}}</p></td>
+      </ng-container>
+
+      <!-- operationDate Column -->
+      <ng-container matColumnDef="clientName">
+        <th mat-header-cell *matHeaderCellDef> <p class="table-text icon">{{'operation.clarification-list.clientName-column' |translate}}</p></th>
+        <td mat-cell *matCellDef="let Operation"> <p class="table-text icon">{{Operation.CREATIONDATE  | date:'dd/MM/yyy'}}</p></td>
+      </ng-container>
+
+      <!-- clientNumber Column -->
+      <ng-container matColumnDef="destinyAccount">
+        <th mat-header-cell *matHeaderCellDef><p class="table-text icon"> {{'operation.clarification-list.destinyAccount-column' |translate}}</p></th>
+        <td mat-cell *matCellDef="let Operation"> <p class="table-text icon">{{Operation.CLIENTID}}</p></td>
+      </ng-container>
+
+      <!-- accountType Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef><p class="table-text icon"> {{'operation.clarification-list.amount-column' |translate}}</p></th>
+        <td mat-cell *matCellDef="let Operation"> <p class="table-text icon">{{'beneficiary.authorization.accountTypes.' + Operation.ACCOUNTTYPE
+          |translate}}</p>
+        </td>
+      </ng-container>
+
+      <!-- beneficiaryAccount Column -->
+      <ng-container matColumnDef="channel">
+        <th mat-header-cell *matHeaderCellDef><p class="table-text icon"> {{'operation.clarification-list.channel-column' |translate}}</p>
+        </th>
+        <td mat-cell *matCellDef="let Operation"><p class="table-text icon"> {{Operation.BENEFACCOUNT}}</p></td>
+      </ng-container>
+
+      <!-- operationStatus Column -->
+      <ng-container matColumnDef="creator-user">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text icon">{{'operation.clarification-list.creatorUser-column' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text icon">{{item.CREATORUSER}}
+          </p>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="authorizator-user">
+        <th mat-header-cell *matHeaderCellDef> <p class="table-text icon">{{'operation.clarification-list.operatorUser-column' |translate}}</p></th>
+        <td mat-cell *matCellDef="let Operation"><p class="table-text icon"> {{'beneficiary.authorization.status.' + Operation.AUTHORIZATIONSTATUS
+          |translate}}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef><p class="table-text icon"> {{'operation.clarification-list.status-column' |translate}}</p></th>
+        <td mat-cell *matCellDef="let Operation"><p class="table-text icon"> {{'beneficiary.authorization.status.' + Operation.AUTHORIZATIONSTATUS
+          |translate}}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fileFolio">
+        <th mat-header-cell *matHeaderCellDef> <p class="table-text icon">{{'operation.clarification-list.fileFolio-column' |translate}}</p></th>
+        <td mat-cell *matCellDef="let Operation"><p class="table-text icon"> {{'beneficiary.authorization.status.' + Operation.AUTHORIZATIONSTATUS
+          |translate}}</p>
+        </td>
+      </ng-container>
+
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+
+
+  </div>
+</div>
+
+<div class="paginator-container" *ngIf="total > 10">
+  <two-paginator-custom [length]="total" [pageSize]="10" (page)="pageData = $event" (click)="emmitPageChange(pageData)"></two-paginator-custom>
+</div>
+</div>

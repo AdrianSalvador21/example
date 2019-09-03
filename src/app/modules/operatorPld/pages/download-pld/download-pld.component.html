@@ -1,0 +1,82 @@
+<div class="title-container" style="margin-bottom: 10px;">
+  <span class="title">{{'pld.beneficiaries.downloadTitle' |translate}}</span>
+</div>
+
+<div class="title-container">
+  <span class="title">{{'pld.beneficiaries.trackingTitle' |translate}}</span>
+</div>
+
+<div fxLayout="row" class="roundedSection">
+  <div fxFlex="100" fxFlex.xs="100">
+    <div fxLayout="row" style="margin-bottom: 4px;">
+      <div fxFlex="15" fxFlex.xs="15" class="infoSection description" style="margin-right: 4px;">
+        <p>{{'pld.downloadDetail.description' | translate}}</p>
+      </div>
+      <div fxFlex="80" fxFlex.xs="85" class="infoSection value">
+        <p>{{description}}</p>
+      </div>
+    </div>
+
+    <div fxLayout="row" style="margin-bottom: 4px;">
+      <div fxFlex="15" fxFlex.xs="15" class="infoSection description" style="margin-right: 4px;">
+        <p>{{'pld.downloadDetail.status' | translate}}</p>
+      </div>
+      <div fxFlex="80" fxFlex.xs="85" class="infoSection value">
+        <p>{{status}}</p>
+      </div>
+    </div>
+
+    <div fxLayout="row" style="margin-bottom: 4px;">
+      <div fxFlex="15" fxFlex.xs="15" class="infoSection description" style="margin-right: 4px;">
+        <p>{{'pld.downloadDetail.totalTime' | translate}}</p>
+      </div>
+      <div fxFlex="80" fxFlex.xs="85" class="infoSection value">
+        <p>{{time}} {{'pld.downloadDetail.seconds-label' | translate}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="title-container">
+  <span class="title">{{'pld.beneficiaries.generalInfo' |translate}}</span>
+</div>
+<div fxLayout="row" class="roundedSection">
+  <div fxFlex="100" fxFlex.xs="100">
+    <div fxLayout="row" style="margin-bottom: 4px;">
+      <div fxFlex="15" fxFlex.xs="15" class="infoSection description" style="margin-right: 4px;">
+        <p style="float: right">{{'pld.downloadDetail.creationDate' | translate}}</p>
+      </div>
+      <div fxFlex="80" fxFlex.xs="85" class="infoSection value">
+        <p>{{currentDate}}</p>
+      </div>
+    </div>
+    <div fxLayout="row" style="margin-bottom: 4px;">
+      <div fxFlex="15" fxFlex.xs="15" class="infoSection description" style="margin-right: 4px;">
+        <p>{{'pld.downloadDetail.start' | translate}}</p>
+      </div>
+      <div fxFlex="32" fxFlex.xs="35" class="infoSection value" style="margin-right: 4px;">
+        <p>{{currentDate}}</p>
+      </div>
+      <div fxFlex="15" fxFlex.xs="15" class="infoSection description" style="margin-right: 4px;">
+        <p>{{'pld.downloadDetail.start' | translate}}</p>
+      </div>
+      <div fxFlex="32" fxFlex.xs="35" class="infoSection value">
+        <p>{{currentDate}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat (click)="cancel()" mat-raised-button class="white-button button-group-separator" type="button">
+      {{'pld.downloadDetail.cancelButton' |translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button">
+      {{'pld.downloadDetail.confirmButton' |translate}}
+    </button>
+  </div>
+</div>
+

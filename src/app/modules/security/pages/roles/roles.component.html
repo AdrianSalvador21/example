@@ -1,0 +1,13 @@
+<mat-horizontal-stepper [@.disabled]="true" id="stepTwo" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-roles-update #rolesUpdate [stepper]="stepper"></two-roles-update>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-profile-config (returnOutput)="reset()" [stepper]="stepper"></two-profile-config>
+      <!--<two-menu-update (returnOutput)="reset()" [stepper]="stepper"></two-menu-update>-->
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

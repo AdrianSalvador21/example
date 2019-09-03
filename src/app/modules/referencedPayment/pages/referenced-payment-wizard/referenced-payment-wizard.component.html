@@ -1,0 +1,12 @@
+<mat-horizontal-stepper [@.disabled]="true" id="stepTwo" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-referenced-payment #initial [stepper]="stepper"></two-referenced-payment>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-referenced-payment-confirm (initialCleanEmitter)="cleanSearch()" [ListData]="stepper.accountsData" [stepper]="stepper"></two-referenced-payment-confirm>
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

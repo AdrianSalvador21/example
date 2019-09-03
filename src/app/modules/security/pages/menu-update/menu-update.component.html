@@ -1,0 +1,13 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<div class="title-container">
+  <span class="title">{{'security.roles.title' |translate}}</span>
+</div>
+
+<div>
+  <two-roles-update-filter [readonlyForm]="true" [stepper]="stepper"></two-roles-update-filter>
+</div>
+
+<div *ngIf="!!fullMenu && fullMenu.length !== 0">
+  <two-menu-update-grid (returnOutput)="reset()" [fullMenu]="fullMenu" [stepper]="stepper"></two-menu-update-grid>
+</div>

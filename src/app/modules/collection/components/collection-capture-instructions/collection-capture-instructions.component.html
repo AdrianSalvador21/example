@@ -1,0 +1,75 @@
+<div class="section-container">
+  <span class="section-title">{{'collection.captureInstructionsTitle' | translate}}</span>
+
+
+  <div>
+    <form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid>
+      <div class="">
+        <div fxLayout="row">
+          <div fxFlex="50" fxFlex.xs="50" class="field-container">
+            <mat-form-field class="input-container">
+              <mat-select placeholder="{{'collection.captureInstructionsForm.algorithm' |translate}}" formControlName="algorithm">
+                <!--<mat-option value="">-->
+                <!--{{'pld.beneficiaries.filter.statusOptions.ALL' | translate}}-->
+                <!--</mat-option>-->
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div fxLayout="row">
+          <div fxFlex="50" fxFlex.xs="50" class="field-container">
+            <span class="form-field-title">{{'collection.captureInstructionsForm.reference' |translate}}</span>
+          </div>
+          <div fxFlex="50" fxFlex.xs="50" class="field-container">
+            <span class="form-field-title">{{'collection.captureInstructionsForm.concept' |translate}}</span>
+          </div>
+        </div>
+
+
+
+        <div fxLayout="row">
+          <div fxFlex="50" fxFlex.xs="50" class="field-container">
+            <mat-form-field class="input-container">
+              <input autocomplete="off" type="number" matInput name="referenceMaxLength"
+                     formControlName="referenceMaxLength"
+                     min="10"
+                     placeholder="{{'collection.captureInstructionsForm.maxLength' |translate}}">
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.xs="50" class="field-container">
+            <mat-form-field class="input-container">
+              <input autocomplete="off" type="number" matInput name="conceptMaxLength"
+                     formControlName="conceptMaxLength"
+                     min="10"
+                     placeholder="{{'collection.captureInstructionsForm.maxLength' |translate}}">
+            </mat-form-field>
+          </div>
+        </div>
+
+
+
+        <div fxLayout="row">
+          <div fxFlex="50" fxFlex.xs="50" class="field-container">
+            <mat-form-field class="input-container">
+              <input autocomplete="off" type="number" matInput name="referenceMinLength"
+                     formControlName="referenceMinLength"
+                     min="10"
+                     placeholder="{{'collection.captureInstructionsForm.minLength' |translate}}">
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.xs="50" class="field-container">
+            <mat-form-field class="input-container">
+              <input autocomplete="off" type="number" matInput name="conceptMinLength"
+                     formControlName="conceptMinLength"
+                     min="10"
+                     placeholder="{{'collection.captureInstructionsForm.minLength' |translate}}">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

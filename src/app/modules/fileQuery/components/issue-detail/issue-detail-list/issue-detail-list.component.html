@@ -1,0 +1,161 @@
+<!--TABLA-->
+<div fxLayout="row" class="table-container">
+  <div fxFlex="100">
+    <table mat-table [dataSource]="listData">
+
+      <ng-container matColumnDef="orderer">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">{{'fileQuery.issues.detail.accounting.ordinal' |translate}}</p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">{{item.Ordinal['@@TextValue']}}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subordinal">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">{{'fileQuery.issues.detail.accounting.subordinal' |translate}}</p>
+
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">{{item.SubOrdinal['@@TextValue']}}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="branch_office">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.branch_office' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.Sucursal['@@TextValue']}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="entry">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.entry' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.Rubro['@@TextValue']}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="entryname">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.entry_name' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.NomRub['@@TextValue']}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="currency">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.currency' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.Moneda['@@TextValue']}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="species">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.species' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.Papel['@@TextValue']}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="account">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.account' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.Cuenta['@@TextValue']}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="operation">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.operation' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.Operacion['@@TextValue']}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="suboperation">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.subop' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.SubOper['@@TextValue']}}
+          </p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dh">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.dh' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.dhTypes.' + item.DebCre['@@TextValue'] | translate}}
+          </p>
+        </td>
+      </ng-container>
+      <!-- beneficiaryAccount Column -->
+      <ng-container matColumnDef="import">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileQuery.issues.detail.accounting.import' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.Importe['@@TextValue']}}
+          </p>
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+      </tr>
+    </table>
+  </div>
+</div>

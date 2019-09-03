@@ -1,0 +1,19 @@
+<two-header *ngIf="!!isAuthenticatedUser" class="app-header mat-elevation-z0"
+            ngStyle.sm="position: relative" ngStyle.xs="position: relative"
+            (menuClicked)="toggleSideBar()">
+</two-header>
+<mat-drawer-container class="full-screen" autosize>
+  <mat-drawer #drawer class="sidenav" *ngIf="!!isAuthenticatedUser"
+              [opened]="true"
+              [mode]="'side'"
+              [fxHide.sm]="!menu?.showCompleteMenu"
+              [fxHide.xs]="!menu?.showCompleteMenu"
+              [ngStyle.sm]="{'margin-top':'0', 'position':'absolute'}"
+              [ngStyle.xs]="{'margin-top':'0', 'position':'absolute'}">
+    <two-menu #menu></two-menu>
+  </mat-drawer>
+  <div id="app-main-container" [ngClass]="{'container-login': !isAuthenticatedUser, 'container': isAuthenticatedUser}"
+       [ngStyle.sm]="{'margin-top':'0'}" [ngStyle.xs]="{'margin-top':'0'}">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

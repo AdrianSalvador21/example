@@ -1,0 +1,1751 @@
+{
+  "header": {
+    "connection-label": "Última conexión:"
+  },
+  "incident": {
+    "continue_button": "Continuar",
+    "folio": "Folio del archivo",
+    "paymentItem": "Id (Folio)",
+    "executionDate": "Fecha de aplicación",
+    "executionTime": "Hora de aplicación",
+    "reference": "Referencia",
+    "ordererAcc": "Cta. a cargo",
+    "clientName": "Nombre del cliente",
+    "benefAcc": "Cuenta abono",
+    "amount": "Importe"
+  },
+  "security": {
+    "login": {
+      "title": "Inicio de sesión",
+      "username-placeholder": "Usuario",
+      "password-placeholder": "Contraseña",
+      "login-button": "Ingresar",
+      "roles-placeholder": "Perfil",
+      "roles": {
+        "OPERADOR": "Operador",
+        "AUTORIZADOR": "Autorizador",
+        "PLD_OPERADOR": "Operador PLD",
+        "ADMIN": "Administrador"
+      },
+      "unauthorized": "Credenciales inválidas",
+      "blocked": "Usuario bloqueado, por favor comuniquese con el administrador del sistema",
+      "noPermissions": "No puede acceder al sistema, comuniquese con un administrador"
+    },
+    "role": {
+      "title": "Administración de usuarios",
+      "success": "Tu cambio ha sido guardado",
+      "filter": {
+        "userKey-label": "Clave de usuario",
+        "email-label": "Email",
+        "search-button": "Buscar",
+        "clean-button": "Limpiar"
+      },
+      "detail": {
+        "user-title": "Datos del usuario",
+        "userName": "Nombre",
+        "userLastName": "Apellido",
+        "userEmail": "Correo",
+        "state": "Estado"
+      },
+      "list": {
+        "userRoles-title": "Roles del usuario",
+        "roleDescription": "Rol",
+        "enabled": "Habilitado",
+        "mainRole": "Rol principal",
+        "enabledValue": {
+          "1": "Si",
+          "0": "No"
+        },
+        "remove": "Eliminar"
+      },
+      "add": {
+        "role-selection":"Seleccione un rol",
+        "error": "Debe seleccionar un rol de la lista"
+      },
+      "main-role-change-confirmation": "¿Desea cambiar el rol principal del usuario?",
+      "remove-confirmation": "¿Desea quitarle este rol al usuario seleccionado?",
+      "save-changes-confirmation": "¿Desea actualizar la configuración del usuario?",
+      "save-button": "Guardar",
+      "cancel-button": "Cancelar",
+      "noRoles": "El usuario seleccionado no posee roles"
+    },
+    "roles": {
+      "menu-label": "Menú principal",
+      "confirm-question": "¿Está seguro que desea guardar los cambios?",
+      "confirm": "Sus cambios han sido guardados correctamente",
+      "profiles-title": "Asignación de perfiles",
+      "delete-error": "Ha ocurrido un error al intentar eliminar el rol.",
+      "update-error": "Ha ocurrido un error al intentar actualizar el rol.",
+      "delete-message": "¿Está seguro que desea eliminar el rol?",
+      "enabled-message": "¿Está seguro que desea habilitar el rol?",
+      "disabled-message": "¿Está seguro que desea deshabilitar el rol?",
+      "title": "Administración de usuarios y roles",
+      "table-labels": {
+        "newRol": "Nuevo Rol",
+        "rol-column": "Nombre de Rol",
+        "profiles": "Perfiles",
+        "menus": "Menús",
+        "enabled": "Habilitado",
+        "home": "Pantalla principal",
+        "remove": "Eliminar",
+        "edit": "Editar",
+        "PLD_OPERATIONS": "Operaciones PLD",
+        "APPROVER": "Autorizador",
+        "AMOUNT_APPROVER": "Autorizador por monto",
+        "ADMINISTRATOR": "Administrador",
+        "CONSULTIVE": "Consulta",
+        "DATA_CAPTURE": "Captura"
+      },
+      "add": {
+        "profile-input":"Nuevo perfil",
+        "error": "Dato invalido"
+      },
+      "filter": {
+        "rol": "Rol"
+      }
+    }
+  },
+  "beneficiary": {
+    "benefStatus": "Estado",
+    "operator": {
+      "menu-office": "Oficina",
+      "title": "Beneficiarios",
+      "filter": {
+        "clientNumber": "No. de cliente",
+        "alias": "Alias del beneficiario",
+        "accountNumber": "No. de cuenta del beneficiario",
+        "benefType": "Tipo de beneficiario",
+        "search": "Buscar",
+        "benefTypes": {
+          "default": "Seleccione una opción",
+          "I": "Internacional",
+          "N": "Nacional"
+        },
+        "error": {
+          "missingFields": "Debe ingresar el alias o el número de cuenta del beneficiario",
+          "genericError": "Ha ocurrido un error, comuniquese con el administrador",
+          "noRecords": "Beneficiario no encontrado, favor de validar los datos ingresados"
+        }
+      }
+    },
+    "detail": {
+      "status": "Estado",
+      "operationProcess": "Operación a procesar",
+      "modification": "Modificación",
+      "elimination": "Eliminación",
+      "rejectDate": "Fecha de rechazo",
+      "authDate": "Fecha de autorización",
+      "operationStatus": "Estado operación",
+      "operationDate": "Fecha de operación",
+      "modificationDate": "Fecha de modificación",
+      "modificationTime": "Hora de modificación",
+      "deleteDate": "Fecha de eliminación",
+      "deleteTime": "Hora de eliminación",
+      "identification-section-label": "Identificación de beneficiario",
+      "local-section-label": "Datos de beneficiario",
+      "international-section-label": "Datos de beneficiario",
+      "ordenant-section-label": "Ordenante",
+      "beneficiaryBank-section-label": "Banco beneficiario",
+      "beneficiary-form": {
+        "relationType": "Tipo de relación",
+        "defaultRelationType": "Seleccione una opción",
+        "bank": "Banco",
+        "personType": "Tipo de persona",
+        "personTypes": {
+          "00": "Persona física",
+          "01": "Persona moral",
+          "F": "Persona física",
+          "M": "Persona moral",
+          "X": "Beneficiario",
+          "J": "Persona moral"
+        },
+        "internationalTypes": {
+          "true": "Internacional",
+          "false": "Nacional"
+        },
+        "clientNumber": "No. de cliente",
+        "currency": "Divisa de la cuenta",
+        "beneficiaryAccountType": "Tipo de cuenta",
+        "localAccountTypes": {
+          "01": "Terceros Sabadell",
+          "40": "SPEI",
+          "41": "SPID",
+          "03": "TDD/TDC",
+          "10": "LTP",
+          "##": "Internacional",
+          "0": "Internacional"
+        },
+        "beneficiaryType": "Tipo de beneficiario:",
+        "beneficiaryType-local": "Nacional",
+        "beneficiaryType-international": "Internacional",
+        "beneficiaryAccountNumber": "No. de cuenta del beneficiario"
+      },
+      "local-beneficiary-form": {
+        "alias": "Alias del beneficiario",
+        "legalReference": "Nombre o razón social",
+        "firstLastName": "Apellido paterno",
+        "secondLastName": "Apellido materno",
+        "rfc": "RFC",
+        "curp": "CURP",
+        "userIB": "Usuario IB",
+        "email": "Correo electrónico",
+        "phone": "No. de teléfono",
+        "justification": "Justificación",
+        "maximumAmount": "Monto máximo"
+      },
+      "ordenant-form": {
+        "name": "Ordenante (Nombre)",
+        "country": "País",
+        "address": "Domicilio Ordenante",
+        "city": "Ciudad"
+      },
+      "beneficiary-bank-form": {
+        "bic": "Código BIC (SWIFT)",
+        "country": "País",
+        "beneficiaryBank": "Banco beneficiario",
+        "city": "Ciudad",
+        "address": "Domicilio"
+      },
+      "international-beneficiary-form": {
+        "accountType": "Tipo de cuenta",
+        "email": "Correo electrónico",
+        "beneficiaryAccount": "Cuenta beneficiario",
+        "justification": "Justificación",
+        "beneficiaryName": "Nombre beneficiario",
+        "currency": "Divisa",
+        "beneficiaryCountry": "País beneficiario",
+        "maximumAmount": "Monto máximo",
+        "beneficiaryCity": "Ciudad beneficiario",
+        "userIB": "Usuario IB",
+        "beneficiaryPhone": "No. de télefono",
+        "personType": "Tipo de persona",
+        "loadDate": "Fecha de carga",
+        "beneficiaryAddress": "Domicilio beneficiario",
+        "loadTime": "Hora de carga",
+        "charges": "Gastos",
+        "alias": "Alias",
+        "intermediaryBank": "Banco intermediario",
+        "intermediaryBankNo": "No",
+        "intermediaryBankYes": "Si",
+        "modificationDate": {
+          "M": "Fecha de modificación",
+          "B": "Fecha de eliminación",
+          "R": "Fecha de revisión",
+          "I": "Fecha de modificación",
+          "A": "Fecha de modificación",
+          "H": "Fecha de modificación"
+        },
+        "modificationTime": {
+          "M": "Hora de modificación",
+          "B": "Hora de eliminación",
+          "R": "Hora de revisión",
+          "I": "Hora de modificación",
+          "A": "Hora de modificación",
+          "H": "Hora de modificación"
+        }
+      },
+      "intermediary-bank-form": {
+        "intermediaryBankBic": "Código BIC Banco intermediario (SWIFT)",
+        "beneficiaryCountry": "País Banco intermediario",
+        "intermediaryBank": "Banco intermediario",
+        "beneficiaryCity": "Ciudad Banco intermediario",
+        "beneficiaryAddress": "Domicilio Banco intermediario"
+      },
+      "edition-disclaimer": "¿Está seguro que desea modificar los datos del beneficiario?",
+      "remove-disclaimer": "¿Está seguro que desea dar de baja el beneficiario?"
+    },
+    "confirm": {
+      "title": {
+        "delete": "Confirmación de Baja de Beneficiario",
+        "modify": "Confirmación de Modificación de Beneficiario",
+        "pld": "Detalles de la operación"
+      },
+      "dialog": {
+        "authorizationDialog": "Tu operación requiere retoma."
+      },
+      "national": {
+        "finalizeButton": "Finalizar",
+        "beneficiaryId": {
+          "title": "Identificación del beneficiario",
+          "personType": "Tipo de persona",
+          "clientNumber": "No. de cliente",
+          "currency": "Divisa de la cuenta",
+          "beneficiaryAccountType": "Tipo de cuenta",
+          "beneficiaryAccountNumber": "No. de cuenta del beneficiario",
+          "internationalBeneficiary": "Tipo de beneficiario",
+          "beneficiaryBank": "Banco",
+          "folio": "Folio",
+          "FOLIO": "Folio de operación"
+        },
+        "beneficiaryInfo": {
+          "title": "Datos del beneficiario",
+          "alias": "Alias del beneficiario",
+          "legalReference": "Nombre o razón social",
+          "firstLastName": "Apellido Paterno",
+          "secondLastName": "Apellido Materno",
+          "rfc": "RFC",
+          "curp": "CURP",
+          "userIB": "Usuario IB",
+          "email": "Correo electrónico",
+          "justification": "Justificación",
+          "phone": "Número de teléfono",
+          "maximumAmount": "Monto máximo",
+          "dischargeDate": "Fecha de baja",
+          "dischargeHour": "Hora de baja",
+          "state": "Estado",
+          "modificationDate": {
+            "M": "Fecha de modificación",
+            "B": "Fecha de eliminación",
+            "R": "Fecha de revisión",
+            "I": "Fecha de modificación",
+            "A": "Fecha de modificación",
+            "H": "Fecha de modificación"
+          },
+          "modificationTime": {
+            "M": "Hora de modificación",
+            "B": "Hora de eliminación",
+            "R": "Hora de revisión",
+            "I": "Hora de modificación",
+            "A": "Hora de modificación",
+            "H": "Hora de modificación"
+          }
+        }
+      },
+      "international": {
+        "finalizeButton": "Finalizar",
+        "beneficiaries": {
+          "title": "Beneficiario",
+          "clientNumber": "No. de cliente",
+          "beneficiaryAlias": "Alias del beneficiario",
+          "beneficiaryAccountNumber": "No. de cuenta del beneficiario"
+        },
+        "beneficiaryId": {
+          "title": "Identificación del beneficiario",
+          "personType": "Tipo de persona",
+          "clientNumber": "No. de cliente",
+          "currency": "Divisa de la cuenta",
+          "beneficiaryAccountType": "Tipo de cuenta",
+          "internationalBeneficiary": "Tipo de beneficiario",
+          "beneficiaryAccountNumber": "No. de cuenta del beneficiario",
+          "folio": "Folio de operación"
+        },
+        "orderer": {
+          "title": "Ordenante",
+          "name": "Nombre del ordenante",
+          "address": "Domicilio del ordenante",
+          "country": "País",
+          "city": "Ciudad"
+        },
+        "beneficiaryInfo": {
+          "title": "Datos del beneficiario",
+          "personType": "Tipo de cuenta",
+          "email": "Correo electrónico",
+          "alias": "Alias del beneficiario",
+          "beneficiaryAccount": "Cuenta beneficiario",
+          "justification": "Justificación",
+          "beneficiaryName": "Nombre del beneficiario",
+          "currency": "Divisa",
+          "beneficiaryCountry": "País beneficiario",
+          "maximumAmount": "Monto máximo",
+          "beneficiaryCity": "Ciudad beneficiario",
+          "userIB": "Usuario IB",
+          "beneficiaryAddress": "Domicilio beneficiario",
+          "charges": "Gastos",
+          "loadDate": "Fecha de carga",
+          "loadTime": "Hora de carga",
+          "state": "Estado",
+          "modificationDate": {
+            "M": "Fecha de modificación",
+            "B": "Fecha de eliminación",
+            "R": "Fecha de revisión",
+            "I": "Fecha de modificación",
+            "A": "Fecha de alta",
+            "H": "Fecha de modificación"
+          },
+          "modificationTime": {
+            "M": "Hora de modificación",
+            "B": "Hora de eliminación",
+            "R": "Hora de revisión",
+            "I": "Hora de modificación",
+            "A": "Hora de alta",
+            "H": "Hora de modificación"
+          }
+        },
+        "beneficiaryBank": {
+          "title": "Banco beneficiario",
+          "bic": "Código BIC (SWIFT)",
+          "beneficiaryBank": "Banco beneficiario",
+          "country": "País",
+          "city": "Ciudad",
+          "address": "Domicilio"
+        },
+        "intermediaryBank": {
+          "title": "Banco intermediario",
+          "intermediaryBankBic": "Código BIC (SWIFT)",
+          "beneficiaryCountry": "País Banco intermediario",
+          "intermediaryBank": "Banco intermediario",
+          "beneficiaryCity": "Ciudad Banco intermediario",
+          "beneficiaryAddress": "Domicilio Banco intermediario"
+        }
+      }
+    }
+  },
+  "authorization": {
+    "title-overview": "Retoma de operaciones pendientes",
+    "title-overview-1": "Retoma de Operaciones",
+    "title-overview-2": "Retoma por Importe",
+    "title-details": "Detalles de la operación",
+    "title-resume": "Resumen de la operación",
+    "title-list": "Listado de operaciones",
+    "operatorUser-label": "Usuario operador",
+    "clientNumber-label": "No. de cliente",
+    "folio-label": "Folio",
+    "authUser-label": "Usuario autorizador",
+    "dateFrom-label": "Fecha desde *",
+    "dateTo-label": "Fecha hasta *",
+    "error-label": "Ha ocurrido un error al consultar las operaciones",
+    "beneficiary-tab-title": "Beneficiarios",
+    "batch-tab-title": "Dispersión de pagos",
+    "referencedDeposit-tab-title": "Depósito referenciado",
+    "issues-tab-title": "Administración de incidencias",
+    "unitQuery-tab-title": "Consultas unitarias",
+    "clarification-tab-title": "Aclaraciones",
+    "fileQuery-tab-title": "Consulta por archivo",
+    "authErrorMessage": "Ha ocurrido un error al intentar autorizar la operación, si lo desea inténtelo nuevamente.",
+    "authErrors": {
+      "more-signatures-required": "Aún se requieren firmas para la retoma.",
+      "-3000": "No se puede dar de baja esta cuenta, .",
+      "-49080": "No posee el rol correcto para la siguiente firma necesaria.",
+      "-49081": "No existe un plan de autorización para la operación.",
+      "-49082": "No posee suficientes privilegios para rechazar esta operación.",
+      "-49083": "La operación ya fue rechazada anteriormente.",
+      "-49084": "La operación no existe o ya fue autorizada anteriormente.",
+      "-49085": "Ha ocurrido un error al intentar autorizar la operación, si lo desea inténtelo nuevamente.",
+      "-49086": "La dispersión posee un estado en el que no puede autorizarse."
+    },
+    "denegateErrorMessage": "Ha ocurrido un error al intentar denegar la operación, si lo desea inténtelo nuevamente.",
+    "noDataFound": "No se encontraron registros para su búsqueda",
+    "noBeneficiaryFound": "Ha ocurrido un error al intentar obtener el detalle del beneficiario",
+    "beneficiary-list": {
+      "operationType-column": "Operación a procesar",
+      "benefType-column": "Tipo de beneficiario",
+      "personType-column": "Tipo de persona",
+      "IBUser-column": "Usuario IB",
+      "operationDate": "Fecha de operación",
+      "operationTime": "Hora de operación",
+      "ordererName-column": "Nombre o razón social del ordenante",
+      "creatorUser-column": "Usuario operador",
+      "authUser-column": "Usuario autorizador",
+      "currency-column": "Divisa",
+      "clientID-column": "No. cliente",
+      "accountType-column": "Tipo de cuenta",
+      "benefName-column": "Nombre del beneficiario",
+      "benefAccount-column": "No. de cuenta del beneficiario",
+      "benefStatus-column": "Estado",
+      "benefFolio-column": "Folio de operación"
+    },
+    "batch-list": {
+      "fileName-column": "Nombre del archivo",
+      "applicationDate-column": "Fecha de operación",
+      "applicationTime-column": "Hora de operación",
+      "currency-column": "Divisa",
+      "chargeType-column": "Tipo de cargo",
+      "fileType-column": "Tipo de archivo",
+      "totalAmount-column": "Importe total",
+      "totalLines-column": "Total de registros",
+      "ownAccounts-column": "Cuentas Propias",
+      "thirdSabadell-column": "Terceros Sabadell",
+      "otherAccountsSPEI-column": "Otros Bancos",
+      "creatorUser-column": "Usuario operador",
+      "channel-column": "Canal",
+      "status-column": "Estado del archivo",
+      "folio-column": "Folio de operación",
+      "fileFolio-column": "Folio del archivo",
+      "authUser-column": "Autorizador por Importe",
+      "authDate-column": "Fecha",
+      "authTime-column": "Hora"
+    },
+    "referencedDeposit-list": {
+      "operationType-column": "Tipo de operación",
+      "operationToProcess-column": "Operación por procesar",
+      "postingDate-column": "Fecha de aplicación",
+      "clientID-column": "No. de cliente",
+      "chargeAccount-column": "Cuenta de cargo",
+      "creditAccount-column": "Cuenta de abono",
+      "totalLines-column": "Total de registros",
+      "operatorUser-column": "Usuario operador",
+      "currency-column": "Divisa",
+      "amount-column": "Importe",
+      "channel-column": "Canal",
+      "status-column": "Estado",
+      "operationTypes": {
+        "A": "Alta",
+        "B": "Baja"
+      },
+      "status": {
+        "UNAUTHORIZED": "Rechazada",
+        "AUTHORIZED": "Autorizada",
+        "PENDING": "Pendiente de autorización",
+        "REJECTED": "Rechazada"
+      }
+    },
+    "issues-list": {
+      "operationType-column": "Tipo de operación",
+      "folio-column": "Folio",
+      "postingDate-column": "Fecha de aplicación",
+      "reference-column": "Referencia",
+      "chargeAccount-column": "Cuenta de cargo",
+      "clientName-column": "Nombre del cliente",
+      "benefAccount-column": "Usuario operador",
+      "amount-column": "Importe",
+      "channel-column": "Canal",
+      "operatorUser-column": "Usuario operador",
+      "status-column": "Estado"
+    },
+    "unitQuery-list": {
+      "folio-column": "Folio de operación",
+      "paymentId": "Id (Folio)",
+      "ordererName-column": "Nombre del cliente",
+      "clientID-column": "No de cliente",
+      "ordererAccount-column": "Cuenta de cargo",
+      "applicationDate-column": "Fecha de operación",
+      "applicationTime-column": "Hora de operación",
+      "authDate-column": "Fecha de autorización",
+      "authTime-column": "Hora de autorización",
+      "amount-column": "Importe",
+      "paymentType-column": "Tipo de pago",
+      "currency-column": "Divisa",
+      "reference-column": "Referencia",
+      "creatorUser-column": "Usuario operador",
+      "authUser-column": "Usuario autorizador",
+      "creatorUser-column": "Usuario operador",
+      "paymentStatus-column": "Estado del pago",
+      "status": {
+        "ALL": "Todos",
+        "UPLOADED": "Cargado",
+        "VALIDATED": "Validado",
+        "VALIDATION_ERROR": "Error de validación",
+        "AUTHORIZED": "Autorizada",
+        "UNCOMPLETED": "Validado",
+        "AUTHORIZE": "Autorizada",
+        "REJECTED": "Rechazado",
+        "ERROR": "Error",
+        "PROCESSED": "Procesado",
+        "PROCESSED_WITH_ERROR": "Procesado con error",
+        "ELIMINATED": "Eliminado"
+      }
+    },
+    "clarification-list": {
+      "operationType-column": "Tipo de operación",
+      "folio-column": "Folio",
+      "postingDate-column": "Fecha de aplicación",
+      "reference-column": "Referencia",
+      "chargeAccount-column": "Cuenta de cargo",
+      "clientName-column": "Nombre del cliente",
+      "benefAccount-column": "Cuenta destino",
+      "amount-column": "Importe",
+      "channel-column": "Canal",
+      "operatorUser": "Usuario operador",
+      "status-column": "Estado"
+    },
+    "fileQuery-list": {
+      "operationType-column": "Tipo de operación",
+      "folio-column": "Folio del archivo",
+      "operationFolio-column": "Folio de operación",
+      "fileName-column": "Nombre del archivo",
+      "clientID-column": "No. de cliente",
+      "clientName-column": "Nombre del cliente",
+      "chargeAccount-column": "Cuenta de cargo",
+      "postingDate-column": "Fecha de operación",
+      "postingTime-column": "Hora de operación",
+      "authDate-column": "Fecha de autorización",
+      "authTime-column": "Hora de autorización",
+      "totalAmount-column": "Importe total",
+      "totalLines-column": "Total de registros",
+      "ownAccounts-column": "Cuentas Propias",
+      "sabAccounts-column": "Cuentas Sabadell",
+      "otherBanks-column": "Otros Bancos",
+      "chargeType-column": "Tipo de cargo",
+      "fileType-column": "Tipo de archivo",
+      "channel-column": "Canal",
+      "operatorUser-column": "Usuario operador",
+      "authUser-column": "Usuario autorizador",
+      "creatorUser-column": "Usuario operador",
+      "status-column": "Estado del archivo",
+      "status": {
+        "ALL": "Todos",
+        "UPLOADED": "Cargado",
+        "VALIDATED": "Validado",
+        "UNCOMPLETED": "Validado",
+        "VALIDATION_ERROR": "Error de validación",
+        "AUTHORIZED": "Autorizado",
+        "AUTHORIZE": "Autorizado",
+        "REJECTED": "Rechazado",
+        "ERROR": "Error",
+        "PROCESSED": "Procesado",
+        "PROCESSED_WITH_ERROR": "Procesado con error",
+        "ELIMINATED": "Eliminado"
+      }
+    },
+    "status": {
+      "UNAUTHORIZED": "Rechazadas (solo lectura)",
+      "AUTHORIZED": "Autorizadas (solo lectura)",
+      "PENDING": "Pendientes de autorización"
+    },
+    "operation-status": {
+      "UNAUTHORIZED": "Rechazada",
+      "AUTHORIZED": "Autorizada",
+      "PENDING": "Pendiente de autorización",
+      "REJECTED": "Rechazada"
+    },
+    "accountTypes": {
+      "01": "Terceros Sabadell",
+      "40": "SPEI",
+      "41": "SPID",
+      "03": "TDD/TDC",
+      "10": "LTP",
+      "##": "Internacional",
+      "0": "Internacional"
+    },
+    "operations": {
+      "B": "Baja",
+      "M": "Modificación"
+    },
+    "benefTypes": {
+      "I": "Internacional",
+      "N": "Nacional"
+    },
+    "personTypes": {
+      "00": "Persona física",
+      "01": "Persona moral",
+      "F": "Persona física",
+      "M": "Persona moral",
+      "X": "Beneficiario",
+      "J": "Persona moral"
+    },
+    "benefStatus": {
+      "ACTIVE": "Activo",
+      "INACTIVE": "Inactivo",
+      "INACTIVE_PLD": "Inactivo"
+    },
+    "chargeType": {
+      "1": "Global",
+      "2": "Individual"
+    },
+    "statusBatch": {
+      "ALL": "Todos",
+      "UPLOADED": "Cargado",
+      "VALIDATED": "Validado",
+      "VALIDATION_ERROR": "Error de validación",
+      "AUTHORIZED": "Autorizado",
+      "AUTHORIZE": "Autorizado",
+      "REJECTED": "Rechazado",
+      "ERROR": "Error",
+      "UNCOMPLETED": "Validado",
+      "PROCESSED": "Procesado",
+      "PROCESSED_WITH_ERROR": "Procesado con error",
+      "ELIMINATED": "Eliminado"
+    },
+    "dispersion": {
+      "title": "Archivos en proceso",
+      "filter": {
+        "name": "Nombre beneficiario",
+        "accountNumber": "Cuenta beneficiario"
+      }
+    }
+  },
+  "operation": {
+    "title-overview": "Estado de operaciones",
+    "title-ownOperations": "Operaciones Propias",
+    "title-allOperations": "Total de Operaciones",
+    "title-operation-list": "Listado de operaciones",
+    "clientNumber-label": "No. de cliente",
+    "dateFrom-label": "Fecha desde",
+    "dateTo-label": "Fecha hasta",
+    "error-label": "Ha ocurrido un error al consultar las operaciones",
+    "beneficiary-tab-title": "Beneficiarios",
+    "batch-tab-title": "Dispersión de pagos",
+    "referencedDeposit-tab-title": "Depósito referenciado",
+    "issues-tab-title": "Administración de incidencias",
+    "unitQuery-tab-title": "Consultas unitarias",
+    "clarification-tab-title": "Aclaraciones",
+    "fileQuery-tab-title": "Consulta de archivos",
+    "authErrorMessage": "Ha ocurrido un error al intentar autorizar la operación, si lo desea inténtelo nuevamente.",
+    "denegateErrorMessage": "Ha ocurrido un error al intentar denegar la operación, si lo desea inténtelo nuevamente.",
+    "noDataFound": "No se encontraron registros para su búsqueda",
+    "noBeneficiaryFound": "Ha ocurrido un error al intentar obtener el detalle del beneficiario",
+    "operation-detail": {
+      "title": "Archivo en proceso"
+    },
+    "beneficiary-list": {
+      "operation-column": "Operación a procesar",
+      "beneficiaryType": "Tipo de beneficiario",
+      "personType": "Tipo de persona",
+      "ib-user": "Usuario IB",
+      "operationDate": "Fecha de operación",
+      "operationTime": "Hora de operación",
+      "authDate": "Fecha de autorización",
+      "authTime": "Hora de autorización",
+      "ordererName": "Nombre o razón social del ordenante",
+      "authUser-column": "Usuario autorizador",
+      "creatorUser-column": "Usuario operador",
+      "currency": "Divisa",
+      "clientNumber-column": "No. cliente",
+      "accountType-column": "Tipo de cuenta",
+      "beneficiary-name": "Nombre del beneficiario",
+      "beneficiaryAccount-column": "No. de cuenta del beneficiario",
+      "operationStatus-column": "Estado de operación",
+      "folio-column": "Folio de operación",
+      "status": {
+        "UNAUTHORIZED": "Rechazada",
+        "AUTHORIZED": "Autorizada",
+        "PENDING": "Pendiente de autorización",
+        "REJECTED": "Rechazada"
+      },
+      "benefTypes": {
+        "I": "Internacional",
+        "N": "Nacional"
+      },
+      "personTypes": {
+        "00": "Persona física",
+        "01": "Persona moral",
+        "F": "Persona física",
+        "M": "Persona moral",
+        "X": "Beneficiario",
+        "J": "Persona moral"
+      }
+    },
+    "batch-list": {
+      "fileName-column": "Nombre del archivo",
+      "postingDate-column": "Fecha de operación",
+      "postingTime-column": "Hora de operación",
+      "currency-column": "Divisa",
+      "chargeType-column": "Tipo de cargo",
+      "fileType-column": "Tipo de archivo",
+      "totalAmount-column": "Importe total",
+      "totalLines-column": "Total de registros",
+      "ownAccounts-column": "Cuentas Propias",
+      "sabAccounts-column": "Terceros Sabadell",
+      "localAccounts-column": "Otros Bancos",
+      "channel-column": "Canal",
+      "creatorUser-column": "Usuario operador",
+      "status-column": "Estado del archivo",
+      "folio-column": "Folio de operación",
+      "fileFolio-column": "Folio del archivo",
+      "authUser-column": "Usuario autorizador",
+      "authDate-column": "Fecha",
+      "authTime-column": "Hora",
+      "authUser2-column": "Autorizador por Importe",
+      "authDate2-column": "Fecha",
+      "authTime2-column": "Hora"
+    },
+    "referencedDeposit-list": {
+      "operationType-column": "Operación a procesar",
+      "operationToProcess-column": "Operación por procesar",
+      "authorization-user": "Usuario autorizador",
+      "postingDate-column": "Fecha de operación",
+      "postingTime-column": "Hora de operación",
+      "authDate-column": "Fecha de autorización",
+      "authTime-column": "Hora de autorización",
+      "clientID-column": "No. de cliente",
+      "chargeAccount-column": "Cuenta de cargo",
+      "creatorUser-column": "Usuario operador",
+      "creditAccount-column": "Cuenta de abono",
+      "totalLines-column": "Total de registros",
+      "operatorUser-column": "Usuario operador",
+      "currency-column": "Divisa",
+      "amount-column": "Importe",
+      "channel-column": "Canal",
+      "status-column": "Estado",
+      "folio-column": "Folio de operación",
+      "operationTypes": {
+        "A": "Alta",
+        "B": "Baja"
+      },
+      "status": {
+        "UNAUTHORIZED": "Rechazada",
+        "AUTHORIZED": "Autorizada",
+        "PENDING": "Pendiente de autorización",
+        "REJECTED": "Rechazada"
+      }
+    },
+    "issues-list": {
+      "operationType-column": "Tipo de operación",
+      "folio-column": "Folio",
+      "postingDate-column": "Fecha de aplicación",
+      "reference-column": "Referencia",
+      "chargeAccount-column": "Cuenta de cargo",
+      "destinyAccount": "Cuenta de destino",
+      "clientName-column": "Nombre del cliente",
+      "benefAccount-column": "Usuario operador",
+      "amount-column": "Importe",
+      "channel-column": "Canal",
+      "operatorUser-column": "Usuario operador",
+      "authorizator-user": "Usuario autorizador",
+      "status-column": "Estado"
+    },
+    "unitQuery-list": {
+      "folio-column": "Folio de operación",
+      "paymentItem": "Id (Folio)",
+      "ordererName-column": "Nombre del cliente",
+      "clientID-column": "No de cliente",
+      "ordererAccount-column": "Cuenta de cargo",
+      "applicationDate-column": "Fecha de aplicación",
+      "amount-column": "Importe",
+      "paymentType-column": "Tipo de pago",
+      "currency-column": "Divisa",
+      "reference-column": "Referencia",
+      "creatorUser-column": "Usuario operador",
+      "paymentStatus-column": "Estado del pago",
+      "clientName": "Nombre cliente",
+      "chargeAccount-column": "Cuenta de cargo",
+      "postingDate-column": "Fecha"
+    },
+    "clarification-list": {
+      "operationType-column": "Tipo de operación",
+      "folio-column": "Id (Folio)",
+      "postingDate-column": "Fecha de aplicación",
+      "reference-column": "Referencia",
+      "chargeAccount-column": "Cuenta cargo",
+      "clientName-column": "Nombre del cliente",
+      "destinyAccount-column": "Cuenta destino",
+      "amount-column": "Importe",
+      "channel-column": "Canal",
+      "operatorUser-column": "Usuario autorizador",
+      "status-column": "Estado",
+      "fileFolio-column": "Folio del archivo"
+    },
+    "fileQuery-list": {
+      "operationType-column": "Tipo de operación",
+      "folio-column": "Folio del archivo",
+      "fileName-column": "Nombre del archivo",
+      "clientID-column": "No. de cliente",
+      "clientName-column": "Nombre del cliente",
+      "chargeAccount-column": "Cuenta de cargo",
+      "postingDate-column": "Fecha de aplicación",
+      "totalAmount-column": "Importe total",
+      "totalLines-column": "Total de registros",
+      "ownAccounts-column": "Cuentas Propias",
+      "sabAccounts-column": "Cuentas Sabadell",
+      "otherBanks-column": "Otros Bancos",
+      "chargeType-column": "Tipo de cargo",
+      "fileType-column": "Tipo de archivo",
+      "channel-column": "Canal",
+      "operatorUser-column": "Usuario authorizador",
+      "status-column": "Estado del archivo"
+    },
+    "status": {
+      "UNAUTHORIZED": "Rechazadas (solo lectura)",
+      "AUTHORIZED": "Autorizadas (solo lectura)",
+      "PENDING": "Pendientes de autorización"
+    },
+    "accountTypes": {
+      "01": "Terceros Sabadell",
+      "40": "SPEI",
+      "41": "SPID",
+      "03": "TDD/TDC",
+      "10": "LTP",
+      "##": "Internacional",
+      "0": "Internacional"
+    },
+    "operations": {
+      "B": "Baja",
+      "M": "Modificación"
+    }
+  },
+  "fileQuery": {
+    "operator": {
+      "title": "Consulta por archivo",
+      "continue-button": "Continuar",
+      "cancel-button": "Cancelar",
+      "filter": {
+        "noFoundMessage": "Archivo no encontrado",
+        "folio-label": "Folio del archivo",
+        "fileName-label": "Nombre del archivo",
+        "destinationAccount-label": "Cuenta de cargo",
+        "dateFrom-label": "Fecha desde *",
+        "dateTo-label": "Fecha hasta *",
+        "state-label": "Estado de Archivo",
+        "search-button": "Buscar",
+        "clean-button": "Limpiar",
+        "status": {
+          "ALL": "Todos",
+          "UPLOADED": "Cargado",
+          "VALIDATED": "Validado",
+          "UNCOMPLETED": "Validado",
+          "VALIDATION_ERROR": "Error de validación",
+          "AUTHORIZED": "Autorizado",
+          "AUTHORIZE": "Autorizado",
+          "REJECTED": "Rechazado",
+          "ERROR": "Error",
+          "PROCESSED": "Procesado",
+          "PROCESSED_WITH_ERROR": "Procesado con error",
+          "ELIMINATED": "Eliminado"
+        }
+      },
+      "list": {
+        "title": "Listado de archivos",
+        "folio-column": "Folio del archivo",
+        "fileName-column": "Nombre del archivo",
+        "ordererName-column": "Nombre de ordenante",
+        "destinationAccount-column": "Cuenta de cargo",
+        "applicationDate-column": "Fecha de aplicación",
+        "applicationTime-column": "Hora de aplicación",
+        "amount-column": "Importe",
+        "chargeType-column": "Tipo de cargo",
+        "fileType-column": "Tipo de archivo",
+        "channel-column": "Canal",
+        "operatorUser-column": "Usuario operador",
+        "rfcOrderer-column": "RFC ordenante",
+        "serviceType-column": "Tipo de servicio",
+        "status-column": "Estado de Archivo",
+        "ownAccounts-column": "Cuentas Propias",
+        "thirdPartiesSabadell-column": "Terceros Sabadell",
+        "otherSPEIBanks-column": "Otros bancos SPEI",
+        "authorizationUser-column": "Usuario autorizador",
+        "chargeType": {
+          "1": "Global",
+          "2": "Individual"
+        },
+        "status": {
+          "ERROR": "Error",
+          "ALL": "Todos",
+          "UPLOADED": "Cargado",
+          "VALIDATED": "Validado",
+          "VALIDATION_ERROR": "Error de validación",
+          "AUTHORIZED": "Autorizado",
+          "AUTHORIZE": "Autorizado",
+          "REJECTED": "Rechazado",
+          "PROCESSED": "Procesado",
+          "PROCESSED_WITH_ERROR": "Procesado con error",
+          "NEW_BATCH_LINE.PREPARING_LINE": "En proceso",
+          "ELIMINATED": "Eliminado",
+          "UNCOMPLETED": "Validado"
+        }
+      }
+    },
+    "issues": {
+      "folio": "Folio del archivo",
+      "operationStatus": "Estado operación",
+      "operationDate": "Fecha de operación",
+      "operationTime": "Hora de operación",
+      "rejectDate": "Fecha de rechazo",
+      "authDate": "Fecha de autorización",
+      "title_admin": "Administración de incidencias",
+      "title_operations": "Operaciones con incidencias",
+      "cve_rastreo": "Clave de rastreo",
+      "reference": "Referencia",
+      "begin_date": "Fecha de inicio *",
+      "end_date": "Fecha fin *",
+      "initOperationOk": "Tu operación requiere retoma.",
+      "detail": {
+        "reverse_button": "Reverso",
+        "aclaration_button": "Corrección por aclarar",
+        "correction_button": "Corrección Automatica",
+        "manual_correction_button": "Corrección Manual",
+        "download_button": "Descargar",
+        "back_button": "Regresar",
+        "finalize_button": "Finalizar",
+        "issues_button": "Continuar en incidencias",
+        "operation": "Datos operación",
+        "orderer": "Ordenante",
+        "beneficiary": "Beneficiario",
+        "accounting": {
+          "title": "Contabilidad",
+          "ordinal": "Ordinal",
+          "subordinal": "Subordinal",
+          "branch_office": "Sucursal",
+          "entry": "Rubro",
+          "entry_name": "Nombre rubro",
+          "currency": "Divisa",
+          "species": "Especie",
+          "account": "Cuenta",
+          "operation": "Operación",
+          "subop": "Sub-op",
+          "dh": "D/H",
+          "dhTypes": {
+            "1": "Db",
+            "2": "Cr"
+          },
+          "import": "Importe"
+        }
+      },
+      "fileDetail": {
+        "operator": {
+          "title": "Detalle del archivo",
+          "continue-button": "Continuar",
+          "finalize-button": "Finalizar",
+          "back-button": "Regresar",
+          "tracking": {
+            "title": "Seguimiento",
+            "cause-column": "Causa",
+            "folio-column": "Folio",
+            "ordererAccount-column": "Folio",
+            "totalAmount-column": "Cuenta de cargo",
+            "paymentType-column": "Importe total",
+            "operationType-column": "Tipo de pago",
+            "rfcCurpOrderer-column": "Tipo de operación",
+            "status-column": "Estado",
+            "dateTime-column": "Fecha-Hora",
+            "eventProcess-column": "Evento/Proceso",
+            "systemProcess-column": "Sistema/Proceso",
+            "cause-column": "Causa"
+          },
+          "paymentItems": {
+            "showPaymentItems": "Visualizar detalle de transacciones",
+            "showPaymentItems-no": "No",
+            "showPaymentItems-yes": "Si",
+            "title": "Detalle de transacciones",
+            "list": {
+              "folio-column": "Id (Folio)",
+              "ordererAccount-column": "Cuenta de cargo",
+              "totalAmount-column": "Importe total",
+              "paymentType-column": "Tipo de pago",
+              "operationType-column": "Tipo de operación",
+              "rfcCurpOrderer-column": "RFC/CURP ordenante",
+              "status-column": "Estado",
+              "paymentTypes": {
+                "C": "Cargo",
+                "D": "Abono",
+                "A": "Abono"
+              },
+              "operationTypes": {
+                "0": "Pago",
+                "1": "Cobro"
+              }
+            }
+          },
+          "detail": {
+            "ordererName": "Nombre del ordenante",
+            "nameFile": "Nombre del archivo",
+            "folio": "Folio del archivo",
+            "amount": "Importe",
+            "ownAccounts": "Cuentas Propias",
+            "thirdSabadell": "Terceros Sabadell",
+            "otherAccountsSPEI": "Otros Bancos",
+            "applicationDateTo": "Fecha de aplicación",
+            "typeCharge": "Tipo de cargo",
+            "typeFile": "Tipo de archivo",
+            "userOperator": "Usuario operador",
+            "authorizingUser": "Usuario autorizador",
+            "channel": "Canal",
+            "statusBatch": "Estado de Archivo",
+            "totalLines": "Total registros",
+            "statusBatchList": {
+              "VALIDATION_ERROR": "Con errores de validación",
+              "REJECTED": "Rechazado",
+              "UPLOADED": "Subido",
+              "AUTHORIZE": "Autorizada",
+              "VALIDATED": "Validado",
+              "UNCOMPLETED": "Validado",
+              "PENDING": "Pendiente de autorización",
+              "ERROR": "Con error",
+              "PROCESSED": "Procesado correctamente",
+              "ELIMINATED": "Eliminado"
+            }
+          }
+        }
+      },
+      "list": {
+        "paymentItemID": "Id (Folio)",
+        "counterpartInstitution": "Institución contraparte",
+        "paymentType": "Tipo de pago",
+        "concept": "Concepto de pago",
+        "reference": "Referencia numérica",
+        "texts": "Estado",
+        "IVA ": "IVA",
+        "justification": "Justificación",
+        "charges": "Gastos",
+        "applicationDate": "Fecha de aplicación",
+        "trackingKey": "Clave de rastreo",
+        "bank": "Banco",
+        "amount": "Monto",
+        "folio": "Folio del archivo",
+        "ordererAccountType": "Tipo de cuenta",
+        "ordererName": "Nombre",
+        "ordererAccount": "Cuenta",
+        "ordererDocument": "RFC/CURP",
+        "benefAccountType": "Tipo de cuenta",
+        "benefName": "Nombre",
+        "benefAccount": "Cuenta",
+        "benefDocument": "RFC/CURP",
+        "state": "Estado",
+        "ordererAccountTypes": {
+          "01": "Terceros Sabadell",
+          "40": "SPEI",
+          "41": "SPID",
+          "03": "TDD/TDC",
+          "10": "LTP",
+          "##": "Internacional",
+          "0": "Internacional"
+        },
+        "benefAccountTypes": {
+          "01": "Terceros Sabadell",
+          "40": "SPEI",
+          "41": "SPID",
+          "03": "TDD/TDC",
+          "10": "LTP",
+          "##": "Internacional",
+          "0": "Internacional"
+        }
+      }
+    },
+    "clarifications": {
+      "continue_button": "Continuar",
+      "clean_button": "Limpiar",
+      "cancel_button": "Cancelar",
+      "search_button": "Buscar",
+      "title_filter": "Consulta y aclaración de operaciones",
+      "folio": "No. de folio",
+      "reference": "Referencia",
+      "tracking_key": "Clave de rastreo",
+      "orderer_name": "Nombre de ordenante",
+      "account": "Cuenta",
+      "begin_date": "Fecha de inicio *",
+      "end_date": "Fecha fin *",
+      "import": "Importe",
+      "beneficiary_account": "Cuenta beneficiario",
+      "clarifications_list": {
+        "folio": "Folio del archivo",
+        "paymentId": "Id (Folio)",
+        "tracking_key": "Referencia",
+        "client_name": "Nombre cte.",
+        "destiny_account": "Cta. ordenante",
+        "creation_date": "Fecha de aplicación",
+        "creation_time": "Hora de aplicación",
+        "import": "Importe",
+        "beneficiary_account": "Cta. beneficiario",
+        "service": "Servicio",
+        "channel": "Canal",
+        "status": "Estado",
+        "cve_rastreo": "Clave de rastreo"
+      }
+    }
+  },
+  "fileDetail": {
+    "operator": {
+      "title": "Detalle del archivo",
+      "operation-status": "Estado operación",
+      "operation-folio": "Folio de operación",
+      "file-status": "Estado de Archivo",
+      "operation-date": "Fecha de operación",
+      "reject-date": "Fecha de rechazo",
+      "auth-date": "Fecha de autorización",
+      "continue-button": "Continuar",
+      "finalize-button": "Finalizar",
+      "resume-button": "Reanudar",
+      "back-button": "Regresar",
+      "tracking": {
+        "title": "Seguimiento",
+        "folio-column": "Folio",
+        "ordererAccount-column": "Id (Folio)",
+        "totalAmount-column": "Cuenta de cargo",
+        "paymentType-column": "Importe total",
+        "operationType-column": "Tipo de pago",
+        "rfcCurpOrderer-column": "Tipo de operación",
+        "status-column": "Estado",
+        "dateTime-column": "Fecha-Hora",
+        "eventProcess-column": "Evento/Proceso",
+        "systemProcess-column": "Sistema/Proceso",
+        "cause-column": "Causa"
+      },
+      "paymentItems": {
+        "showPaymentItems": "Visualizar detalle de transacciones",
+        "showPaymentItems-no": "No",
+        "showPaymentItems-yes": "Si",
+        "title": "Detalle de transacciones",
+        "list": {
+          "folio-column": "Id (Folio)",
+          "ordererAccount-column": "Cuenta de cargo",
+          "totalAmount-column": "Importe total",
+          "paymentType-column": "Tipo de pago",
+          "operationType-column": "Tipo de operación",
+          "rfcCurpOrderer-column": "RFC/CURP ordenante",
+          "status-column": "Estado",
+          "paymentTypes": {
+            "C": "Cargo",
+            "D": "Abono",
+            "A": "Abono",
+            "M": "Masivo",
+            "I": "Individual"
+          },
+          "operationTypes": {
+            "0": "Pago",
+            "1": "Cobro"
+          },
+          "status": {
+            "ERROR": "Error",
+            "ALL": "Todos",
+            "UPLOADED": "Cargado",
+            "VALIDATED": "Validado",
+            "UNCOMPLETED": "Validado",
+            "VALIDATION_ERROR": "Error de validación",
+            "AUTHORIZED": "Autorizado",
+            "AUTHORIZE": "Autorizado",
+            "REJECTED": "Rechazado",
+            "PROCESSED": "Procesado",
+            "PROCESSED_WITH_ERROR": "Procesado con error",
+            "NEW_BATCH_LINE.PREPARING_LINE": "En proceso",
+            "ELIMINATED": "Eliminado"
+          }
+        }
+      },
+      "detail": {
+        "title": "Archivo en proceso",
+        "ordererName": "Nombre del ordenante",
+        "nameFile": "Nombre del archivo",
+        "folio": "Folio del archivo",
+        "amount": "Importe total",
+        "ownAccounts": "Cuentas Propias",
+        "thirdSabadell": "Terceros Sabadell",
+        "otherAccountsSPEI": "Otros Bancos",
+        "applicationDateTo": "Fecha de aplicación",
+        "applicationDate": "Fecha de aplicación",
+        "typeCharge": "Tipo de cargo",
+        "typeFile": "Tipo de archivo",
+        "userOperator": "Usuario operador",
+        "authorizingUser": "Usuario autorizador",
+        "channel": "Canal",
+        "statusBatch": "Estado de Archivo",
+        "totalLines": "Total registros",
+        "currency": "Divisa",
+        "statusBatchList": {
+          "VALIDATION_ERROR": "Con errores de validación",
+          "REJECTED": "Rechazado",
+          "UPLOADED": "Subido",
+          "AUTHORIZE": "Autorizada",
+          "VALIDATED": "Validado",
+          "UNCOMPLETED": "Validado",
+          "PENDING": "Pendiente de autorización",
+          "ERROR": "Con error",
+          "PROCESSED": "Procesado correctamente",
+          "ELIMINATED": "Eliminado"
+        },
+        "chargeType": {
+          "1": "Global",
+          "2": "Individual"
+        }
+      }
+    }
+  },
+  "massivePayments": {
+    "officeOperation": {
+      "menu-office": "Oficina",
+      "title": "Operaciones",
+      "paymentOperationTypeP": "Pago",
+      "paymentOperationTypeC": "Cobro",
+      "massivePaymentType": "Masivo",
+      "individualPaymentType": "Individual",
+      "operationSubtitle": "Tipo de operación",
+      "chargeType": "Tipo de cargo",
+      "peymentTypes": "Tipo de pago",
+      "services": "Servicio",
+      "servicesLabel": "Servicios",
+      "servicesOptions": {
+        "massivePayment": "Dispersión de pago",
+        "referencedDeposit": "Depósito referenciado cuentas Sabadell",
+        "collection": "Cobranza Sabadell",
+        "domiciliation": "Domiciliación"
+      },
+      "referencedDepositActions": {
+        "register": "Alta",
+        "deactivation": "Baja",
+        "operation": "Operación"
+      },
+      "collectionActions": {
+        "register": "Alta",
+        "deactivation": "Baja",
+        "modification": "Modificación",
+        "operation": "Operación"
+      },
+      "domiciliationActions": {
+        "register": "Alta",
+        "deactivation": "Baja",
+        "modification": "Modificación"
+      }
+    },
+    "uploadFile": {
+      "title": "Archivo en proceso",
+      "chooseFile": "Seleccionar",
+      "fileLabel": "Archivo *",
+      "clientLabel": "No. de cliente *",
+      "IBUserLabel": "Usuario IB",
+      "globalUpload": "Cargo global",
+      "individualUpload": "Cargo individual",
+      "globalMessage": "Un solo cargo a la cuenta de cargo y 'N' número de abonos a las cuentas beneficiarias.",
+      "individualMessage": "Tantos cargos a la cuenta de cargo, como abonos a las cuentas beneficiarias.",
+      "accountLabel": "No. de cuenta *",
+      "emptyAccount": "Seleccione una cuenta"
+    },
+    "detail": {
+      "fileName": "Nombre del archivo",
+      "applicationDate": "Fecha de aplicación",
+      "currency": "Divisa",
+      "chargeType": "Tipo de cargo",
+      "fileType": "Tipo de archivo",
+      "amount": "Importe",
+      "totalLines": "Total registros",
+      "ownAccounts": "Cuentas propias",
+      "sabadellAccounts": "Cuentas sabadel",
+      "otherBanksAccounts": "Cuentas otros bancos",
+      "user": "Usuario",
+      "status": "Estado de Archivo",
+      "authDate": "Fecha de autorización",
+      "rejectDate": "Fecha de rechazo",
+      "statusOperation": "Estado operación",
+      "operationDate": "Fecha de operación",
+      "folio": "Folio",
+      "fileFolio": "Folio del archivo",
+      "operationFolio": "Folio de operación"
+    }
+  },
+  "notes": {
+    "dialog": {
+      "save-button": "Guardar",
+      "title": "Notas"
+    }
+  },
+  "errors": {
+    "modificationWarning": "El beneficiario ha sido modificado, estará disponible a partir de las ",
+    "creationWarning": "El beneficiario ha sido dado de alta, estará disponible a partir de las ",
+    "referencedWarning": "El servicio quedará aplicado al siguiente día hábil.",
+    "invalidSession": "Sesión expirada",
+    "field": "Dato incorrecto",
+    "select": "Opción incorrecta",
+    "unexpected": "Error de comunicación",
+    "pendingOperation": "Ya existe una operación pendiente de aprobación para este beneficiario",
+    "genericError": "Ha ocurrido un error en la operación",
+    "no-found": "No se encontraron registros para su búsqueda",
+    "authorization-required": "Tu operación requiere retoma",
+    "not-implemented": "Lo sentimos, la operación que desea realizar aún no está soportada.",
+    "uploadError": "Ha ocurrido un error al subir el archivo",
+    "validationErrorAfterInit": "El archivo presenta errores de validación. Por favor, revíselo e inténtelo nuevamente.",
+    "initError": "Ha ocurrido un error al procesar el archivo. Por favor, revíselo e inténtelo nuevamente.",
+    "required": "Campo obligatorio",
+    "dateError": "La fecha desde no puede ser mayor a la fecha hasta",
+    "initialDate": "Fecha inicial requerida",
+    "rejectError": "Ha ocurrido un error al cancelar la dispersión, inténtelo nuevamente.",
+    "page-not-found": "Página no encontrada",
+    "operationTypeError": "Debe seleccionar un tipo de operación",
+    "paymentTypeError": "Debe seleccionar un tipo de pago",
+    "serviceTypeError": "Debe seleccionar un tipo de servicio",
+    "noAccounts": "No se encontraron cuentas.",
+    "batchValidationErrors": {
+      "9090": "El nombre del archivo que intenta subir ya existe. Por favor, revíselo e inténtelo nuevamente.",
+      "9091": "El archivo que intenta subir ya se encuentra en el sistema. Por favor, revíselo e inténtelo nuevamente.",
+      "9092": "El nombre del archivo es incorrecto. Por favor, revíselo e inténtelo nuevamente.",
+      "9093": "No coincide la fecha actual con la fecha en el nombre del archivo. Por favor, revíselo e inténtelo nuevamente.",
+      "9094": "No coincide el cliente ingresado con el cliente en el nombre del archivo. Por favor, revíselo e inténtelo nuevamente.",
+      "9095": "El contenido del archivo es inválido. Por favor, revíselo e inténtelo nuevamente."
+    },
+    "pldError": "Ha ocurrido un error al cambiar el estado del beneficiario. Por favor, revíselo e inténtelo nuevamente.",
+    "noHighResults": "No se encontraron cuentas para dar de alta",
+    "noDownResults": "No se encontraron cuentas para dar de baja",
+    "timeout": "Error de timeout",
+    "401": "Credenciales inválidas",
+    "500": "Error inesperado, por favor consulte al administrador",
+    "404": "No hay conectividad con los servicios, por favor consulte al administrador",
+    "403": "Credenciales inválidas",
+    "400": "Request mal formado, por favor consulte al administrador"
+  },
+  "general": {
+    "clean-button": "Limpiar",
+    "search-button": "Buscar",
+    "save-button": "Guardar",
+    "continue-button": "Continuar",
+    "confirm-button": "Confirmar",
+    "cancel-button": "Cancelar",
+    "finish-button": "Finalizar",
+    "reject-button": "Rechazar",
+    "ok-button": "Aceptar",
+    "return-button": "Regresar",
+    "deleteFile-button": "Borrar archivo",
+    "modify-button": "Modificar",
+    "delete-button": "Eliminar",
+    "saveChanges-button": "Guardar cambios",
+    "detail-button": "Detalle",
+    "high-button": "Alta",
+    "down-button": "Baja",
+    "ib-label": "IB",
+    "adaptor-label": "Plataforma Transaccional",
+    "operation-button": "Operación",
+    "operation-message": "Operación realizada correctamente, podrá ver los cambios transcurridos 30 minutos",
+    "sessionTimerMessage": "La sesión está por expirar. ¿Deseas continuar?",
+    "folioTooltip": "La fecha de operación del folio es requerida",
+    "noDataFound": "No se encontraron registros para su búsqueda",
+    "noRolFound": "No existe el Rol",
+    "defaultOption": "Seleccione un opción"
+  },
+  "pld": {
+    "title": "Beneficiarios PLD",
+    "detail_button": "Detalle",
+    "validation_pld": "Revisión PLD",
+    "download_button": "Descargar",
+    "confirm_button": "Confirmar",
+    "continue_button": "Continuar",
+    "cancel_button": "Cancelar",
+    "beneficiaries": {
+      "status": {
+        "INACTIVE_PLD": "Inhabilitado",
+        "INACTIVE": "Inhabilitado",
+        "ACTIVE": "Habilitado",
+        "IN_VALIDATION": "En revisión",
+        "I": "Inhabilitado",
+        "H": "Habilitado",
+        "R": "En revisión"
+      },
+      "downloadTitle": "Detalle de tarea",
+      "trackingTitle": "Seguimiento",
+      "generalInfo": "Datos generales",
+      "title": "Beneficiarios",
+      "filter": {
+        "status": "Estado",
+        "client": "No. cliente",
+        "beneficiary": "Beneficiario",
+        "statusOptions": {
+          "ALL": "Todos",
+          "ACTIVE": "Habilitado",
+          "INACTIVE_PLD": "Inhabilitado",
+          "INACTIVE": "Inhabilitado",
+          "IN_VALIDATION": "En revisión"
+        },
+        "beneficiaryOptions": {
+          "I": "Internacional",
+          "N": "Nacional"
+        }
+      },
+      "list": {
+        "client": "Cliente",
+        "accountType": "Tipo cuenta",
+        "accountTypes": {
+          "01": "Terceros Sabadell",
+          "40": "SPEI",
+          "41": "SPID",
+          "03": "TDD/TDC",
+          "10": "LTP",
+          "##": "Internacional",
+          "0": "Internacional"
+        },
+        "beneficiaryId": "ID Beneficiario",
+        "name": "Nombre ó razón social",
+        "personType": "Tipo de persona",
+        "personTypes": {
+          "00": "Persona Física",
+          "01": "Persona Moral",
+          "F": "Persona Física",
+          "M": "Persona Moral",
+          "X": "Beneficiario",
+          "J": "Persona Moral"
+        },
+        "status": "Estado",
+        "modifyDate": "Fecha modificación",
+        "user": "Usuario alta",
+        "date": "Fecha alta",
+        "contract": "Contrato"
+      }
+    },
+    "downloadDetail": {
+      "seconds-label": "segundos",
+      "cancelButton": "Cancelar",
+      "confirmButton": "Confirmar",
+      "description": "Descripción",
+      "status": "Estado",
+      "totalTime": "Tiempo total",
+      "creationDate": "Fecha/Hora de creación",
+      "start": "Inicio",
+      "statusOptions": {
+        "processing": "Procesando, por favor espere"
+      },
+      "descriptionOptions": {
+        "national": "Detalle de beneficiarios nacionales",
+        "international": "Detalle de beneficiarios internacionales"
+      }
+    }
+  },
+  "blockedTransactions": {
+    "title": "Transacciones Bloqueadas PLD",
+    "finalizeButton": "Finalizar",
+    "detailTitle": "Detalle transacción",
+    "authButton": "Autorizar",
+    "rejectButton": "Rechazar",
+    "modalAuthMessage": "Está a punto de autorizar una transacción",
+    "modalRejectMessage": "Está a punto de rechazar una transacción",
+    "filter": {
+      "status": "Estado",
+      "service": "Servicio",
+      "documentType": "Tipo documento",
+      "documentNumber": "No. documento (RFC/CURP)",
+      "name": "Nombre",
+      "serviceOptions": {
+        "All": "Todos",
+        "spei": "SPEI",
+        "spid": "SPID",
+        "ownAccounts": "Cuentas Propias",
+        "thirdSabadell": "Terceros Sabadell",
+        "internationals": "Internacionales",
+        "massivePayment": "Dispersión de pagos",
+        "referencedDeposit": "Depósito referenciado"
+      },
+      "documentTypes": {
+        "rfc": "RFC",
+        "curp": "CURP"
+      },
+      "statusOptions": {
+        "ALL": "Todos",
+        "AUTHORIZE": "Autorizada",
+        "REJECTED": "Rechazada",
+        "PENDING": "Pendiente"
+      }
+    },
+    "list": {
+      "date": "Fecha",
+      "service": "Servicio",
+      "amount": "Importe",
+      "name": "Nombre",
+      "ordenant": "Ordenante/Beneficiario",
+      "documentType": "Tipo documento",
+      "documentNumber": "Numero documento",
+      "bank": "Banco Receptor",
+      "country": "Pais",
+      "benefType": "Tipo beneficiario",
+      "channel": "Canal",
+      "status": "Estado",
+      "authUser": "Usuario Autorizador",
+      "authDate": "Fecha de autorización",
+      "authTime": "Hola de autorización"
+    }
+  },
+  "reportsModule": {
+    "title": "Beneficiarios",
+    "deleteTitle": "Borrar archivos",
+    "deleteMessage": "¿Está seguro que desea borrar los archivos anteriores a la fecha ",
+    "filter": {
+      "file": "Archivo",
+      "description": "Descripción",
+      "report": "Reporte",
+      "orderBy": "Ordenar por",
+      "reports": {
+        "ALL": "Todos",
+        "AU": "AU",
+        "DV": "DV"
+      },
+      "orderByTypes": {}
+    },
+    "list": {
+      "file": "Archivo",
+      "description": "Descripción",
+      "report": "Reporte",
+      "orderBy": "Ordenar por"
+    }
+  },
+  "history": {
+    "menu-title": "Históricos",
+    "beneficiariesHistory": {
+      "title": "Histórico de beneficiarios",
+      "detail-title": "Detalle",
+      "list": {
+        "folio": "Folio de la operación",
+        "channel": "Canal",
+        "date": "Fecha de operación",
+        "time": "Hora de operación",
+        "clientNumber": "No. de cliente",
+        "benefType": "Tipo de beneficiario",
+        "accountsNumber": "No. de ctas. del beneficiario",
+        "benefAlias": "Alias beneficiario",
+        "benefName": "Nombre beneficiario",
+        "modificationApplied": "Modificación aplicada",
+        "justify": "Justificación",
+        "accountNumber": "No. de cuenta",
+        "currency": "Divisa",
+        "operatorUser": "Usuario operador",
+        "authUser": "Usuario autorizador",
+        "action": "Acción",
+        "status": {
+          "B": "Inhabilitado",
+          "A": "Habilitado",
+          "M": "Modificación",
+          "ACTIVE": "Habilitado",
+          "INACTIVE": "Inhabilitado",
+          "INACTIVE_PLD": "Inhabilitado",
+          "IN_VALIDATION": "En revisión",
+          "REMOVED": "Eliminado"
+        },
+        "operations": {
+          "B": "Baja",
+          "M": "Modificado",
+          "A": "Alta"
+        },
+        "benefTypes": {
+          "I": "Internacional",
+          "N": "Nacional"
+        },
+        "channels": {
+          "ADAPTOR": "Plataforma Transaccional",
+          "Internet": "IB"
+        }
+      }
+    },
+    "referencedPaymentHistory": {
+      "title": "Histórico de alta y baja Depósito referenciado",
+      "detail": "Detalle",
+      "detail-receipt-button": "Recibo de Operación",
+      "detail-request-button": "Solicitud de Servicio",
+      "filter": {
+        "clientID": "No. de cliente",
+        "dateFrom": "Fecha desde",
+        "dateTo": "Fecha hasta",
+        "channel": "Canal",
+        "folio": "Folio",
+        "channelOptions": {
+          "ADAPTOR": "Plataforma Transaccional",
+          "Internet": "IB"
+        }
+      },
+      "list": {
+        "channel": "Canal",
+        "folio": "Folio",
+        "operationDate": "Fecha de operación",
+        "applicationDate": "Fecha de aplicación",
+        "clientID": "No. de cliente",
+        "name": "Nombre/Razón social",
+        "operatorUser": "Usuario operador",
+        "authUser": "Usuario autorizador",
+        "status": "Acción",
+        "accountNumber": "No. de cuenta",
+        "currency": "Divisa",
+        "actions": {
+          "A": "Alta",
+          "B": "Baja"
+        },
+        "statusOptions": {
+          "A": "Por activar",
+          "B": "Desactivada"
+        }
+      }
+    }
+  },
+  "referencedPayment": {
+    "title": "Depósito referenciado",
+    "detailTitle": "Detalle",
+    "noFoundClient": "Número de cliente no encontrado",
+    "confirm-title": "Operación oficina",
+    "filter": {
+      "clientID": "No. de cliente",
+      "legalReference": "Nombre o razón social"
+    },
+    "pending-list": {
+      "title": "Pendiente por Aplicar"
+    },
+    "list": {
+      "header-title-account": "Cuenta",
+      "header-title-currency": "Divisa",
+      "header-title-type": "Estatus de Alta",
+      "high-title": "Seleccione las cuentas a dar de alta",
+      "down-title": "Seleccione la cuenta a dar de baja"
+    },
+    "detail": {
+      "applicationDate": "Fecha de aplicación",
+      "errorAccountMessage": "Una o varias  de las cuentas  ya han sido registradas a través de la Banca en Linea",
+      "name": "Nombre/Razón social",
+      "authUser": "Usuario autorizador",
+      "clientID": "No. de cliente",
+      "channel": "Canal",
+      "total": "Total de registros",
+      "OPERATIONUSER": "Usuario operador",
+      "folio": "Folio",
+      "FOLIO": "Folio de operación",
+      "STATUS": "Estado operación",
+      "OPERATIONTYPE": "Proceso",
+      "active_services": {
+        "0": "Pendiente de Retoma",
+        "2": "Pendiente T+1",
+        "1": "Pendiente T+1"
+      },
+      "currencies": {
+        "101": "USD",
+        "97": "EUR",
+        "0": "MXN",
+        "MXN": "MXN",
+        "USD": "USD",
+        "EUR": "EUR"
+      },
+      "operationTypes": {
+        "A": "Alta",
+        "B": "Baja"
+      },
+      "status": {
+        "UNAUTHORIZED": "Rechazada",
+        "AUTHORIZED": "Autorizada",
+        "PENDING": "Pendiente de autorización",
+        "REJECTED": "Rechazada"
+      }
+    }
+  },
+  "collection": {
+    "generalDataTitle": "Datos generales del cliente",
+    "operationChannelsTitle": "Canales de operación",
+    "accountDataTitle": "Datos de cuentas",
+    "paymentsTypesTitle": "Tipos de pago habilitados para el servicio",
+    "captureInstructionsTitle": "Instrucciones de captura de la referencia y concepto",
+    "captureInstructionsForm": {
+      "algorithm": "Algoritmo",
+      "reference": "Referencia",
+      "concept": "Concepto",
+      "maxLength": "Longitud maxima",
+      "minLength": "Longitud minima"
+    },
+    "generalDataForm": {
+      "socialReason": "Razón social",
+      "address": "Dirección",
+      "rfc": "RFC",
+      "email": "Email",
+      "phone": "Teléfono",
+      "name": "Nombre comercial"
+    },
+    "operationChannelsSection": {
+      "available": "Disponibles",
+      "selected": "Seleccioneados"
+    },
+    "accountsDataForm": {
+      "currencyType": "Tipo de divisa",
+      "centeringAccount": "Cuentra concentradora",
+      "accountCollection": "Cuenta para el cobro de comisión",
+      "accountRefund": "Cuenta para devoluciones"
+    }
+  },
+  "dataTypes": {
+    "roles": {
+      "OPERADOR": "Operador",
+      "PLD_OPERADOR": "Operador PLD",
+      "ADMIN": "Administrador",
+      "SUPERVISOR": "Supervisor",
+      "GERENTE": "Gerente",
+      "DIRECTOR": "Director",
+      "CONSULTA": "Consulta"
+    }
+  },
+  "menu": {
+    "office": "Oficina",
+    "beneficiaries": "Beneficiarios",
+    "operations": "Operaciones",
+    "pldBeneficiaries": "Beneficiarios PLD",
+    "pldRevision": "Revisión PLD",
+    "reportsModule": "Módulo de reportes",
+    "blockedTransactions": "Transacciones bloqueadas",
+    "operationsQuery": "Consulta y aclaración de operaciones",
+    "fileQuery": "Consulta por archivo",
+    "histories": "Históricos",
+    "beneficiariesHistory": "Beneficiarios",
+    "referencedPaymentHistory": "Depósito referenciado",
+    "issuesAdministration": "Administración de incidencias",
+    "operationStatus": "Estado de operaciones",
+    "ownOperations": "Operaciones Propias",
+    "allOperations": "Total de Operaciones",
+    "userRoles": "Administración de usuarios",
+    "pendingOperationAuthorization": "Retoma de operaciones pendientes",
+    "operationAuthorization": "Retoma de Operaciones",
+    "authorizationByAmount": "Retoma por Importe",
+    "rolesAdministration": "Administración de roles",
+    "adminOffice": "Administración de roles y usuarios"
+  }
+}

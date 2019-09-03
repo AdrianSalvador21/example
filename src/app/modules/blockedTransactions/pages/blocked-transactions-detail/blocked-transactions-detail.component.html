@@ -1,0 +1,23 @@
+<two-breadcrumb [breadcrumbList]="['blockedTransactions.title', 'blockedTransactions.detailTitle']"></two-breadcrumb>
+
+
+<div fxLayout="row">
+  <div fxFlex="100">
+    <div class="title-container">
+      <span class="title">{{'blockedTransactions.detailTitle' |translate}}</span>
+    </div>
+  </div>
+</div>
+<div fxLayout="row" style="margin-top: 20px; margin-bottom: 45px;">
+  <div fxFlex="50">
+    <two-blocked-transaction-section [rows]="transactionDetail"></two-blocked-transaction-section>
+  </div>
+</div>
+
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="onFinalize()">
+      {{'blockedTransactions.finalizeButton' | translate}}
+    </button>
+  </div>
+</div>

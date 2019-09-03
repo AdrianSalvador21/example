@@ -1,0 +1,18 @@
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-breadcrumb [breadcrumbList]="['history.menu-title','history.beneficiariesHistory.title']"></two-breadcrumb>
+      <two-beneficiaries-history [stepper]="stepper"></two-beneficiaries-history>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-breadcrumb [breadcrumbList]="['history.menu-title','history.beneficiariesHistory.title', 'history.beneficiariesHistory.detail-title']"></two-breadcrumb>
+      <two-beneficiaries-confirm [onHistory]="true" [data]="stepper.data" [stepper]="stepper"
+                                 [onAuthDetails]="false" [onBeneficiaryEdition]="true" [showDialog]="true"></two-beneficiaries-confirm>
+
+      <!--<two-beneficiaries-history-detail [data]="stepper.data" [stepper]="stepper"-->
+                                        <!--[onAuthDetails]="false" [onBeneficiaryEdition]="true" [showDialog]="true"></two-beneficiaries-history-detail>-->
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

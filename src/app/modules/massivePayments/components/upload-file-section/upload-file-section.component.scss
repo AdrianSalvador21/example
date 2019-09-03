@@ -1,0 +1,81 @@
+@import "mixins";
+@import "constants";
+
+.operation-container {
+  background-color: $light-blue;
+  border-radius: .5rem;
+  padding: 30px;
+}
+
+.sub-title {
+  color: black;
+  font-size: $font-size-very-big;
+  font-weight: bold;
+}
+
+.radio-button {
+}
+
+.main-container {
+  position: relative;
+  height: 100%;
+  margin-bottom: 30px;
+}
+
+.icon-container {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background-color: $blue;
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-container .icon {
+  font-size: $font-size-big;
+  font-weight: bold;
+}
+
+label {
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+  background-color: $blue;
+  color: white;
+  font-style: normal;
+  font-size: $font-size-regular;
+}
+
+.inputfile {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+@media only screen and (max-width: 959px) {
+  .display-block {
+    display: block !important;
+  }
+}

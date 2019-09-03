@@ -1,0 +1,38 @@
+{
+  "/DynamicServiceBroker": {
+    "target": "http://10.248.11.20:8080/DynamicServiceBroker",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/DynamicServiceBroker": ""
+    }
+  },
+  "/SecurityManager": {
+    "target": "http://10.248.11.20:8080/SecurityManager",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/SecurityManager": ""
+    }
+  },
+  "/AdministrationServices": {
+    "target": "http://10.248.11.20:8080/AdministrationServices",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/AdministrationServices": ""
+    }
+  },
+  "/reportGenerator-service": {
+    "target": "http://10.248.11.20:8080/reportGenerator-service",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/reportGenerator-service": ""
+    }
+  }
+}

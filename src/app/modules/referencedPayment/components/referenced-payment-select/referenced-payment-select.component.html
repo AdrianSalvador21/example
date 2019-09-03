@@ -1,0 +1,126 @@
+<div *ngIf="!!listData && listData.length !== 0">
+
+  <div *ngIf="onHighOperationInput" class="title-container">
+    <span class="title">{{'referencedPayment.list.high-title' | translate}}</span>
+  </div>
+
+  <div *ngIf="!onHighOperationInput" class="title-container">
+    <span class="title">{{'referencedPayment.list.down-title' | translate}}</span>
+  </div>
+
+  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="display-block">
+    <div fxFlex="50" fxFlex.xs="90" fxFlex.sm="100" style="padding-right: 15px">
+      <div class="detail-content mat-elevation-z8">
+        <div class="detail" fxLayout="row">
+          <div fxFlex="50" class="label">
+            <p class="description detail-header-title text--center">{{'referencedPayment.list.header-title-account' | translate}}</p>
+          </div>
+          <div fxFlex="25" class="label">
+            <p class="description detail-header-title text--center">{{'referencedPayment.list.header-title-currency' | translate}}</p>
+          </div>
+          <div fxFlex="25" class="label">
+            <p class="value text--center">
+              <mat-checkbox *ngIf="onHighOperationInput"
+                            [ngClass]="{'onHighOperation' : onHighOperationInput == true, 'onDownOperation': onHighOperationInput == false}"
+                            (change)="selectAllElements($event)"></mat-checkbox>
+            </p>
+          </div>
+        </div>
+        <div *ngFor="let row of listData; let i = index;" class="detail" fxLayout="row">
+          <div fxFlex="50" class="label">
+            <p class="description text--center">{{row.NUMERO}}</p>
+          </div>
+          <div fxFlex="25" class="label">
+            <p class="description text--center">{{row.MONEDA}}</p>
+          </div>
+          <div fxFlex="25" class="label">
+            <p class="value text--center">
+              <mat-checkbox *ngIf="onHighOperationInput"
+                            [ngClass]="{'onHighOperation' : onHighOperationInput == true, 'onDownOperation': onHighOperationInput == false}"
+                            (change)="validate(i, $event.checked)" [checked]="row.checked"></mat-checkbox>
+
+              <mat-radio-button *ngIf="!onHighOperationInput" (change)="validate(i, row)"></mat-radio-button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Pending authorization-->
+  <div *ngIf="!!pendingData && pendingData.length !== 0">
+    <div>
+      <div class="title-container">
+        <span class="title">{{'referencedPayment.pending-list.title' | translate}}</span>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="display-block">
+      <div fxFlex="50" fxFlex.xs="90" fxFlex.sm="100" style="padding-right: 15px">
+        <div class="detail-content mat-elevation-z8" *ngIf="!onHighOperationInput">
+          <div class="detail" fxLayout="row">
+            <div fxFlex="50" class="label">
+              <p class="description detail-header-title text--center">{{'referencedPayment.list.header-title-account' | translate}}</p>
+            </div>
+            <div fxFlex="50" class="label">
+              <p class="description detail-header-title text--center">{{'referencedPayment.list.header-title-currency' | translate}}</p>
+            </div>
+          </div>
+
+
+          <div class="detail" fxLayout="row" *ngIf="onHighOperationInput">
+            <div fxFlex="34" class="label">
+              <p class="description detail-header-title text--center">{{'referencedPayment.list.header-title-account' | translate}}</p>
+            </div>
+            <div fxFlex="33" class="label">
+              <p class="description detail-header-title text--center">{{'referencedPayment.list.header-title-currency' | translate}}</p>
+            </div>
+            <div fxFlex="33" class="label">
+              <p class="description detail-header-title text--center">{{'referencedPayment.list.header-title-type' | translate}}</p>
+            </div>
+          </div>
+
+          <div *ngIf="onHighOperationInput">
+            <div *ngFor="let row of pendingData; let i = index;" class="detail" fxLayout="row">
+              <div fxFlex="34" class="label">
+                <p class="description text--center">{{row.NUMERO}}</p>
+              </div>
+              <div fxFlex="33" class="label">
+                <p class="description text--center">{{'referencedPayment.detail.currencies.' + row.MONEDA | translate}}</p>
+              </div>
+              <div fxFlex="33" class="label">
+                <p class="description text--center">{{'referencedPayment.detail.active_services.' + row.SERVICIO_ACTIVO | translate}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="!onHighOperationInput">
+            <div *ngFor="let row of pendingData; let i = index;" class="detail" fxLayout="row">
+              <div fxFlex="50" class="label">
+                <p class="description text--center">{{row.NUMERO}}</p>
+              </div>
+              <div fxFlex="50" class="label">
+                <p class="description text--center">{{'referencedPayment.detail.currencies.' + row.MONEDA | translate}}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div fxLayout="row">
+    <div fxFlex="100" class="button-group-container">
+      <button appNoDblClickMat mat-raised-button class="white-button" type="button" (click)="returnSelect()">
+        {{'general.return-button' |translate}}
+      </button>
+      <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="continue()"
+              [disabled]="!enabledButton">
+        {{'general.continue-button' |translate}}
+      </button>
+    </div>
+  </div>
+</div>

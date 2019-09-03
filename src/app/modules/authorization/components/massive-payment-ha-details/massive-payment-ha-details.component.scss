@@ -1,0 +1,44 @@
+@import "mixins";
+@import "constants";
+
+.mat-table {
+  width: 100%;
+  border: solid 1px $gray-table !important;
+
+  td {
+    width: unset !important;
+    max-width: unset !important;
+    min-width: 10px !important;
+    word-break: normal;
+    font-family: FranklinGothicLT;
+    font-size: $font-size-regular;
+  }
+
+  th {
+    border-right: solid 1px $gray-table;
+    padding: 10px;
+  }
+
+  tr {
+    height: auto !important;
+  }
+
+  .mat-header-cell {
+    vertical-align: middle;
+    background-color: $black;
+    color: $white;
+  }
+}
+
+.mini-spinner-container {
+  padding-left: calc(50% - 15px);
+  width: 100%;
+}
+
+.mat-paginator-container {
+  min-height: unset !important;
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+  padding: 0 2px;
+}

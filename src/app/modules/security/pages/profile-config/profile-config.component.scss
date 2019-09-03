@@ -1,0 +1,93 @@
+@import "mixins";
+@import "constants";
+
+.detail-content {
+  border-bottom: 1px solid #c7c2c2;
+  border-left: 1px solid #c7c2c2;
+  border-right: 1px solid #c7c2c2;
+  border-radius: 3px;
+  background-color: #fafafa;
+  margin-bottom: 10px;
+  .detail {
+    min-height: 34px;
+    margin-top: 0;
+    border-top: 1px solid #c7c2c2;
+    border-radius: 3px;
+    .label {
+      border-right: 1px solid #c7c2c2;
+      width: 182px;
+      min-height: 34px;
+      .description {
+        font-family: FranklinGothicLT;
+        font-size: $font-size-regular;
+        margin-top: 9px;
+        padding-right: 10px;
+        text-align: right;
+        color: #6c6c6c;
+      }
+    }
+    .value {
+      font-family: FranklinGothicLT-Demi;
+      font-size: $font-size-regular;
+      padding-left: 15px;
+      margin-top: 9px;
+      word-break: break-all;
+      padding-right: 15px;
+    }
+  }
+}
+
+.checkbox-container {
+  margin: 1rem;
+}
+
+.profile-field-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-description {
+  justify-content: flex-end;
+}
+
+.profile-checkbox {
+  justify-content: flex-start;
+}
+
+.checkbox-item {
+  margin-top: 0 !important;
+  margin-left: 1rem !important;
+}
+
+.menu-content {
+  justify-content: flex-start;
+  margin-left: 1rem;
+}
+
+.menus-tree {
+  background-color: #fafafa !important;
+}
+
+.menu-item {
+  font-family: FranklinGothicLT !important;
+  font-size: 12px !important;
+  padding-right: 10px !important;
+  text-align: right !important;
+  color: #6c6c6c !important;
+}
+
+.new-role {
+  width: calc(50% - 15px);
+}
+
+.select-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.select-options {
+  width: calc(50% - 15px) !important;
+  padding-right: 15px;
+}

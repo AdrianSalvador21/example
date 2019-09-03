@@ -1,0 +1,91 @@
+<div *ngIf="loading" class="mini-spinner-container">
+  <mat-spinner [diameter]="30"></mat-spinner>
+</div>
+
+<table *ngIf="!!data && !error && !loading" mat-table [dataSource]="data">
+  <ng-container matColumnDef="operationDetail">
+    <th mat-header-cell *matHeaderCellDef>operationDetail</th>
+    <td mat-cell *matCellDef="let element"> {{element.operationDetail}}</td>
+  </ng-container>
+  <ng-container matColumnDef="movementType">
+    <th mat-header-cell *matHeaderCellDef>movementType</th>
+    <td mat-cell *matCellDef="let element"> {{element.movementType}}</td>
+  </ng-container>
+  <ng-container matColumnDef="application">
+    <th mat-header-cell *matHeaderCellDef>application</th>
+    <td mat-cell *matCellDef="let element"> {{element.application}}</td>
+  </ng-container>
+  <ng-container matColumnDef="applicationDate">
+    <th mat-header-cell *matHeaderCellDef>applicationDate</th>
+    <td mat-cell *matCellDef="let element"> {{element.applicationDate}}</td>
+  </ng-container>
+  <ng-container matColumnDef="transactionType">
+    <th mat-header-cell *matHeaderCellDef>transactionType</th>
+    <td mat-cell *matCellDef="let element"> {{element.transactionType}}</td>
+  </ng-container>
+  <ng-container matColumnDef="debitAccount">
+    <th mat-header-cell *matHeaderCellDef>debitAccount</th>
+    <td mat-cell *matCellDef="let element"> {{element.debitAccount}}</td>
+  </ng-container>
+  <ng-container matColumnDef="beneficiaryAccountType">
+    <th mat-header-cell *matHeaderCellDef>beneficiaryAccountType</th>
+    <td mat-cell *matCellDef="let element"> {{element.beneficiaryAccountType}}</td>
+  </ng-container>
+  <ng-container matColumnDef="creditAccount">
+    <th mat-header-cell *matHeaderCellDef>creditAccount</th>
+    <td mat-cell *matCellDef="let element"> {{element.creditAccount}}</td>
+  </ng-container>
+  <ng-container matColumnDef="personType">
+    <th mat-header-cell *matHeaderCellDef>personType</th>
+    <td mat-cell *matCellDef="let element"> {{element.personType}}</td>
+  </ng-container>
+  <ng-container matColumnDef="beneficiaryName">
+    <th mat-header-cell *matHeaderCellDef>beneficiaryName</th>
+    <td mat-cell *matCellDef="let element"> {{element.beneficiaryName}}</td>
+  </ng-container>
+  <ng-container matColumnDef="rfc">
+    <th mat-header-cell *matHeaderCellDef>rfc</th>
+    <td mat-cell *matCellDef="let element"> {{element.rfc}}</td>
+  </ng-container>
+  <ng-container matColumnDef="curp">
+    <th mat-header-cell *matHeaderCellDef>curp</th>
+    <td mat-cell *matCellDef="let element"> {{element.curp}}</td>
+  </ng-container>
+  <ng-container matColumnDef="currency">
+    <th mat-header-cell *matHeaderCellDef>currency</th>
+    <td mat-cell *matCellDef="let element"> {{element.currency}}</td>
+  </ng-container>
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef>amount</th>
+    <td mat-cell *matCellDef="let element"> {{element.amount | number:'.2'}}</td>
+  </ng-container>
+  <ng-container matColumnDef="iva">
+    <th mat-header-cell *matHeaderCellDef>iva</th>
+    <td mat-cell *matCellDef="let element"> {{element.iva | number:'.2'}}</td>
+  </ng-container>
+  <ng-container matColumnDef="concept">
+    <th mat-header-cell *matHeaderCellDef>concept</th>
+    <td mat-cell *matCellDef="let element"> {{element.concept}}</td>
+  </ng-container>
+  <ng-container matColumnDef="reference">
+    <th mat-header-cell *matHeaderCellDef>reference</th>
+    <td mat-cell *matCellDef="let element"> {{element.reference}}</td>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>email</th>
+    <td mat-cell *matCellDef="let element"> {{element.email}}</td>
+  </ng-container>
+  <ng-container matColumnDef="mobileNumber">
+    <th mat-header-cell *matHeaderCellDef>mobileNumber</th>
+    <td mat-cell *matCellDef="let element"> {{element.mobileNumber}}</td>
+  </ng-container>
+
+  <!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div *ngIf="!!data && !error && !loading && totalRecords > 10" class="paginator-container">
+  <two-paginator-custom [length]="totalRecords" [pageSize]="10" (page)="changePage($event)"></two-paginator-custom>
+</div>
+
+<mat-error *ngIf="!!error && !loading">{{error | translate}}</mat-error>

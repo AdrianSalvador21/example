@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0a2f389c-c8d2-4a1d-8fea-e5bab802f37e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<import value="org.apache.commons.codec.binary.Base64"/>
+	<queryString language="JSON">
+		<![CDATA[]]>
+	</queryString>
+	<field name="benefAccountCurrency" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefAccountCurrency"/>
+		<fieldDescription><![CDATA[benefAccountCurrency]]></fieldDescription>
+	</field>
+	<field name="ordererClient" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="ordererClient"/>
+		<fieldDescription><![CDATA[ordererClient]]></fieldDescription>
+	</field>
+	<field name="benefAccountType" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefAccountType"/>
+		<fieldDescription><![CDATA[benefAccountType]]></fieldDescription>
+	</field>
+	<field name="benefAccountNumber" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefAccountNumber"/>
+		<fieldDescription><![CDATA[benefAccountNumber]]></fieldDescription>
+	</field>
+	<field name="benefAlias" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefAlias"/>
+		<fieldDescription><![CDATA[benefAlias]]></fieldDescription>
+	</field>
+	<field name="benefDocType" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefDocType"/>
+		<fieldDescription><![CDATA[benefDocType]]></fieldDescription>
+	</field>
+	<field name="benefDocNumber" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefDocNumber"/>
+		<fieldDescription><![CDATA[benefDocNumber]]></fieldDescription>
+	</field>
+	<field name="benefDocCountry" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefDocCountry"/>
+		<fieldDescription><![CDATA[benefDocCountry]]></fieldDescription>
+	</field>
+	<field name="benefStatus" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefStatus"/>
+		<fieldDescription><![CDATA[benefStatus]]></fieldDescription>
+	</field>
+	<field name="benefName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefName"/>
+		<fieldDescription><![CDATA[benefName]]></fieldDescription>
+	</field>
+	<field name="firstSurname" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="firstSurname"/>
+		<fieldDescription><![CDATA[firstSurname]]></fieldDescription>
+	</field>
+	<field name="secondSurname" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="secondSurname"/>
+		<fieldDescription><![CDATA[secondSurname]]></fieldDescription>
+	</field>
+	<field name="benefPersonType" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefPersonType"/>
+		<fieldDescription><![CDATA[benefPersonType]]></fieldDescription>
+	</field>
+	<field name="benefType" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefType"/>
+		<fieldDescription><![CDATA[benefType]]></fieldDescription>
+	</field>
+	<field name="benefNumber" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefNumber"/>
+		<fieldDescription><![CDATA[benefNumber]]></fieldDescription>
+	</field>
+	<field name="benefCURP" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefCURP"/>
+		<fieldDescription><![CDATA[benefCURP]]></fieldDescription>
+	</field>
+	<field name="IBUser" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="IBUser"/>
+		<fieldDescription><![CDATA[IBUser]]></fieldDescription>
+	</field>
+	<field name="benefEmail" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefEmail"/>
+		<fieldDescription><![CDATA[benefEmail]]></fieldDescription>
+	</field>
+	<field name="benefReason" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefReason"/>
+		<fieldDescription><![CDATA[benefReason]]></fieldDescription>
+	</field>
+	<field name="benefMaxAmount" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefMaxAmount"/>
+		<fieldDescription><![CDATA[benefMaxAmount]]></fieldDescription>
+	</field>
+	<field name="IVA" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="IVA"/>
+		<fieldDescription><![CDATA[IVA]]></fieldDescription>
+	</field>
+	<field name="diaryId" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="diaryId"/>
+		<fieldDescription><![CDATA[diaryId]]></fieldDescription>
+	</field>
+	<field name="benefPhone" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefPhone"/>
+		<fieldDescription><![CDATA[benefPhone]]></fieldDescription>
+	</field>
+	<field name="bankName" class="java.lang.String">
+		<fieldDescription><![CDATA[bankName]]></fieldDescription>
+	</field>
+	<field name="benefModificationDate" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefModificationDate"/>
+		<fieldDescription><![CDATA[benefModificationDate]]></fieldDescription>
+	</field>
+	<field name="benefModificationTime" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefModificationTime"/>
+		<fieldDescription><![CDATA[benefModificationTime]]></fieldDescription>
+	</field>
+	<field name="OPERATIONTYPE" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="OPERATIONTYPE"/>
+		<fieldDescription><![CDATA[OPERATIONTYPE]]></fieldDescription>
+	</field>
+	<field name="benefCreationDate" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefCreationDate"/>
+		<fieldDescription><![CDATA[benefCreationDate]]></fieldDescription>
+	</field>
+	<field name="benefCreationTime" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefCreationTime"/>
+		<fieldDescription><![CDATA[benefCreationTime]]></fieldDescription>
+	</field>
+	<field name="fullName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="fullName"/>
+		<fieldDescription><![CDATA[fullName]]></fieldDescription>
+	</field>
+	<field name="FOLIO" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="folio"/>
+		<fieldDescription><![CDATA[FOLIO]]></fieldDescription>
+	</field>
+	<field name="ordererName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="ordererName"/>
+		<fieldDescription><![CDATA[ordererName]]></fieldDescription>
+	</field>
+	<field name="benefJustification" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="benefJustification"/>
+		<fieldDescription><![CDATA[benefJustification]]></fieldDescription>
+	</field>
+	<field name="section" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="section"/>
+		<fieldDescription><![CDATA[section]]></fieldDescription>
+	</field>
+	<field name="channel" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="channel"/>
+		<fieldDescription><![CDATA[channel]]></fieldDescription>
+	</field>
+	<variable name="logo" class="java.lang.String">
+		<initialValueExpression><![CDATA["iVBORw0KGgoAAAANSUhEUgAAAesAAABxCAIAAAB6GxxnAAAACXBIWXMAAC4jAAAuIwF4pT92AAALqWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDUgNzkuMTYzNDk5LCAyMDE4LzA4LzEzLTE2OjQwOjIyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIiB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMTgtMDItMTJUMTU6NTQ6MjAtMDY6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMTktMDItMDFUMTI6NDg6MjYtMDY6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDE5LTAyLTAxVDEyOjQ4OjI2LTA2OjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOmNmMDhjNTYzLTAwNWMtNGVkMi05YjJhLTIyM2ViYmQ5MGRkNCIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmQ0Mjk2MTM5LTQ4N2UtMzQ0My1hMDRkLTJkZWExMGYzZWU3YSIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOkNCREU2QTA2MEMyMDY4MTE4MjJBQUZCQjE4MzQ2MTNGIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkxlZ2FjeUlQVENEaWdlc3Q9IkU4RjE1Q0YzMkZDMTE4QTFBMjdCNjdBREM1NjRENUJBIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIHRpZmY6SW1hZ2VXaWR0aD0iNDkxIiB0aWZmOkltYWdlTGVuZ3RoPSIxNDEiIHRpZmY6UGhvdG9tZXRyaWNJbnRlcnByZXRhdGlvbj0iMiIgdGlmZjpPcmllbnRhdGlvbj0iMSIgdGlmZjpTYW1wbGVzUGVyUGl4ZWw9IjMiIHRpZmY6WFJlc29sdXRpb249IjMwMDAwMDAvMTAwMDAiIHRpZmY6WVJlc29sdXRpb249IjMwMDAwMDAvMTAwMDAiIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiIGV4aWY6RXhpZlZlcnNpb249IjAyMjEiIGV4aWY6Q29sb3JTcGFjZT0iMSIgZXhpZjpQaXhlbFhEaW1lbnNpb249IjQ5MSIgZXhpZjpQaXhlbFlEaW1lbnNpb249IjExMyI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6Q0JERTZBMDYwQzIwNjgxMTgyMkFBRkJCMTgzNDYxM0YiIHN0RXZ0OndoZW49IjIwMTgtMDItMTJUMTU6NTQ6MjAtMDY6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKE1hY2ludG9zaCkiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOkNDREU2QTA2MEMyMDY4MTE4MjJBQUZCQjE4MzQ2MTNGIiBzdEV2dDp3aGVuPSIyMDE4LTAyLTEyVDE1OjU0OjIwLTA2OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MzY4NWQwZC02YzFkLTQ3NGEtYjg2Mi01ZDAxMWMyMThmMGIiIHN0RXZ0OndoZW49IjIwMTktMDItMDFUMTI6NDg6MjYtMDY6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChNYWNpbnRvc2gpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gaW1hZ2UvanBlZyB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImRlcml2ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImNvbnZlcnRlZCBmcm9tIGltYWdlL2pwZWcgdG8gaW1hZ2UvcG5nIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpjZjA4YzU2My0wMDVjLTRlZDItOWIyYS0yMjNlYmJkOTBkZDQiIHN0RXZ0OndoZW49IjIwMTktMDItMDFUMTI6NDg6MjYtMDY6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChNYWNpbnRvc2gpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MzY4NWQwZC02YzFkLTQ3NGEtYjg2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"]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="155" splitType="Stretch">
+			<image>
+				<reportElement x="51" y="20" width="209" height="70" uuid="96fe2086-675e-4f9d-841c-7da5b170b48f"/>
+				<imageExpression><![CDATA[new ByteArrayInputStream(Base64.decodeBase64($V{logo}.getBytes()))]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="53" y="103" width="446" height="29" uuid="0598312a-6d6c-4c09-a7c6-a054af4d3ab6"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Beneficiario nacional]]></text>
+			</staticText>
+			<line>
+				<reportElement mode="Opaque" x="55" y="93" width="443" height="1" forecolor="#000000" uuid="2139ace7-7b02-45ff-be05-cb88247a3e8b"/>
+			</line>
+			<line>
+				<reportElement x="55" y="133" width="443" height="1" uuid="b7ea25c3-1d80-43ad-938a-c0700129a6f4"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="17" splitType="Stretch">
+			<textField pattern="d/M/yyyy HH:mm:ss ">
+				<reportElement positionType="FixRelativeToBottom" x="380" y="-17" width="140" height="20" uuid="fa4af0a7-2b02-42d5-842b-3cc1d000e138"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[DATEFORMAT(new java.util.Date(),"dd/MM/yyyy | hh:mm:ss")]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="485" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout"/>
+			<staticText>
+				<reportElement x="80" y="19" width="120" height="22" uuid="08aa46c0-a6c9-4fef-8dfb-ae9cc109d073"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[No. de cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="216" width="150" height="22" uuid="ae2ab6f8-ea00-41c3-9db4-74f4f04db9f8"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Alias:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="150" width="150" height="22" uuid="cff006a2-3908-4757-9276-6ecfc17ace6d"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Nombre beneficiario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="172" width="130" height="22" uuid="a1579e2a-0f24-484f-923d-8d17d81515ad"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[RFC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="194" width="120" height="22" uuid="51ed2891-d8a0-4b4b-a661-43f6b46cceaa"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[CURP:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="60" width="170" height="22" uuid="c229859c-e63b-4587-87c9-dad618154fa4"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Usuario IB:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="326" width="110" height="22" uuid="9ef4219d-20d0-4a8c-ba48-8096233e6b85"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Correo electrónico:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="106" width="125" height="22" uuid="9a83f422-7515-4494-a446-f80cc0e06cd1"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Tipo de beneficiario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="128" width="130" height="22" uuid="8e408dd9-9dba-4893-b9bc-c4fb912bb46f"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Tipo de persona:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="304" width="141" height="22" uuid="953f4d4f-a6c0-4031-8459-6597dcaaeed0"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Monto máximo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="269" y="216" width="287" height="22" uuid="375fba27-09e0-4ec4-890f-178d2dabc7a3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e44402e-52b4-4dcf-8c54-60eddd443b53"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{benefAlias}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="150" width="288" height="22" uuid="7aa46d32-675d-4bdc-80d4-d15c5d72b7c4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f159354-dbb2-446f-91ad-610bb66989c2"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fullName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="194" width="286" height="22" uuid="932e4891-606c-46b5-81d4-f338d7d4413d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="49751c22-bb26-4da4-8e1a-0fad602b1ccf"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{benefCURP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="60" width="265" height="22" uuid="38cd9dad-7db0-4dfc-bdba-3f91b83c6f2d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="426d73d9-e8b6-491f-bbb6-dc61058f71b4"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IBUser}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="326" width="288" height="22" uuid="534632b9-66e9-483f-9939-715c188d032d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7a448fb-7d44-4366-b8bd-bf8681b7961a"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{benefEmail}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="304" width="288" height="22" uuid="1bb85c30-f3ab-4719-abd6-937596d4ca57">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f6ffe13-9821-412f-8831-6f8b67bcede4"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{benefMaxAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="128" width="287" height="22" uuid="400174c8-1e4a-400f-9b4a-bcb02a82bcc1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f0116566-0e1a-448c-86ee-290a4d7d149d"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[IF($F{benefPersonType}.equals("00") || $F{benefPersonType}.equals("F"),"Física","Moral")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="106" width="287" height="22" uuid="50efe0d8-6c30-4780-b129-8c1dbcf351dd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c6f9e2d0-c5d5-4aa8-960c-c63c8b069a42"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[IF($F{benefType}.equals("N"),"Nacional","Internacional")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="172" width="284" height="22" uuid="b01b7cf0-2571-4747-a7f2-83c58561fb3c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="32b6e67e-9150-41e9-9b93-62596a8dcefc"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{benefDocNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="20" width="290" height="22" uuid="568372ef-149c-444f-b9d4-9709482bf655">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a5c63848-1abf-4a32-9d40-0c8286000725"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ordererClient}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="63" y="1" width="178" height="18" uuid="4eee0157-6eb2-4180-85f7-d836790cd9ea"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos del ordenante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="80" width="178" height="18" uuid="b74d2195-032f-4b2f-aeb9-a7dabde7e4f0"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos del beneficiario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="238" width="190" height="22" uuid="0a4a9ba1-8b95-41ac-b8ed-99cc9ca9fa68"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Cuenta de abono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="282" width="110" height="22" uuid="1707e0a5-b28d-421d-bbaf-e5d0a87c8e54"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Banco:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="260" width="170" height="22" uuid="b23b8b8a-347e-4995-a7ea-c9d87e3a6288"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Divisa de la cuenta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="269" y="238" width="288" height="22" uuid="b81cce55-0f87-4e3a-85a7-c4a37ace218e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="69d0cb5f-aae4-4eaa-8d1c-6397b3ea7c78"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{benefAccountNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="282" width="288" height="22" uuid="381cda0b-be7e-4b60-9c39-25c483177c60">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bc95cc61-e04f-4ab4-8bb1-271763b65602"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bankName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="260" width="290" height="22" uuid="0f8ea9c4-325a-4d7c-b82e-85dcc57a06bf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5f8ba21-174e-42af-8aa0-567db1d5734f"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{benefAccountCurrency}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="370" width="287" height="23" uuid="bc397464-b0bc-40d1-897a-137d0ed5585e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b8ad2020-7a55-4266-98c1-d1381c324dc5"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[IF($F{benefStatus}.equals("ACTIVE"),"Habilitado",
+	IF($F{benefStatus}.equals("INACTIVE"),"Inhabilitado",
+		IF($F{benefStatus}.equals("IN_VALIDATION"),"En revisión",
+			IF($F{benefStatus}.equals("INACTIVE_PLD"),"Inhabilitado",
+			$F{benefStatus}
+		)
+	)
+))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="81" y="348" width="109" height="22" uuid="84b24ef7-c92c-407e-9b7d-4caa70aa48ee"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Fecha de carga:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="348" width="286" height="22" uuid="a045e551-7472-437a-9c74-6b00f17b5fb0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f6ffe13-9821-412f-8831-6f8b67bcede4"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{benefCreationDate}+" "+$F{benefCreationTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="392" width="286" height="22" uuid="df259aad-7b0d-4349-8c4c-91ddc14f0046">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b9ed63d-b5b0-4345-926c-f8b53f53b635"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FOLIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="40" width="120" height="22" uuid="5d148f88-ab4d-42bb-9a3b-e83fda03ed12"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Nombre del cliente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="269" y="42" width="265" height="22" uuid="eaf0c51a-d632-41f1-8046-a06bc0bbbfd5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="426d73d9-e8b6-491f-bbb6-dc61058f71b4"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ordererName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="370" width="179" height="22" uuid="b5ac0662-4a83-493b-9691-34b7b2305f2e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f6ffe13-9821-412f-8831-6f8b67bcede4"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[IF($F{section}.equals( "onHistory" ),"Estado:",
+IF($F{section}.equals("onOperationStatus"),"Estado de la operación:",
+$F{section}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="392" width="179" height="22" uuid="94c689f8-fdae-48cc-9fd7-c44617d373e6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f6ffe13-9821-412f-8831-6f8b67bcede4"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[IF($F{channel}.equals( "Internet" ),"  ",
+IF($F{channel}.equals("ADAPTOR"),"Folio de operación:",
+"Folio de operación"))]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

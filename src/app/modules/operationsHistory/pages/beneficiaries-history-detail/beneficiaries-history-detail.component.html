@@ -1,0 +1,127 @@
+<div fxLayout="row" *ngIf="!hideTitle && !onAuthDetails && !onOperationDetail">
+  <div fxFlex="100" class="detail-column-left">
+    <two-breadcrumb *ngIf="!showDeleteMessage && !onPldDetails"
+                    [breadcrumbList]="['beneficiary.operator.title', 'beneficiary.confirm.title.modify']"></two-breadcrumb>
+    <two-breadcrumb *ngIf="showDeleteMessage && !onPldDetails"
+                    [breadcrumbList]="['beneficiary.operator.title', 'beneficiary.confirm.title.delete']"></two-breadcrumb>
+    <two-breadcrumb *ngIf="onPldDetails"
+                    [breadcrumbList]="['pld.beneficiaries.title', 'pld.detail_button']"></two-breadcrumb>
+  </div>
+</div>
+<!-------------------INTERNATIONAL----------------->
+<div *ngIf="showInternational">
+  <div fxLayout="row" *ngIf="!hideTitle && !onAuthDetails && !onOperationDetail">
+    <div fxFlex="100">
+      <div class="title-container" *ngIf="!showDeleteMessage && !onPldDetails">
+        <span class="title">{{'beneficiary.confirm.title.modify' |translate}}</span>
+      </div>
+      <div class="title-container" *ngIf="showDeleteMessage && !onPldDetails">
+        <span class="title">{{'beneficiary.confirm.title.delete' |translate}}</span>
+      </div>
+      <div class="title-container" *ngIf="onPldDetails">
+        <span class="title">{{'beneficiary.confirm.title.pld' |translate}}</span>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <!--BENEFICIARIES, ID BENEFICIARY, ORDERER, -->
+    <div fxFlex="50" class="detail-column-left">
+      <!--ID BENEFICIARY-->
+      <div fxLayout="row">
+        <div fxFlex="100">
+          <div class="title-container">
+            <span
+              class="title">{{'beneficiary.confirm.international.beneficiaryInfo.title' |translate}}</span>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="100">
+          <two-beneficiary-confirm-section
+            [rows]="beneficiaryId2.concat(beneficiaryInfo2)"></two-beneficiary-confirm-section>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="50" class="detail-column-right">
+      <!--ORDERER-->
+      <div fxLayout="row">
+        <div fxFlex="100">
+          <div class="title-container">
+            <span class="title">{{'beneficiary.confirm.international.orderer.title' |translate}}</span>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="100">
+          <two-beneficiary-confirm-section [rows]="orderer2"></two-beneficiary-confirm-section>
+        </div>
+      </div>
+      <!--BENEFICIARY BANK-->
+      <div fxLayout="row">
+        <div fxFlex="100">
+          <div class="title-container">
+            <span
+              class="title">{{'beneficiary.confirm.international.beneficiaryBank.title' |translate}}</span>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="100">
+          <two-beneficiary-confirm-section [rows]="beneficiaryBank2"></two-beneficiary-confirm-section>
+        </div>
+      </div>
+      <!--BENEFICIARY BANK, INTERMEDIARY BANK-->
+      <div fxLayout="row">
+        <!--UNTERMEDIARY BANK-->
+        <div fxFlex="100" *ngIf="_data.showIntermediaryBank == true">
+          <div fxLayout="row">
+            <div fxFlex="100">
+              <div class="title-container">
+                <span class="title">{{'beneficiary.confirm.international.intermediaryBank.title' |translate}}</span>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" style="margin-top: 20px; margin-bottom: 30px;">
+            <div fxFlex="100">
+              <two-beneficiary-confirm-section [rows]="intermediaryBank2"></two-beneficiary-confirm-section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-------------------END INTERNATIONAL----------------->
+<!-------------------NATIONAL----------------->
+<div *ngIf="!showInternational">
+  <div fxLayout="row" *ngIf="!hideTitle && !onAuthDetails  && !onOperationDetail">
+    <div fxFlex="100" class="detail-column-left">
+      <div class="title-container" *ngIf="!showDeleteMessage && !onPldDetails">
+        <span class="title">{{'beneficiary.confirm.title.modify' |translate}}</span>
+      </div>
+      <div class="title-container" *ngIf="showDeleteMessage && !onPldDetails">
+        <span class="title">{{'beneficiary.confirm.title.delete' |translate}}</span>
+      </div>
+      <div class="title-container" *ngIf="onPldDetails">
+        <span class="title">{{'beneficiary.confirm.title.pld' |translate}}</span>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="50" class="detail-column-left">
+      <two-beneficiary-confirm-section
+        [rows]="beneficiaryId.concat(beneficiaryInfo)"></two-beneficiary-confirm-section>
+    </div>
+  </div>
+</div>
+<!-------------------END NATIONAL----------------->
+<!------------------BUTTONS------------->
+<div *ngIf="!hideTitle && !onAuthDetails && !onOperationDetail && !onPldDetails">
+  <div fxLayout="row">
+    <div fxFlex="100" class="button-group-container">
+      <button appNoDblClickMat (click)="return()" mat-raised-button class="button-group-separator" type="button">
+        {{'beneficiary.confirm.national.finalizeButton' |translate}}
+      </button>
+    </div>
+  </div>
+</div>

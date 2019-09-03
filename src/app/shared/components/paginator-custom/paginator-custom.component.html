@@ -1,0 +1,50 @@
+<div class="mat-paginator-outer-container">
+  <div class="mat-paginator-container">
+    <div class="mat-paginator-range-actions">
+
+      <!--First page button-->
+      <button appNoDblClickMat mat-icon-button type="button" (click)="firstPage()">
+        <mat-icon class="icon-general icon-color">fast_rewind</mat-icon>
+      </button>
+
+      <!--Previous page button-->
+      <button appNoDblClickMat mat-icon-button type="button" (click)="previousPage()">
+        <mat-icon class="icon-play icon-color icon-general">play_arrow</mat-icon>
+      </button>
+
+      <!--CONTENT-->
+      <div *ngFor="let pageNumber of getRange(pageIndex + 1)" class="mat-paginator-range-label"
+           style="margin-right: 7px;">
+        <div [ngClass]="{'page-selected': pageNumber === pageIndex + 1}" style="cursor: pointer;"
+             (click)="changePageInRange(pageNumber)">
+          <p [ngClass]="{'page-number-selected': pageNumber === pageIndex + 1}"> {{pageNumber }} </p>
+        </div>
+      </div>
+
+
+      <div class="mat-paginator-range-label">
+        <p> de {{getNumberOfPages()}} </p>
+      </div>
+
+      <!--END CONTENT-->
+
+      <!--Next page button-->
+      <button appNoDblClickMat mat-icon-button type="button" (click)="nextPage()">
+        <mat-icon class="icon-color icon-general">play_arrow</mat-icon>
+      </button>
+
+      <!--Last page button-->
+      <button appNoDblClickMat mat-icon-button type="button" (click)="lastPage()">
+        <mat-icon class="icon-general icon-color">fast_forward</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- <button appNoDblClickMat mat-icon-button type="button" class="mat-paginator-navigation-first" (click)="firstPage()" [attr.aria-label]="_intl.firstPageLabel" [matTooltip]="_intl.firstPageLabel" [matTooltipDisabled]="_previousButtonsDisabled()" [matTooltipPosition]="'above'"
+                [disabled]="_previousButtonsDisabled()">
+              <svg class="mat-paginator-icon" viewBox="0 0 24 24" focusable="false">
+                <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"/>
+              </svg>
+            </button> -->

@@ -1,0 +1,60 @@
+<!--<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>-->
+<!--<div [ngClass]="{'expanded': !!expanded}" class="menu-container">-->
+  <!--<a mat-list-item-->
+     <!--(click)="onItemSelected(item)"-->
+     <!--[ngClass]="{'menu-list-item-large': showCompleteMenu, 'menu-list-item-short': !showCompleteMenu, 'menu-active': isActive(item)}"-->
+     <!--[ngStyle]="!!expanded && {'margin-left':'7px'}"-->
+     <!--[matTooltip]="!showCompleteMenu?item.displayName:undefined"-->
+     <!--[matTooltipPosition]="'after'"-->
+     <!--[matTooltipClass]="'arrow-box'">-->
+    <!--<div *ngIf="!!item.iconName" class="icon-container">-->
+      <!--<mat-icon class="icon" [svgIcon]="item.iconName"></mat-icon>-->
+    <!--</div>-->
+
+    <!--<span *ngIf="!!item.children && !expanded" class="arrow">►</span>-->
+    <!--<span *ngIf="!!item.children && !!expanded" class="arrow">▼</span>-->
+    <!--<div *ngIf="!!showCompleteMenu" class="menu-option-text-container"-->
+         <!--[ngStyle]="isChild && {'vertical-align':'middle'}">-->
+      <!--<span [ngClass]="isChild?'bullet-style':''"></span>-->
+      <!--<span class="menu-option-text" [ngStyle]="(!!isChild) && {'margin-right':'25px', 'max-width':'140px'}">-->
+        <!--{{item.displayName}}-->
+      <!--</span>-->
+    <!--</div>-->
+  <!--</a>-->
+  <!--<div class="sub-menu-container" *ngIf="!!showCompleteMenu && !!expanded && !!item.children">-->
+    <!--<two-menu-list-item *ngFor="let child of item.children" [showCompleteMenu]="showCompleteMenu" [item]="child"-->
+                        <!--[isChild]="true" (closeMenu)="closeMenu.emit()">-->
+    <!--</two-menu-list-item>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<div [ngClass]="{'expanded': !!expanded}" class="menu-container">
+  <a mat-list-item
+     (click)="onItemSelected(item)"
+     [ngClass]="{'menu-list-item-large': showCompleteMenu, 'menu-list-item-short': !showCompleteMenu, 'menu-active': isActive(item)}"
+     [ngStyle]="!!expanded && {'margin-left':'7px'}"
+     [matTooltip]="!showCompleteMenu?item.TEXT:undefined"
+     [matTooltipPosition]="'after'"
+     [matTooltipClass]="'arrow-box'">
+    <div *ngIf="!!item.ICON" class="icon-container">
+      <mat-icon class="icon" [svgIcon]="item.ICON"></mat-icon>
+    </div>
+
+    <span *ngIf="item.children.length !== 0 && !expanded" class="arrow">►</span>
+    <span *ngIf="item.children.length !== 0 && !!expanded" class="arrow">▼</span>
+    <div *ngIf="!!showCompleteMenu" class="menu-option-text-container"
+         [ngStyle]="isChild && {'vertical-align':'middle'}">
+      <span [ngClass]="isChild?'bullet-style':''"></span>
+      <span class="menu-option-text" [ngStyle]="(!!isChild) && {'margin-right':'25px', 'max-width':'140px'}">
+        {{item.TEXT | translate}}
+      </span>
+    </div>
+  </a>
+  <div class="sub-menu-container" *ngIf="!!showCompleteMenu && !!expanded && item.children.length">
+    <two-menu-list-item *ngFor="let child of item.children" [showCompleteMenu]="showCompleteMenu" [item]="child"
+                        [isChild]="true" (closeMenu)="closeMenu.emit()">
+    </two-menu-list-item>
+  </div>
+</div>

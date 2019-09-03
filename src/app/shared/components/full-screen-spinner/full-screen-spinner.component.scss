@@ -1,0 +1,20 @@
+@import "mixins";
+@import "constants";
+
+.spinner-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $black;
+  opacity: 0.7;
+  z-index: 10000000000000;
+}
+
+.spinner-container mat-spinner {
+  margin: auto;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+}

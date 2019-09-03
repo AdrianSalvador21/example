@@ -1,0 +1,49 @@
+@import "mixins";
+@import "constants";
+
+:host {
+  display: block;
+  outline: none;
+
+  .mat-list-item.active {
+    background-color: #5c5c5c !important;
+  }
+  &:hover,
+  &:focus {
+    > .mat-list-item:not(.expanded) {
+      background-color: #5c5c5c !important;
+    }
+  }
+
+  .mat-list-item.active {
+    background-color: #5c5c5c !important;
+  }
+
+  &:hover,
+  &:focus {
+    > .mat-list-item.expanded {
+      background-color: #5c5c5c !important;
+    }
+  }
+}
+
+::ng-deep .expanded {
+  background-color: #4c4c4c !important;
+  -webkit-box-shadow: 4px 10px 5px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 4px 10px 5px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 4px 10px 5px 0 rgba(0, 0, 0, 0.15);
+  padding-top: 10px;
+  margin: -10px 4px 10px 9px;
+}
+
+::ng-deep .mat-list-item-content {
+  width: auto;
+  display: flex;
+}
+
+.menu-container {
+  padding-top: 18px;
+  border-right: solid 1px rgba(0, 0, 0, .12);
+  background-color: $black;
+  height: calc(100% - 18px);
+}

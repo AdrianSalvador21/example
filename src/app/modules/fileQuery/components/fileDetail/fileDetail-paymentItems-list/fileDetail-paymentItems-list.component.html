@@ -1,0 +1,115 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<div class="title-container list-title" *ngIf="showTable">
+  <span class="title">{{'fileDetail.operator.paymentItems.title' |translate}}</span>
+</div>
+
+<div fxLayout="row" *ngIf="showTable" [ngStyle]="totalPayment < 11 && {'margin-bottom':'20px'}">
+  <div fxFlex="100">
+    <table mat-table [dataSource]="dataPayment">
+
+      <!-- operation Column -->
+      <ng-container matColumnDef="folio-column">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileDetail.operator.paymentItems.list.folio-column' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            <mat-radio-button *ngIf="onFile" [disabled]="incomplete"
+                              (click)="assignRegister($event, item)"></mat-radio-button>
+            {{item.paymentItemID}}
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- operatorUser Column -->
+      <ng-container matColumnDef="ordererAccount-column">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">{{'fileDetail.operator.paymentItems.list.ordererAccount-column' |translate}}</p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">{{item.ordererAccount}}</p>
+        </td>
+      </ng-container>
+
+      <!-- operatorRole Column -->
+      <ng-container matColumnDef="totalAmount-column">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileDetail.operator.paymentItems.list.totalAmount-column' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.amount | number:'.2'}}
+          </p>
+        </td>
+      </ng-container>
+
+      <!-- operationDate Column -->
+      <ng-container matColumnDef="paymentType-column">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileDetail.operator.paymentItems.list.paymentType-column' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{'fileDetail.operator.paymentItems.list.paymentTypes.' + item.paymentType | translate}}
+          </p>
+        </td>
+      </ng-container>
+      <!-- operationDate Column -->
+      <ng-container matColumnDef="operationType-column">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileDetail.operator.paymentItems.list.operationType-column' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{'fileDetail.operator.paymentItems.list.operationTypes.' + item.operationType | translate}}
+          </p>
+        </td>
+      </ng-container>
+      <!-- operationDate Column -->
+      <ng-container matColumnDef="rfcCurpOrderer-column">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileDetail.operator.paymentItems.list.rfcCurpOrderer-column' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{item.ordererDocument}}
+          </p>
+        </td>
+      </ng-container>
+      <!-- operationDate Column -->
+      <ng-container matColumnDef="status-column">
+        <th mat-header-cell *matHeaderCellDef>
+          <p class="table-text">
+            {{'fileDetail.operator.paymentItems.list.status-column' |translate}}
+          </p>
+        </th>
+        <td mat-cell *matCellDef="let item">
+          <p class="table-text">
+            {{'fileDetail.operator.paymentItems.list.status.' + item.state |translate}}
+          </p>
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="paginator-container" *ngIf="showTable && totalPayment > 10">
+  <two-paginator-custom [length]="totalPayment" [pageSize]="10" (page)="pageData = $event"
+                        (click)="changePage(pageData)"></two-paginator-custom>
+</div>

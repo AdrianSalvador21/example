@@ -1,0 +1,10 @@
+<div class="detail-content mat-elevation-z8">
+  <div *ngFor="let row of data" class="detail" fxLayout="row">
+    <div fxFlex="35" class="label">
+      <p class="description">{{row.description}}</p>
+    </div>
+    <div fxFlex="65">
+      <p class="value">{{row.value}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="title-container">
+  <span class="title">{{'security.roles.title' |translate}}</span>
+</div>
+
+<div>
+  <two-roles-update-filter [stepper]="stepper" (cleanEmitter)="clean()" (formSubmit)="formSubmit($event)"></two-roles-update-filter>
+</div>
+
+<div>
+  <two-roles-update-grid #rolesGrid [stepper]="stepper"></two-roles-update-grid>
+</div>
+

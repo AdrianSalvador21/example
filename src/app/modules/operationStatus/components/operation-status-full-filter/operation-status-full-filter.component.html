@@ -1,0 +1,99 @@
+<div>
+  <form [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid (ngSubmit)="onSubmit(filterForm.value)">
+    <div class="form-data-container">
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput type="text" name="clientID"
+                   placeholder="{{'authorization.clientNumber-label' |translate}}"
+                   formControlName="clientID" mask="0{10}" maxlength="9">
+          </mat-form-field>
+          <mat-error *ngIf="filterForm.controls.clientID.invalid">
+            {{'errors.field' |translate}}
+          </mat-error>
+        </div>
+
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput type="text" name="folio"
+                   placeholder="{{'authorization.folio-label' |translate}}"
+                   formControlName="folio" mask="0{18}" maxlength="17">
+          </mat-form-field>
+          <mat-error *ngIf="filterForm.controls.folio.invalid">
+            {{'errors.field' |translate}}
+          </mat-error>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+
+          <mat-form-field class="line-calendar">
+            <input autocomplete="off" matInput name="dateFrom" #dateFrom
+                   [matDatepicker]="pickerFrom" placeholder="{{'authorization.dateFrom-label' |translate}}"
+                   formControlName="dateFrom" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFrom></mat-datepicker>
+          </mat-form-field>
+          <mat-error *ngIf="(f.dateFrom.touched || !!f.dateTo.value) && !dateFrom.value && !f.dateFrom.disabled">
+            {{'errors.required' |translate}}
+          </mat-error>
+          <mat-error *ngIf="(f.dateFrom.touched || !!f.dateTo.value) && !!dateFrom.value && f.dateFrom.invalid">
+            {{'errors.field' |translate}}
+          </mat-error>
+          <mat-error *ngIf="!!f.dateFrom.value && !!f.dateTo.value && f.dateFrom.value > f.dateTo.value">
+            {{'errors.dateError' |translate}}
+          </mat-error>
+        </div>
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="line-calendar">
+            <input autocomplete="off" matInput name="dateTo" #dateTo
+                   [matDatepicker]="pickerTo" placeholder="{{'authorization.dateTo-label' |translate}}"
+                   formControlName="dateTo" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+            <mat-datepicker #pickerTo></mat-datepicker>
+          </mat-form-field>
+          <mat-error *ngIf="(f.dateTo.touched || !!f.dateFrom.value) && !dateTo.value && !f.dateTo.disabled">
+            {{'errors.required' |translate}}
+          </mat-error>
+          <mat-error *ngIf="(f.dateTo.touched || !!f.dateFrom.value) && !!dateTo.value && f.dateTo.invalid">
+            {{'errors.field' |translate}}
+          </mat-error>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput type="text" name="creatorUser"
+                   placeholder="{{'authorization.operatorUser-label' |translate}}"
+                   [patterns]="patternUserName" [mask]="'#{'+(userNameMaxLength+1)+'}'" [maxlength]="userNameMaxLength"
+                   formControlName="creatorUser">
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput type="text" name="authUser"
+                   placeholder="{{'authorization.authUser-label' |translate}}"
+                   [patterns]="patternUserName" [mask]="'#{'+(userNameMaxLength+1)+'}'" [maxlength]="userNameMaxLength"
+                   formControlName="authUser">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row">
+
+      <div fxFlex="100" class="button-group-container">
+        <button appNoDblClickMat *ngIf="showClearButton" mat-raised-button class="white-button button-group-separator" type="button"
+                (click)="cleanForm()">
+          {{'fileQuery.operator.filter.clean-button' |translate}}
+        </button>
+        <button appNoDblClickMat mat-raised-button class="button-group-separator" type="submit"
+                [disabled]="!isValidForm">
+          {{'fileQuery.operator.filter.search-button' |translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

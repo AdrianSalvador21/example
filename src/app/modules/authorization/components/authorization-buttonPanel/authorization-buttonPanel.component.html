@@ -1,0 +1,16 @@
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="OnDenegateClick()"
+            [disabled]="!allowDenegate">
+      {{'general.cancel-button' | translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="OnDetailsClick()"
+            *ngIf="showDetailsButton" [disabled]="!allowShowDetails">
+      {{'general.finish-button' | translate}}
+    </button>
+    <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="OnAuthClick()"
+            [disabled]="!allowAuth">
+      {{'general.continue-button' | translate}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="detail-content mat-elevation-z8">
+  <div class="detail" fxLayout="row">
+    <div fxFlex="70" class="label">
+      <p class="description detail-header-title text--center">Cuenta</p>
+    </div>
+    <div fxFlex="30" class="label">
+      <p class="description detail-header-title text--center">Divisa</p>
+    </div>
+  </div>
+
+  <div *ngFor="let row of listData; let i = index;" class="detail" fxLayout="row">
+    <div fxFlex="70"
+         [ngClass]="{'detail-error': errorAccounts.includes(row.NUMERO) && onAuth}"
+         class="label">
+      <p class="description text--center"
+         [ngClass]="{'detail-error-description': errorAccounts.includes(row.NUMERO) && onAuth}">
+        {{row.NUMERO}}
+      </p>
+      <div *ngIf="errorAccounts.includes(row.NUMERO) && onAuth">
+        <mat-icon class="warning-icon">warning</mat-icon>
+      </div>
+    </div>
+    <div fxFlex="30" class="label">
+      <p class="description text--center">{{'referencedPayment.detail.currencies.' + row.MONEDA | translate}}</p>
+    </div>
+  </div>
+</div>

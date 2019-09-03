@@ -1,0 +1,24 @@
+<two-breadcrumb *ngIf="showButton && !onOperationDetail && !onAuthDetails" [breadcrumbList]="['massivePayments.officeOperation.title', 'fileDetail.operator.detail.title']"></two-breadcrumb>
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<div class="title-container" *ngIf="showButton && !onOperationDetail && !onAuthDetails">
+  <span class="title">{{'fileDetail.operator.detail.title' |translate}}</span>
+</div>
+<div fxLayout="row">
+  <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100" class="detail-column-left">
+    <two-file-detail [rows]="operation1"></two-file-detail>
+  </div>
+</div>
+<div fxLayout="row" *ngIf="showButton && !onOperationDetail && !onAuthDetails">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat *ngIf="onFile" (click)="returnPage()" mat-raised-button class="button-group-separator white-button" type="button">
+      {{'general.return-button' | translate}}
+    </button>
+
+    <button appNoDblClickMat (click)="reject()" [ngClass]="{'white-button': !onFile, 'black-button': onFile}" mat-raised-button class="button-group-separator" type="button">
+      {{'general.reject-button' | translate}}
+    </button>
+    <button appNoDblClickMat (click)="confirm()" mat-raised-button type="button" class="button-group-separator">
+      {{'general.continue-button' | translate}}
+    </button>
+  </div>
+</div>

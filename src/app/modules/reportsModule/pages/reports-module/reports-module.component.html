@@ -1,0 +1,18 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<two-breadcrumb [breadcrumbList]="['reportsModule.title']"></two-breadcrumb>
+
+<div class="title-container">
+  <span class="title">{{'reportsModule.title' |translate}}</span>
+</div>
+<two-reports-module-filter #filter (cleanEmitter)="showResultEvent($event)"></two-reports-module-filter>
+
+<div *ngIf="showResult">
+  <two-reports-module-list></two-reports-module-list>
+</div>
+
+<div class="title-container">
+  <span class="title">{{'reportsModule.deleteTitle' |translate}}</span>
+</div>
+
+<two-reports-module-delete-filter></two-reports-module-delete-filter>

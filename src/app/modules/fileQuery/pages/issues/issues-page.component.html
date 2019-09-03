@@ -1,0 +1,20 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<two-breadcrumb [breadcrumbList]="['fileQuery.issues.title_admin']"></two-breadcrumb>
+<div class="title-container">
+  <span class="title">{{'fileQuery.issues.title_admin' |translate}}</span>
+</div>
+<div>
+  <two-issues-filter (showSearchEmitter)="cleanSearch($event)" (formDataEmitter)="getRows($event, 1, true, true)"
+                         #filter></two-issues-filter>
+</div>
+
+<div *ngIf="showSearch">
+
+  <div class="title-container">
+    <span class="title">{{'fileQuery.issues.title_operations' |translate}}</span>
+  </div>
+
+  <two-incidentes-list [dataIssuesInput]="issuesDataResponse" [stepper]="stepper"
+                       (pageEmitter)="getRowsEmitter($event)"></two-incidentes-list>
+</div>

@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'FranklinGothicLT-Demi';
+  src: url('frankgotdem.eot');
+  src: url('frankgotdem.eot') format('embedded-opentype'),
+  url('frankgotdem.woff') format('woff'),
+  url('frankgotdem.ttf') format('truetype'),
+  url('frankgotdem.svg#ITCFranklinGothicLTDemiRegular') format('svg');
+}
+
+@font-face {
+  font-family: 'FranklinGothicLT';
+  src: url('frankgotboo.eot');
+  src: url('frankgotboo.eot') format('embedded-opentype'),
+  url('frankgotboo.woff') format('woff'),
+  url('frankgotboo.ttf') format('truetype'),
+  url('frankgotboo.svg#ITCFranklinGothicLTDemiRegular') format('svg');
+}

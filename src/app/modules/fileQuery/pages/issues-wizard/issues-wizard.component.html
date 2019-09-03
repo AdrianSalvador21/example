@@ -1,0 +1,13 @@
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-issues-page [stepper]="stepper"></two-issues-page>
+    </ng-container>
+  </mat-step>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-issue-detail [inIssues]="true" [issueIndividualData]="stepper.dataIssue" [stepper]="stepper"
+                        [showTrackingList]="false"></two-issue-detail>
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

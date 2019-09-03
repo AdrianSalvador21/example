@@ -1,0 +1,66 @@
+<div fxLayout="row" class="table-container" style="margin-top: 20px">
+    <div fxFlex="100">
+      <table mat-table [dataSource]="listData">
+
+        <ng-container matColumnDef="file">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text icon">{{'reportsModule.list.file' |translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let listData">
+            <p class="table-text icon">
+              {{listData.date}}
+            </p>
+          </td>
+        </ng-container>
+
+        <!-- operatorUser Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text icon">{{'reportsModule.list.description' |translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let listData">
+            <p class="table-text icon">{{listData.service}}</p>
+          </td>
+        </ng-container>
+
+        <!-- operatorRole Column -->
+        <ng-container matColumnDef="report">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text icon">{{'reportsModule.list.report' |translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let listData">
+            <p class="table-text icon">{{listData.amount}}</p>
+          </td>
+        </ng-container>
+
+        <!-- operationDate Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>
+            <p class="table-text icon"> {{'date' |translate}}
+            </p>
+          </th>
+          <td mat-cell *matCellDef="let listData">
+            <p class="table-text icon">{{listData.name}}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="download">
+          <th mat-header-cell *matHeaderCellDef>
+          </th>
+          <td mat-cell *matCellDef="let listData">
+            <mat-icon svgIcon="descargar"></mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+    </div>
+  </div>
+
+    <two-paginator-custom [length]="listTotal" [pageSize]="10"></two-paginator-custom>
+

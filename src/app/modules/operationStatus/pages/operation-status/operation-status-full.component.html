@@ -1,0 +1,112 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper>
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-breadcrumb [breadcrumbList]="['operation.title-overview', 'operation.title-allOperations']"></two-breadcrumb>
+      <div class="title-container">
+        <span class="title">{{'operation.title-overview' |translate}}</span>
+      </div>
+      <div>
+        <two-operation-status-full-filter (formSubmit)="OnSubmit($event)" [showClearButton]="showClearButton"
+                                          (clearClick)="OnClearClick()" #filter></two-operation-status-full-filter>
+      </div>
+
+      <!--TABS-->
+      <div *ngIf="!!dataFound">
+        <div class="title-container">
+          <span class="title">{{'operation.title-operation-list' |translate}}</span>
+        </div>
+
+        <mat-tab-group (selectedTabChange)="onTabChange($event)">
+          <mat-tab id="BENEFICIARY" label="{{'authorization.beneficiary-tab-title' |translate}}"
+                   *ngIf="tabsToShow.BENEFICIARY">
+            <!-- <two-beneficiary-authorization-list #beneficiaryList (paginatorChange)="OnPaginatorChange()" (selectionChange)="SelectionChange($event)"></two-beneficiary-authorization-list> -->
+            <two-operation-beneficiaries-list [stepper]="stepper" [dataList]="stepper.beneficiaryListData"
+                                              [showCreatorUser] = "true"
+                                              (itemSelectedEmitter)="itemSelected = $event" #beneficiaryList
+                                              (paginatorChange)="OnPaginatorChange($event)"
+                                              (selectionChange)="SelectionChange($event)" [total]="total"></two-operation-beneficiaries-list>
+          </mat-tab>
+
+
+          <mat-tab id="BATCH" label="{{'authorization.batch-tab-title' |translate}}" *ngIf="tabsToShow.BATCH">
+            <two-operation-massive-list [dataList]="stepper.batchListData" (itemSelectedEmitter)="itemSelected = $event"
+                                        [showCreatorUser] = "true"
+                                        #batchList
+                                        (paginatorChange)="OnPaginatorChange($event)"
+                                        (allowShowDetails)="SelectionChange($event)" [total]="total"></two-operation-massive-list>
+          </mat-tab>
+
+
+          <mat-tab id="REFERENCEDDEPOSIT" label="{{'authorization.referencedDeposit-tab-title' |translate}}"
+                   *ngIf="tabsToShow.REFERENCEDDEPOSIT">
+            <two-operation-referenced-deposit-list [dataList]="stepper.referencedListData"
+                                                   [showCreatorUser] = "true"
+                                                   (itemSelectedEmitter)="itemSelected = $event" #referencedDepositList
+                                                   (paginatorChange)="OnPaginatorChange($event)"
+                                                   (allowShowDetails)="SelectionChange($event)" [total]="total"></two-operation-referenced-deposit-list>
+          </mat-tab>
+
+
+          <mat-tab id="ISSUES" label="{{'authorization.issues-tab-title' |translate}}" *ngIf="tabsToShow.ISSUES">
+            <two-operation-issues-list [dataList]="stepper.issuesListData" (itemSelectedEmitter)="itemSelected = $event"
+                                       [showCreatorUser] = "true"
+                                       #issuesList
+                                       (paginatorChange)="OnPaginatorChange($event)"
+                                       (allowShowDetails)="SelectionChange($event)" [total]="total"></two-operation-issues-list>
+          </mat-tab>
+
+
+          <mat-tab id="UNITQUERY" label="{{'authorization.unitQuery-tab-title' |translate}}"
+                   *ngIf="tabsToShow.UNITQUERY">
+            <two-operation-unit-query-list [dataList]="stepper.unitListData"
+                                           (itemSelectedEmitter)="itemSelected = $event" #unitQueryList
+                                           [showCreatorUser] = "true"
+                                           (paginatorChange)="OnPaginatorChange($event)"
+                                           (allowShowDetails)="SelectionChange($event)" [total]="total"></two-operation-unit-query-list>
+          </mat-tab>
+
+
+          <mat-tab id="CLARIFICATION" label="{{'authorization.clarification-tab-title' |translate}}"
+                   *ngIf="tabsToShow.CLARIFICATION">
+            <two-operation-clarification-list [dataList]="stepper.clarificationListData"
+                                              (itemSelectedEmitter)="itemSelected = $event" #clarificationList
+                                              [showCreatorUser] = "true"
+                                              (paginatorChange)="OnPaginatorChange($event)"
+                                              (allowShowDetails)="SelectionChange($event)" [total]="total"></two-operation-clarification-list>
+          </mat-tab>
+
+
+          <mat-tab id="FILEQUERY" label="{{'authorization.fileQuery-tab-title' |translate}}"
+                   *ngIf="tabsToShow.FILEQUERY">
+            <two-operation-file-query-list [dataList]="stepper.fileListData"
+                                           (itemSelectedEmitter)="itemSelected = $event" #fileQueryList
+                                           [showCreatorUser] = "true"
+                                           (paginatorChange)="OnPaginatorChange($event)"
+                                           (selectionChange)="SelectionChange($event)" [total]="total"></two-operation-file-query-list>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+
+      <div *ngIf="!!dataFound">
+        <div fxLayout="row">
+          <div fxFlex="100" class="button-group-container">
+            <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="continueToConfirmStep()"
+                    [disabled]="itemSelected == ''">
+              {{'general.continue-button' |translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-step>
+
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <two-operation-detail (onReturnEmitter)="initialSearch()" [stepper]="stepper" [detailType]="selectedTab"
+                            [showDownloadInput]="showDownload"></two-operation-detail>
+    </ng-container>
+  </mat-step>
+
+
+</mat-horizontal-stepper>

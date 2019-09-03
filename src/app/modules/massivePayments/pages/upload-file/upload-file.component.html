@@ -1,0 +1,9 @@
+<two-breadcrumb [breadcrumbList]="['massivePayments.officeOperation.title', 'massivePayments.uploadFile.title']"></two-breadcrumb>
+
+<div class="title-container">
+  <span class="title">{{'massivePayments.uploadFile.title' |translate}}</span>
+</div>
+
+<div style="margin-top: 20px;">
+  <two-upload-file-section #form [stepper]="stepper"></two-upload-file-section>
+</div>

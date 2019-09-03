@@ -1,0 +1,22 @@
+@import "mixins";
+@import "constants";
+
+::ng-deep .mat-cell {
+  vertical-align: middle;
+}
+
+::ng-deep .mat-header-cell {
+  vertical-align: middle;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+::ng-deep .mat-checkbox-inner-container {
+  background-color: #ffffff;
+}
+
+@media only screen and (max-width: 959px) {
+  .display-block {
+    display: block !important;
+  }
+}

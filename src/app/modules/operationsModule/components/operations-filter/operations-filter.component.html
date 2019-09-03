@@ -1,0 +1,128 @@
+<div class="main-container">
+  <div class="operation-container">
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.xs="50">
+        <div class="title-container">
+          <span class="sub-title">{{'massivePayments.officeOperation.operationSubtitle' |translate}}</span>
+        </div>
+        <form [formGroup]="operationForm" class="operationForm" style="margin-bottom: 40px;" #form="ngForm" appScrollToFirstInvalid>
+          <mat-radio-group formControlName="operationType">
+            <div fxLayout="row">
+              <div fxFlex="50" fxFlex.xs="50">
+                <mat-radio-button value="2">
+                  {{'massivePayments.officeOperation.paymentOperationTypeC' |translate}}
+                </mat-radio-button>
+              </div>
+              <div fxFlex="50" fxFlex.xs="50">
+                <mat-radio-button class="radio-button-spacing radio-button" value="1">
+                  {{'massivePayments.officeOperation.paymentOperationTypeP' |translate}}
+                </mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </form>
+      </div>
+      <div fxFlex="50" fxFlex.xs="50">
+        <div *ngIf="operationForm.controls.operationType.value == '1'">
+          <div class="title-container">
+            <span class="sub-title">{{'massivePayments.officeOperation.peymentTypes' |translate}}</span>
+          </div>
+          <form [formGroup]="paymentTypeForm" class="paymentTypeForm" #form="ngForm" appScrollToFirstInvalid
+                style="margin-bottom: 40px;">
+            <mat-radio-group formControlName="paymentType">
+              <div fxLayout="row">
+                <div fxFlex="50" fxFlex.xs="50">
+                  <mat-radio-button value="2">
+                    {{'massivePayments.officeOperation.individualPaymentType' |translate}}
+                  </mat-radio-button>
+                </div>
+                <div fxFlex="50" fxFlex.xs="50">
+                  <mat-radio-button class="radio-button" value="1">
+                    {{'massivePayments.officeOperation.massivePaymentType' |translate}}
+                  </mat-radio-button>
+                </div>
+              </div>
+            </mat-radio-group>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100">
+        <div style="padding-right: 10px">
+          <div class="title-container">
+            <span class="sub-title">{{'massivePayments.officeOperation.services' |translate}}</span>
+          </div>
+          <form [formGroup]="servicesForm" class="servicesForm" #form="ngForm" appScrollToFirstInvalid>
+            <mat-form-field class="input-container">
+              <mat-select formControlName="service">
+                <mat-option [value]="sv" *ngFor="let sv of services">
+                  {{'massivePayments.officeOperation.servicesOptions.' + sv | translate}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+
+      <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100" *ngIf="operationForm.controls.operationType.value == '2'">
+        <div style="padding-right: 10px">
+          <div class="title-container">
+            <span class="sub-title">Acción</span>
+          </div>
+          <form [formGroup]="referencedPaymentForm"
+                class="servicesForm" #form="ngForm"
+                *ngIf="servicesForm.controls.service.value == 'referencedDeposit'"
+                appScrollToFirstInvalid>
+            <mat-form-field class="input-container">
+              <mat-select formControlName="referencedPaymentAction">
+                <mat-option [disabled]="disabledReferencedActions.includes(ac)" [value]="ac" *ngFor="let ac of referencedPaymentActions">
+                  {{'massivePayments.officeOperation.referencedDepositActions.' + ac | translate}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="collectionForm"
+                class="servicesForm" #form="ngForm"
+                *ngIf="servicesForm.controls.service.value == 'collection'"
+                appScrollToFirstInvalid>
+            <mat-form-field class="input-container">
+              <mat-select formControlName="collectionAction">
+                <mat-option [disabled]="disabledCollectionActions.includes(ac)" [value]="ac" *ngFor="let ac of collectionActions">
+                  {{'massivePayments.officeOperation.collectionActions.' + ac | translate}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+
+
+          <form [formGroup]="domiciliationForm"
+                class="servicesForm" #form="ngForm"
+                *ngIf="servicesForm.controls.service.value == 'domiciliation'"
+                appScrollToFirstInvalid>
+            <mat-form-field class="input-container">
+              <mat-select formControlName="domiciliationAction">
+                <mat-option [disabled]="disabledDomiciliationActions.includes(ac)" [value]="ac" *ngFor="let ac of domiciliationActions">
+                  {{'massivePayments.officeOperation.domiciliationActions.' + ac | translate}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat (click)="continue()" mat-raised-button type="button">
+      {{'general.continue-button' | translate}}
+    </button>
+  </div>
+</div>

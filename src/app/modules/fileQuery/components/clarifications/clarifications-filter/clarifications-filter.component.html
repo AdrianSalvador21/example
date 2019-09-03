@@ -1,0 +1,114 @@
+<div>
+  <form id="example" [formGroup]="filterForm" #form="ngForm" appScrollToFirstInvalid
+        (ngSubmit)="onSubmit(filterForm.value)">
+    <div class="form-data-container">
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input matInput name="cve_rastreo" type="text"
+                   placeholder="{{'fileQuery.clarifications.tracking_key' |translate}}" formControlName="cve_rastreo"
+                   [patterns]="patternAlphaNumericAndSpaces" mask="#{19}" maxlength="18">
+          </mat-form-field>
+          <mat-error *ngIf="f.cve_rastreo.invalid">{{'errors.field' |translate}}</mat-error>
+        </div>
+
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput name="reference"
+                   placeholder="{{'fileQuery.clarifications.reference' |translate}}" formControlName="reference"
+                   mask="0{21}" maxlength="20" type="text">
+          </mat-form-field>
+          <mat-error *ngIf="f.reference.invalid">{{'errors.field' |translate}}</mat-error>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput name="clientName" type="text"
+                   placeholder="{{'fileQuery.clarifications.orderer_name' |translate}}" formControlName="clientName"
+                   [patterns]="patternAlphaNumericAndSpaces" mask="#{41}" maxlength="40">
+          </mat-form-field>
+          <mat-error *ngIf="f.clientName.invalid">{{'errors.field' |translate}}</mat-error>
+        </div>
+
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput name="orderAccount" type="text"
+                   placeholder="{{'fileQuery.clarifications.account' |translate}}" formControlName="orderAccount"
+                   mask="0{12}" maxlength="11">
+          </mat-form-field>
+          <mat-error *ngIf="f.orderAccount.invalid">{{'errors.field' |translate}}</mat-error>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+
+          <mat-form-field class="line-calendar">
+            <input autocomplete="off" matInput name="dateFrom" #dateFrom
+                   [matDatepicker]="pickerFrom" placeholder="{{'fileQuery.clarifications.begin_date' |translate}}"
+                   formControlName="dateFrom" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFrom></mat-datepicker>
+          </mat-form-field>
+          <mat-error *ngIf="(f.dateFrom.touched || !!f.dateTo.value) && !dateFrom.value && !f.dateFrom.disabled">
+            {{'errors.required' |translate}}
+          </mat-error>
+          <mat-error *ngIf="(f.dateFrom.touched || !!f.dateTo.value) && !!dateFrom.value && f.dateFrom.invalid">
+            {{'errors.field' |translate}}
+          </mat-error>
+          <mat-error *ngIf="!!f.dateFrom.value && !!f.dateTo.value && f.dateFrom.value > f.dateTo.value">
+            {{'errors.dateError' |translate}}
+          </mat-error>
+        </div>
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="line-calendar">
+            <input autocomplete="off" matInput name="dateTo" #dateTo
+                   [matDatepicker]="pickerTo" placeholder="{{'fileQuery.clarifications.end_date' |translate}}"
+                   formControlName="dateTo" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+            <mat-datepicker #pickerTo></mat-datepicker>
+          </mat-form-field>
+          <mat-error *ngIf="(f.dateTo.touched || !!f.dateFrom.value) && !dateTo.value && !f.dateTo.disabled">
+            {{'errors.required' |translate}}
+          </mat-error>
+          <mat-error *ngIf="(f.dateTo.touched || !!f.dateFrom.value) && !!dateTo.value && f.dateTo.invalid">
+            {{'errors.field' |translate}}
+          </mat-error>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput name="amount"
+                   placeholder="{{'fileQuery.clarifications.import' |translate}}"
+                   formControlName="amount" currencyMask maxlength="18">
+          </mat-form-field>
+          <mat-error *ngIf="f.amount.invalid">{{'errors.field' |translate}}</mat-error>
+        </div>
+
+        <div fxFlex="50" fxFlex.xs="50" class="add-padding">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput name="benefAccount" type="text"
+                   placeholder="{{'fileQuery.clarifications.beneficiary_account' |translate}}"
+                   formControlName="benefAccount" mask="0{19}" maxlength="18">
+          </mat-form-field>
+          <mat-error *ngIf="f.benefAccount.invalid">{{'errors.field' |translate}}</mat-error>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100" class="button-group-container">
+        <button appNoDblClickMat *ngIf="showClean" mat-raised-button class="button-group-separator white-button" type="button"
+                (click)="clean()">
+          {{'fileQuery.clarifications.clean_button' |translate}}
+        </button>
+        <button appNoDblClickMat mat-raised-button class="button-group-separator" type="submit" [disabled]="!isValidForm">
+          {{'fileQuery.clarifications.search_button' |translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,20 @@
+<div mat-dialog-title class="dialog-header"></div>
+
+<div mat-dialog-content>
+  <div class="message-content">
+    <div class="message-inner-content">
+      <p class="dialog-message">
+        <span>{{data.message | translate}}</span>
+      </p>
+      <p *ngIf="!!data.folio" class="dialog-message-folio">
+        <span>Folio: {{data.folio}}</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div mat-dialog-actions class="dialog-buttons">
+  <button appNoDblClickMat mat-raised-button type="button" mat-dialog-close cdkFocusInitial>
+    {{'general.continue-button' |translate}}
+  </button>
+</div>

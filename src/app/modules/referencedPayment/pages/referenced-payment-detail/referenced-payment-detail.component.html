@@ -1,0 +1,19 @@
+
+<div *ngIf="showData">
+
+  <div class="warningMessage">
+    <two-warning-message *ngIf="(showWarning && onAuth) || (showWarning && onOperationStatus)" [message]="warningMessage"></two-warning-message>
+  </div>
+
+  <div fxLayout="row">
+    <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100">
+      <two-referenced-payment-detail-section [data]="information"></two-referenced-payment-detail-section>
+    </div>
+  </div>
+
+  <div fxLayout="row" class="accounts-container">
+    <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100">
+      <two-referenced-payment-detail-accounts [onModify]="onModify" [onAuth]="onAuth" [errorAccounts]="errorAccounts" [listData]="accounts"></two-referenced-payment-detail-accounts>
+    </div>
+  </div>
+</div>

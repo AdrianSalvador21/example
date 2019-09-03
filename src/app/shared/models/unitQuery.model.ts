@@ -1,0 +1,31 @@
+export interface UnitQueryOperation {
+  Total: string;
+  batch: string;
+  paymentItemID: string;
+  counterpartInstitution: string;
+  paymentType: string;
+  concept: string;
+  reference: string;
+  texts: string;
+  IVA: string;
+  applicationDate: string;
+  trackingKey: string;
+  bank: string;
+  amount: string;
+  folio: string;
+  ordererAccountType: string;
+  ordererName: string;
+  ordererAccount: string;
+  ordererRFC: string;
+  benefAccountType: string;
+  benefName: string;
+  benefAccount: string;
+  benefRFC: string;
+  channel: string;
+  service: string;
+  status: string;
+  ordererDocument: string;
+  benefDocument: string;
+  clientID: string;
+  FOLIO: string;
+}

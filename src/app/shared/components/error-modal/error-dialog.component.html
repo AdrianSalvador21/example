@@ -1,0 +1,15 @@
+<div mat-dialog-title class="error-header"></div>
+
+<div mat-dialog-content>
+  <div class="error-content">
+    <p class="error-message">
+      {{data.error | translate}}
+    </p>
+  </div>
+</div>
+
+<div mat-dialog-actions class="error-buttons">
+  <button appNoDblClickMat mat-raised-button mat-dialog-close type="button" cdkFocusInitial>
+    {{'general.ok-button' |translate}}
+  </button>
+</div>

@@ -1,0 +1,113 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<div class="main-container">
+  <div class="operation-container">
+    <div class="title-container" style="margin-bottom: 20px;">
+      <span class="sub-title">{{'massivePayments.officeOperation.chargeType' |translate}}</span>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100">
+        <form [formGroup]="chargeTypeForm" appScrollToFirstInvalid
+              style="margin-bottom: 40px;">
+          <mat-radio-group formControlName="chargeType">
+            <div fxLayout="row">
+              <div fxFlex="50" fxFlex.xs="50">
+                <mat-radio-button class="radio-button" value="1">
+                  {{'massivePayments.uploadFile.globalUpload' |translate}}
+                  <div class="icon-container icon-container-help"
+                       matTooltip="{{'massivePayments.uploadFile.globalMessage' |translate}}"
+                       [matTooltipPosition]="'after'" [matTooltipClass]="'arrow-box-massive'">
+                    <mat-icon class="icon" svgIcon="ayuda"></mat-icon>
+                  </div>
+                </mat-radio-button>
+              </div>
+              <div fxFlex="50" fxFlex.xs="50">
+                <mat-radio-button class="radio-button" value="2">
+                  {{'massivePayments.uploadFile.individualUpload' |translate}}
+                  <div class="icon-container icon-container-help"
+                       matTooltip="{{'massivePayments.uploadFile.individualMessage' |translate}}"
+                       [matTooltipPosition]="'after'" [matTooltipClass]="'arrow-box-massive'">
+                    <mat-icon class="icon" svgIcon="ayuda"></mat-icon>
+                  </div>
+                </mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </form>
+      </div>
+    </div>
+    <div fxLayout="row" style="margin-bottom: 20px">
+      <div fxFlex="100" fxFlex.xs="100">
+        <form [formGroup]="formGroup" #formDirective="ngForm">
+          <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="display-block">
+            <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100" style="margin-right: 20px;"
+                 ngStyle.sm="margin-right:0; margin-bottom: 15px;"
+                 ngStyle.xs="margin-right:0; margin-bottom: 15px;">
+              <mat-form-field>
+                <input autocomplete="off" matInput type="text"
+                       name="clientID" placeholder="{{'massivePayments.uploadFile.clientLabel' |translate}}"
+                       formControlName="clientID" mask="0{10}" maxlength="9">
+              </mat-form-field>
+              <mat-error
+                *ngIf="formGroup.controls['clientID'].invalid && formGroup.controls['clientID'].touched && !!formGroup.controls['clientID'].value">
+                {{'errors.field' | translate}}
+              </mat-error>
+              <mat-error *ngIf="!formGroup.controls['clientID'].value && formGroup.controls['clientID'].touched">
+                {{'errors.required' | translate}}
+              </mat-error>
+            </div>
+            <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100">
+              <mat-form-field (click)="searchAccounts(select)">
+                <mat-select placeholder="{{'massivePayments.uploadFile.accountLabel' | translate}}"
+                            formControlName="accountSelect" #select>
+                  <mat-option value="">
+                    {{'massivePayments.uploadFile.emptyAccount' | translate}}
+                  </mat-option>
+                  <mat-option *ngFor="let ac of accounts" [value]="ac">
+                    {{ac}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-error *ngIf="noAccounts">{{'errors.noAccounts' | translate}}</mat-error>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <form fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="display-block" [formGroup]="formGroup">
+      <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100">
+        <div fxFlex="80" fxFlex.xs="80" style="margin-right: 20px;">
+          <mat-form-field class="input-container">
+            <input autocomplete="off" matInput name="name" type="text"
+                   placeholder="{{'massivePayments.uploadFile.fileLabel' |translate}}" formControlName="name">
+          </mat-form-field>
+          <mat-error style="margin-top: 10px;" *ngIf="fileTypeError">{{'errors.field' | translate}}</mat-error>
+        </div>
+        <div fxFlex="20" fxFlex.xs="20" style="float: right">
+          <input accept="text/plain, .csv" (change)="onFileChange($event)" type="file" name="file" id="file"
+                 class="inputfile" hidden>
+          <label style="float: right" for="file">{{'massivePayments.uploadFile.chooseFile' |translate}}</label>
+        </div>
+      </div>
+      <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100" style="margin-left: 15px;"
+           ngStyle.sm="margin-left:0; margin-top:15px;"
+           ngStyle.xs="margin-left:0; margin-top:15px;">
+        <mat-form-field>
+          <input autocomplete="off" matInput type="text" name="IBUser"
+                 placeholder="{{'massivePayments.uploadFile.IBUserLabel' |translate}}" formControlName="IBUser">
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div fxLayout="row">
+  <div fxFlex="100" class="button-group-container">
+    <button appNoDblClickMat mat-raised-button class="button-group-separator white-button" (click)="return()" type="button">
+      {{'general.cancel-button' | translate}}
+    </button>
+    <button appNoDblClickMat (click)="showDetail()" mat-raised-button type="button" class="button-group-separator"
+            [disabled]="!file || !formGroup.controls.accountSelect.value">
+      {{'general.continue-button' | translate}}
+    </button>
+  </div>
+</div>

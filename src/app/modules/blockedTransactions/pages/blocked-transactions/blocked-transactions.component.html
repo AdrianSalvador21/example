@@ -1,0 +1,15 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<two-breadcrumb [breadcrumbList]="['blockedTransactions.title']"></two-breadcrumb>
+
+
+<div class="title-container">
+  <span class="title">{{'blockedTransactions.title' |translate}}</span>
+</div>
+
+<two-blocked-transactions-filter #filter (cleanEmitter)="showResultEvent($event)"
+                                 (formDataEmitter)="getRows($event, true, true, false)"></two-blocked-transactions-filter>
+
+<div *ngIf="showResult" style="margin-top: 20px;">
+  <two-blocked-transaction-list [listDataInput]="serviceData" [stepper]="stepper"
+                                (paginatorChange)="getRowsPage($event)"></two-blocked-transaction-list>
+</div>

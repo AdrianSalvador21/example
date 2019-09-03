@@ -1,0 +1,43 @@
+@import "mixins";
+@import "constants";
+
+form {
+  display: grid;
+  width: 100%;
+  @include push--auto();
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+.field-container {
+  padding: 0 20px;
+}
+
+.section-title {
+  margin-top: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.intermediary-bank-row {
+  min-height: 56px;
+  display: table !important;
+}
+
+.intermediary-bank-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.mat-error {
+  margin-bottom: 10px;
+}
+
+.operation-container {
+  background-color: $light-blue;
+  border-radius: .5rem;
+  padding: 15px;
+  margin-top: 20px;
+}

@@ -1,0 +1,226 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+<mat-horizontal-stepper [@.disabled]="true" [linear]="true" #stepper>
+  <!--Primero-->
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 0">
+      <two-breadcrumb [breadcrumbList]="['authorization.title-overview', 'authorization.title-overview-' + cantSignatures]"></two-breadcrumb>
+      <div class="title-container">
+        <span class="title">{{'authorization.title-overview-' + cantSignatures |translate}}</span>
+      </div>
+      <two-authorization-filter (formSubmit)="onSubmit($event)" [showClearButton]="showClearButton"
+                                (clearClick)="onClearClick()"
+                                #filter></two-authorization-filter>
+      <div class="title-container" *ngIf="!!dataFound">
+        <span class="title">{{'authorization.title-list' |translate}}</span>
+      </div>
+      <div *ngIf="!!dataFound">
+        <mat-tab-group (selectedTabChange)="onTabChange($event)">
+          <mat-tab id="BENEFICIARY" label="{{tabs['BENEFICIARY'].label |translate}}" *ngIf="tabs['BENEFICIARY'].show">
+            <two-beneficiary-authorization-list #beneficiaryList [stepper]="stepper"
+                                                (paginatorChange)="onPaginatorChange()"
+                                                (selectionChange)="selectionChange($event)">
+            </two-beneficiary-authorization-list>
+          </mat-tab>
+          <mat-tab id="BATCH" label="{{tabs['BATCH'].label |translate}}" *ngIf="tabs['BATCH'].show">
+            <two-batch-authorization-list #batchList [stepper]="stepper" [cantSignatures]="cantSignatures"
+                                          (paginatorChange)="onPaginatorChange()"
+                                          (selectionChange)="selectionChange($event)">
+            </two-batch-authorization-list>
+          </mat-tab>
+          <mat-tab id="REFERENCEDDEPOSIT" label="{{tabs['REFERENCEDDEPOSIT'].label |translate}}"
+                   *ngIf="tabs['REFERENCEDDEPOSIT'].show">
+            <two-referencedDeposit-authorization-list #referencedDepositList [stepper]="stepper"
+                                                      (paginatorChange)="onPaginatorChange()"
+                                                      (selectionChange)="selectionChange($event)">
+            </two-referencedDeposit-authorization-list>
+          </mat-tab>
+          <mat-tab id="ISSUES" label="{{tabs['ISSUES'].label |translate}}" *ngIf="tabs['ISSUES'].show">
+            <two-issues-authorization-list #issuesList [stepper]="stepper"
+                                           (paginatorChange)="onPaginatorChange()"
+                                           (selectionChange)="selectionChange($event)">
+            </two-issues-authorization-list>
+          </mat-tab>
+          <mat-tab id="UNITQUERY" label="{{tabs['UNITQUERY'].label |translate}}" *ngIf="tabs['UNITQUERY'].show">
+            <two-unitQuery-authorization-list #unitQueryList [stepper]="stepper"
+                                              (paginatorChange)="onPaginatorChange()"
+                                              (selectionChange)="selectionChange($event)">
+            </two-unitQuery-authorization-list>
+          </mat-tab>
+          <mat-tab id="CLARIFICATION" label="{{tabs['CLARIFICATION'].label |translate}}"
+                   *ngIf="tabs['CLARIFICATION'].show">
+            <two-clarification-authorization-list #clarificationList [stepper]="stepper"
+                                                  (paginatorChange)="onPaginatorChange()"
+                                                  (selectionChange)="selectionChange($event)">
+            </two-clarification-authorization-list>
+          </mat-tab>
+          <mat-tab id="FILEQUERY" label="{{tabs['FILEQUERY'].label |translate}}" *ngIf="tabs['FILEQUERY'].show">
+            <two-fileQuery-authorization-list #fileQueryList [stepper]="stepper"
+                                              (paginatorChange)="onPaginatorChange()"
+                                              (selectionChange)="selectionChange($event)">
+            </two-fileQuery-authorization-list>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+
+      <div [hidden]="!dataFound">
+        <div fxLayout="row">
+          <div fxFlex="100" class="button-group-container">
+            <button appNoDblClickMat *ngIf="selectedTab === 'BATCH'" mat-raised-button [ngClass]="{'white-button': allowContinue}"
+                    class="button-group-separator" (click)="continueToConfirmStep(true)"
+                    [disabled]="!allowContinue" type="button">
+              {{'general.detail-button' | translate}}
+            </button>
+            <button appNoDblClickMat mat-raised-button class="button-group-separator" (click)="continueToConfirmStep()"
+                    [disabled]="!allowContinue" type="button">
+              {{'general.continue-button' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-step>
+
+  <!-- Intermedio para dispersión -->
+  <mat-step *ngIf="selectedTab === 'BATCH' && showDetailBath">
+    <two-breadcrumb
+      [breadcrumbList]="['authorization.title-overview', 'authorization.title-overview-' + cantSignatures, 'authorization.dispersion.title']"></two-breadcrumb>
+    <ng-container *ngIf="stepper.selectedIndex >= 1">
+      <div>
+        <two-massive-payment-details [batchId]="stepper['controlValues'].batchId"></two-massive-payment-details>
+      </div>
+      <div>
+        <div fxLayout="row">
+          <div fxFlex="100" class="button-group-container">
+            <button appNoDblClickMat mat-raised-button class="button-group-separator white-button" type="button"
+                    (click)="back()">
+              {{'general.return-button' | translate}}
+            </button>
+            <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="next()">
+              {{'general.continue-button' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-step>
+
+  <!--Segundo-->
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 1" [ngSwitch]="selectedTab">
+      <div fxLayout="row" style="margin-bottom: 25px">
+        <div fxFlex="100">
+          <two-breadcrumb
+            [breadcrumbList]="['authorization.title-overview', 'authorization.title-overview-' + cantSignatures, 'authorization.title-details']"></two-breadcrumb>
+          <div class="title-container">
+            <span class="title">{{'authorization.title-details' |translate}}</span>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'BENEFICIARY'">
+        <two-beneficiaries-confirm [data]="beneficiary" [stepper]="stepper"
+                                   [onAuthDetails]="true" [onModify]="true"></two-beneficiaries-confirm>
+      </div>
+      <div *ngSwitchCase="'FILEQUERY'">
+        <two-fileDetail-operator [fileSelectedInput]="stepper.fileSelected" [onAuthDetails]="true" [onModify]="true"
+                                 [hideTitle]="true"
+                                 [stepper]="stepper"
+                                 [showButtons]="false"
+                                 [showDetails]="false"
+                                 (onContinueClick)="continueToLineDetails()"></two-fileDetail-operator>
+      </div>
+      <div *ngSwitchCase="'UNITQUERY'">
+        <two-issue-detail [hideIssuesButtons]="true" [unitQueryLineDetails]="true"
+                          [unitQueryDataInput]="stepper.dataUnitQuerySelected"
+                          [stepper]="stepper" [showTrackingList]="false" [onAuthDetails]="true"
+                          [onModify]="true"></two-issue-detail>
+      </div>
+      <div *ngSwitchCase="'BATCH'">
+        <two-confirm-file [onModify]="true" [showButton]="false" [fileSelectedInput]="stepper.controlValues"
+                          [stepper]="stepper"></two-confirm-file>
+      </div>
+
+      <div *ngSwitchCase="'REFERENCEDDEPOSIT'">
+        <two-referenced-payment-detail [onModify]="true" [dataList]="stepper.dataReferencedSelected"
+                                       [stepper]="stepper"></two-referenced-payment-detail>
+      </div>
+
+      <div style="margin-top: 25px;">
+        <div fxLayout="row" class="auth-container">
+          <div fxFlex="100">
+            <p class="description" style="float: left; margin-left: 100px; margin-right: 100px">Autorización</p>
+            <p class="description" style="float: left; margin-left: 10px;">No</p>
+            <mat-slide-toggle class="toggle-label-option toggle-container" style="float: left; margin-left: 25px;"
+                              (change)="authOrDenegate = $event.checked"></mat-slide-toggle>
+            <p class="description" style="float: left; margin-left: 10px;">Sí</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div fxLayout="row">
+          <div fxFlex="100" class="button-group-container">
+            <button appNoDblClickMat mat-raised-button class="white-button button-group-separator" type="button" (click)="back()">
+              {{'general.return-button' | translate}}
+            </button>
+            <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="authOrDenegateOperation()">
+              {{'general.continue-button' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-step>
+
+  <!--Tercero-->
+  <mat-step>
+    <ng-container *ngIf="stepper.selectedIndex >= 2" [ngSwitch]="selectedTab">
+      <div fxLayout="row" style="margin-bottom: 25px">
+        <div fxFlex="100">
+          <two-breadcrumb
+            [breadcrumbList]="['authorization.title-overview', 'authorization.title-overview-' + cantSignatures, 'authorization.title-details', 'authorization.title-resume']"></two-breadcrumb>
+          <div class="title-container">
+            <span class="title">{{'authorization.title-resume' |translate}}</span>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'BENEFICIARY'">
+        <two-beneficiaries-confirm [data]="beneficiary" [stepper]="stepper" [onAuthDetails]="true" [onModify]="false"
+                                   *ngIf="resumeView"></two-beneficiaries-confirm>
+      </div>
+      <div *ngSwitchCase="'FILEQUERY'">
+        <two-fileDetail-operator [showDetails]="false" [fileSelectedInput]="stepper.fileSelected"
+                                 [hideTitle]="true"
+                                 [stepper]="stepper"
+                                 [onAuthDetails]="true"
+                                 (onContinueClick)="continueToLineDetails()"></two-fileDetail-operator>
+      </div>
+      <div *ngSwitchCase="'ISSUES'">
+        <two-issue-detail [hideIssuesButtons]="true" [unitQueryLineDetails]="true"
+                          [unitQueryDataInput]="stepper.dataUnitQuerySelected"
+                          [stepper]="stepper" [showTrackingList]="true"></two-issue-detail>
+      </div>
+      <div *ngSwitchCase="'UNITQUERY'">
+        <two-issue-detail [hideIssuesButtons]="true" [unitQueryLineDetails]="true"
+                          [unitQueryDataInput]="stepper.dataUnitQuerySelected"
+                          [stepper]="stepper" [showTrackingList]="false" [onAuthDetails]="true"></two-issue-detail>
+      </div>
+      <div *ngSwitchCase="'BATCH'">
+        <two-confirm-file [onAuthDetails]="true" [showButton]="false" [fileSelectedInput]="stepper.controlValues"
+                          [stepper]="stepper"></two-confirm-file>
+      </div>
+      <div *ngSwitchCase="'REFERENCEDDEPOSIT'">
+        <two-referenced-payment-detail [errorAccounts]="stepper.errorAccounts" [onAuth]="true" [dataList]="stepper.dataReferencedSelected"
+                                       [stepper]="stepper"></two-referenced-payment-detail>
+      </div>
+      <div>
+        <div fxLayout="row">
+          <div fxFlex="100" class="button-group-container">
+            <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="finalize()">
+              {{'general.finish-button' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-step>
+</mat-horizontal-stepper>

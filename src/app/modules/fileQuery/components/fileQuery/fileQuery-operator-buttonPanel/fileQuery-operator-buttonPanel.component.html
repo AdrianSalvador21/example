@@ -1,0 +1,10 @@
+<div>
+  <div fxLayout="row">
+    <div fxFlex="100" class="button-group-container">
+      <button appNoDblClickMat mat-raised-button class="button-group-separator" type="button" (click)="viewDetail()"
+              [disabled]="!allowContinue">
+        {{'fileQuery.operator.continue-button' |translate}}
+      </button>
+    </div>
+  </div>
+</div>

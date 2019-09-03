@@ -1,0 +1,12 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<div class="title-container">
+  <span class="title">{{'history.referencedPaymentHistory.title' |translate}}</span>
+</div>
+
+<two-referenced-payment-history-filter #filter [showClearButton]="showList" (formSubmit)="getRows($event, true)" (clearClick)="showList = false"></two-referenced-payment-history-filter>
+
+
+<div *ngIf="showList" class="referencedPayment-list-container">
+  <two-referenced-payment-history-list [stepper]="stepper" [dataInput]="data" (pageEmitter)="getRowsByPage($event)"></two-referenced-payment-history-list>
+</div>

@@ -1,0 +1,20 @@
+<two-full-screen-spinner *ngIf="loading"></two-full-screen-spinner>
+
+<two-breadcrumb [breadcrumbList]="['fileQuery.clarifications.title_filter']"></two-breadcrumb>
+<div class="title-container">
+  <span class="title">{{'fileQuery.clarifications.title_filter' |translate}}</span>
+</div>
+
+<div>
+  <two-clarifications-filter (cleanSearch)="showSearch = !$event" [showClean]="showClean" (unitFormEmitter)="getUnitQueries($event, 1, true)" (showSearch)="showSearch = $event"
+                             #unitFilter></two-clarifications-filter>
+</div>
+
+<!-- <div class="title-container">
+    <span class="title">{{'fileQuery.issues.title_operations' |translate}}</span>
+</div> -->
+
+<div *ngIf="showSearch">
+  <two-clarifications-list (pageIndexOutput)="getUnitQueriesByIndex($event)" [listDataUnit]="unitQueriesData"
+                           [stepper]="stepper"></two-clarifications-list>
+</div>
