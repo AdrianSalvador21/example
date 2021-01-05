@@ -80,7 +80,7 @@
     "@types/jasminewd2": "2.0.6",
     "@types/node": "10.12.10",
     "angular-cli-ghpages": "0.5.3",
-    "axios": "0.18.0",
+    "axios": "0.21.1",
     "bowser": "2.0.0-beta.3",
     "codelyzer": "4.5.0",
     "coveralls": "3.0.2",
